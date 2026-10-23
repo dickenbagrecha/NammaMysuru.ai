@@ -890,7 +890,7 @@ export default function Chat() {
 
   return (
     <div
-      className="h-screen flex flex-col overflow-hidden bg-background bg-cover bg-center"
+      className="h-screen h-dvh flex flex-col overflow-hidden bg-background bg-cover bg-center"
       style={{
         backgroundImage: `${theme === "dark"
           ? "linear-gradient(rgba(18, 3, 8, 0.86), rgba(18, 3, 8, 0.78))"
