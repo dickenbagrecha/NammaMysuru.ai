@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { api, buildUrl } from "@shared/routes";
+import { getApiUrl } from "@/lib/api";
 import { z } from "zod";
 
 type FilterParams = z.infer<NonNullable<typeof api.restaurants.list.input>>;
@@ -21,7 +22,7 @@ export function useRestaurants(filters?: FilterParams) {
         url += `?${params.toString()}`;
       }
 
-      const res = await fetch(url);
+      const res = await fetch(getApiUrl(url));
       if (!res.ok) throw new Error("Failed to fetch restaurants");
       return api.restaurants.list.responses[200].parse(await res.json());
     },
@@ -34,7 +35,7 @@ export function useRestaurant(id: number) {
     queryKey: [api.restaurants.get.path, id],
     queryFn: async () => {
       const url = buildUrl(api.restaurants.get.path, { id });
-      const res = await fetch(url);
+      const res = await fetch(getApiUrl(url));
       if (!res.ok) {
         if (res.status === 404) return null;
         throw new Error("Failed to fetch restaurant");

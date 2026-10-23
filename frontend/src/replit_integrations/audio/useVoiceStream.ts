@@ -3,6 +3,7 @@
  * Converts audio blob to base64 and sends as JSON to match server expectations.
  */
 import { useCallback } from "react";
+import { getApiUrl } from "@/lib/api";
 
 interface StreamCallbacks {
   onUserTranscript?: (text: string) => void;
@@ -24,7 +25,8 @@ export function useVoiceStream(callbacks: StreamCallbacks = {}) {
         fileReader.readAsDataURL(audioBlob);
       });
 
-      const response = await fetch(url, {
+      const targetUrl = url.startsWith("http://") || url.startsWith("https://") ? url : getApiUrl(url);
+      const response = await fetch(targetUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ audio: base64Audio }),

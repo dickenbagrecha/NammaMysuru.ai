@@ -7,12 +7,15 @@ async function throwIfResNotOk(res: Response) {
   }
 }
 
+import { getApiUrl } from "./api";
+
 export async function apiRequest(
   method: string,
   url: string,
   data?: unknown | undefined,
 ): Promise<Response> {
-  const res = await fetch(url, {
+  const targetUrl = url.startsWith("http://") || url.startsWith("https://") ? url : getApiUrl(url);
+  const res = await fetch(targetUrl, {
     method,
     headers: data ? { "Content-Type": "application/json" } : {},
     body: data ? JSON.stringify(data) : undefined,
@@ -29,7 +32,9 @@ export const getQueryFn: <T>(options: {
 }) => QueryFunction<T> =
   ({ on401: unauthorizedBehavior }) =>
   async ({ queryKey }) => {
-    const res = await fetch(queryKey.join("/") as string, {
+    const rawPath = queryKey.join("/") as string;
+    const targetUrl = rawPath.startsWith("http://") || rawPath.startsWith("https://") ? rawPath : getApiUrl(rawPath);
+    const res = await fetch(targetUrl, {
       credentials: "include",
     });
 

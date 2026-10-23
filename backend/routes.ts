@@ -14,6 +14,15 @@ export async function registerRoutes(
   registerAudioRoutes(app);
   registerChatRoutes(app);
 
+  // === Health Check API ===
+  app.get("/api/health", (_req, res) => {
+    res.json({
+      status: "ok",
+      service: "NammaMysuru.ai API",
+      timestamp: new Date().toISOString(),
+    });
+  });
+
   // === Tourist Spots API ===
   app.get(api.spots.list.path, async (req, res) => {
     res.set("Cache-Control", "public, max-age=300, stale-while-revalidate=3600");

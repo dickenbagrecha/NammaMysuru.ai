@@ -104,59 +104,43 @@ The application runs as a cohesive, single full-stack server process:
 
 ```bash
 NammaMysuru.ai/
-├── client/                     # Frontend Application Root
-│   ├── public/                 # Static Assets
-│   │   └── images/             # Royal patterns, placeholders, and hero SVG SVGs
-│   └── src/
-│       ├── components/         # Reusable UI Blocks
-│       │   ├── ui/             # Radix & Shadcn styling primitives
-│       │   ├── CustomCursor.tsx# Gradient-animated mouse pointer follower
-│       │   ├── Footer.tsx      # Navigation footer and credentials
-│       │   ├── Header.tsx      # Navbar, theme-switchers, and auth control
-│       │   └── SpotCard.tsx    # Attraction presentation cards
-│       ├── hooks/              # Global UI Hooks
-│       │   ├── use-app-settings.tsx # Persistent Dark/Light theme values
-│       │   ├── use-chat.ts     # Chat CRUD and SSE connections
-│       │   ├── use-restaurants.ts # Dining endpoints queries
-│       │   └── use-tourist-spots.ts # Tourist attraction queries
-│       ├── lib/                # Utility Singletons
-│       │   ├── queryClient.ts  # TanStack Query initializer
-│       │   └── utils.ts        # Dynamic tailwind classes merges
-│       ├── pages/              # Lazy-loaded page layouts
-│       │   ├── Chat.tsx        # Multi-panel chat with streaming
-│       │   ├── Helpline.tsx    # Local emergency contact grids
-│       │   ├── Home.tsx        # Hero area, features, and heritage intros
-│       │   ├── Login.tsx       # Simulated credentials state gate
-│       │   ├── Restaurants.tsx # Filterable restaurant catalog
-│       │   ├── TouristSpots.tsx# Searchable attraction catalog
-│       │   └── not-found.tsx   # 404 page
-│       ├── replit_integrations/# Audio components
-│       │   └── audio/          # Client-side audio recording & streaming worklets
-│       ├── main.tsx            # DOM node mounting entrypoint
-│       └── index.css           # Global styles and HSL color declarations
-├── server/                     # Backend Application Root
-│   ├── replit_integrations/    # Replit AI Modules
-│   │   ├── audio/              # Voice message audio transcription & responses
-│   │   ├── chat/               # Gemini SSE endpoint and prompt rules
-│   │   ├── image/              # Image generations (unused)
-│   │   ├── gemini_client.ts    # GoogleGenerativeAI initialization
-│   │   └── weather.ts          # OpenMeteo weather and time fetchers
-│   ├── db.ts                   # SQLite connector using better-sqlite3
-│   ├── index.ts                # Express server listener and setup
-│   ├── routes.ts               # Core API endpoints & database seeding logic
-│   ├── static.ts               # Production asset distributor
-│   └── storage.ts              # Spot/Restaurant data layer
-├── shared/                     # Cross-project code sharing
-│   ├── models/                 # Database data structures
-│   │   └── chat.ts             # Conversation & Messages schemas
-│   ├── routes.ts               # Type-safe API path declarations
-│   └── schema.ts               # Drizzle schemas, Zod validators, and types
-├── script/
-│   └── build.ts                # Production esbuild server compiler
-├── drizzle.config.ts           # Drizzle schema pathing & target options
-├── package.json                # Project dependencies and running scripts
-├── tsconfig.json               # TypeScript rules
-└── vite.config.ts              # Vite configurations and server aliases
+├── frontend/                   # Decoupled React + Vite Client
+│   ├── public/                 # Static Assets (Images, patterns, audio worklet)
+│   ├── src/
+│   │   ├── api/                # API Base configuration
+│   │   ├── components/         # Reusable UI Blocks & Radix Primitives
+│   │   ├── hooks/              # Data-fetching hooks (useTouristSpots, useRestaurants, useChat)
+│   │   ├── lib/                # API client (api.ts), queryClient, utils
+│   │   ├── pages/              # Route views (Home, Chat, TouristSpots, Restaurants, Helpline, Login)
+│   │   ├── replit_integrations/audio/ # Audio recording & streaming hooks
+│   │   ├── App.tsx             # Application routing & context providers
+│   │   ├── index.css           # Global HSL royal silk design tokens
+│   │   └── main.tsx            # Vite React entry point
+│   ├── index.html              # HTML shell
+│   └── vercel.json             # Vercel SPA routing rules
+├── backend/                    # Decoupled Express Backend
+│   ├── replit_integrations/    # AI Modules (Gemini client, voice, chat, weather)
+│   ├── db.ts                   # SQLite database connection (better-sqlite3 + drizzle)
+│   ├── index.ts                # Express application bootstrap & CORS
+│   ├── routes.ts               # Core API endpoints (/api/spots, /api/restaurants, /api/health)
+│   ├── static.ts               # Production static distributor
+│   ├── storage.ts              # Data storage repository layer
+│   └── vite.ts                 # Local development Vite middleware
+├── shared/                     # Shared Contracts & Data Types
+│   ├── models/chat.ts          # Conversation & Message Drizzle schemas
+│   ├── routes.ts               # Type-safe API path contracts
+│   └── schema.ts               # Drizzle database tables & Zod schemas
+├── docs/                       # Architecture & Operational Documentation
+│   ├── architecture-audit.md   # Complete codebase audit report
+│   ├── architecture.md         # Full-stack system design
+│   ├── environment-setup.md    # Developer setup instructions
+│   └── deployment-guide.md     # Vercel & cloud hosting guide
+├── script/build.ts             # Production compilation script
+├── drizzle.config.ts           # Drizzle schema target configuration
+├── package.json                # Root orchestration & scripts
+├── tsconfig.json               # Root TypeScript configuration with aliases
+├── tailwind.config.ts          # Tailwind CSS styling configuration
+└── vite.config.ts              # Vite compilation setup
 ```
 
 ---
