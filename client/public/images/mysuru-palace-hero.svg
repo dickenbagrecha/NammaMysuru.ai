@@ -1,0 +1,101 @@
+<svg width="1800" height="1000" viewBox="0 0 1800 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5b1019"/>
+      <stop offset="0.48" stop-color="#9a3e21"/>
+      <stop offset="1" stop-color="#2b0710"/>
+    </linearGradient>
+    <linearGradient id="stone" x1="0" y1="270" x2="0" y2="810" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f6d894"/>
+      <stop offset="0.55" stop-color="#c7813e"/>
+      <stop offset="1" stop-color="#6a2b1b"/>
+    </linearGradient>
+    <linearGradient id="dome" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd56b"/>
+      <stop offset="1" stop-color="#8e2a18"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="45%" r="55%">
+      <stop offset="0" stop-color="#ffd36c" stop-opacity="0.55"/>
+      <stop offset="0.48" stop-color="#c45028" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#1b0610" stop-opacity="0.9"/>
+    </radialGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="16"/>
+    </filter>
+  </defs>
+
+  <rect width="1800" height="1000" fill="url(#sky)"/>
+  <rect width="1800" height="1000" fill="url(#glow)"/>
+
+  <g opacity="0.42">
+    <circle cx="200" cy="136" r="3" fill="#ffd56b"/>
+    <circle cx="356" cy="108" r="2" fill="#ffd56b"/>
+    <circle cx="1490" cy="172" r="3" fill="#ffd56b"/>
+    <circle cx="1608" cy="288" r="2" fill="#fff2b8"/>
+    <circle cx="1274" cy="82" r="2" fill="#fff2b8"/>
+    <circle cx="570" cy="220" r="2" fill="#fff2b8"/>
+    <circle cx="820" cy="92" r="3" fill="#ffd56b"/>
+    <circle cx="1040" cy="176" r="2" fill="#fff2b8"/>
+  </g>
+
+  <ellipse cx="900" cy="800" rx="760" ry="130" fill="#1b0610" opacity="0.42" filter="url(#soft)"/>
+
+  <g transform="translate(150 185)">
+    <path d="M145 620H1355V690H145V620Z" fill="#4a1a16"/>
+    <path d="M210 485H1290V630H210V485Z" fill="url(#stone)" stroke="#ffd783" stroke-width="7"/>
+    <path d="M260 385H1240V505H260V385Z" fill="#d98d45" stroke="#ffd783" stroke-width="7"/>
+    <path d="M420 295H1080V402H420V295Z" fill="#e7a454" stroke="#ffd783" stroke-width="7"/>
+
+    <g fill="#371016">
+      <path d="M310 520C310 480 338 448 373 448C408 448 436 480 436 520V630H310V520Z"/>
+      <path d="M510 520C510 480 538 448 573 448C608 448 636 480 636 520V630H510V520Z"/>
+      <path d="M864 520C864 480 892 448 927 448C962 448 990 480 990 520V630H864V520Z"/>
+      <path d="M1064 520C1064 480 1092 448 1127 448C1162 448 1190 480 1190 520V630H1064V520Z"/>
+    </g>
+
+    <path d="M690 492C690 444 717 405 750 405C783 405 810 444 810 492V630H690V492Z" fill="#2d0d15" stroke="#f8c56a" stroke-width="5"/>
+    <path d="M668 630H832V690H668V630Z" fill="#3b1015"/>
+
+    <g stroke="#ffd783" stroke-width="5" fill="none" opacity="0.8">
+      <path d="M260 420H1240"/>
+      <path d="M210 530H1290"/>
+      <path d="M330 385V505"/>
+      <path d="M510 385V505"/>
+      <path d="M990 385V505"/>
+      <path d="M1170 385V505"/>
+    </g>
+
+    <g fill="url(#dome)" stroke="#ffd783" stroke-width="6">
+      <path d="M622 292C640 210 688 158 750 158C812 158 860 210 878 292H622Z"/>
+      <path d="M430 382C442 326 476 290 520 290C564 290 598 326 610 382H430Z"/>
+      <path d="M890 382C902 326 936 290 980 290C1024 290 1058 326 1070 382H890Z"/>
+      <path d="M185 485C197 424 234 384 282 384C330 384 367 424 379 485H185Z"/>
+      <path d="M1121 485C1133 424 1170 384 1218 384C1266 384 1303 424 1315 485H1121Z"/>
+    </g>
+
+    <g fill="#ffd783">
+      <path d="M738 92H762V160H738V92Z"/>
+      <path d="M744 56H756L782 94H718L744 56Z"/>
+      <path d="M512 240H528V292H512V240Z"/>
+      <path d="M519 213L543 242H495L519 213Z"/>
+      <path d="M972 240H988V292H972V240Z"/>
+      <path d="M979 213L1003 242H955L979 213Z"/>
+      <path d="M274 340H290V386H274V340Z"/>
+      <path d="M281 316L303 342H259L281 316Z"/>
+      <path d="M1210 340H1226V386H1210V340Z"/>
+      <path d="M1217 316L1239 342H1195L1217 316Z"/>
+    </g>
+
+    <g fill="#ffe2a0" opacity="0.85">
+      <rect x="260" y="575" width="66" height="18" rx="9"/>
+      <rect x="1180" y="575" width="66" height="18" rx="9"/>
+      <rect x="448" y="448" width="72" height="16" rx="8"/>
+      <rect x="980" y="448" width="72" height="16" rx="8"/>
+      <rect x="650" y="330" width="200" height="18" rx="9"/>
+      <rect x="460" y="332" width="120" height="14" rx="7"/>
+      <rect x="920" y="332" width="120" height="14" rx="7"/>
+    </g>
+  </g>
+
+  <rect width="1800" height="1000" fill="#24070d" opacity="0.16"/>
+</svg>

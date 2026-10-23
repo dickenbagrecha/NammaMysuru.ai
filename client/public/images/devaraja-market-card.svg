@@ -1,0 +1,45 @@
+<svg width="900" height="520" viewBox="0 0 900 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="900" y2="520">
+      <stop stop-color="#411022"/>
+      <stop offset="0.5" stop-color="#8e2131"/>
+      <stop offset="1" stop-color="#21070d"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fff1b0"/>
+      <stop offset="0.45" stop-color="#c99225"/>
+      <stop offset="1" stop-color="#ffe589"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="520" fill="url(#bg)"/>
+  <rect y="340" width="900" height="180" fill="#30100f"/>
+  <path d="M90 208H810V356H90V208Z" fill="#d9873c" stroke="#ffe292" stroke-width="7"/>
+  <path d="M120 144H780L812 210H88L120 144Z" fill="url(#gold)"/>
+  <g fill="#3a1014">
+    <path d="M150 276C150 246 172 222 200 222C228 222 250 246 250 276V356H150V276Z"/>
+    <path d="M318 276C318 246 340 222 368 222C396 222 418 246 418 276V356H318V276Z"/>
+    <path d="M486 276C486 246 508 222 536 222C564 222 586 246 586 276V356H486V276Z"/>
+    <path d="M654 276C654 246 676 222 704 222C732 222 754 246 754 276V356H654V276Z"/>
+  </g>
+  <g opacity="0.95">
+    <ellipse cx="196" cy="405" rx="82" ry="34" fill="#efb82f"/>
+    <ellipse cx="372" cy="408" rx="78" ry="32" fill="#f06d36"/>
+    <ellipse cx="540" cy="404" rx="86" ry="35" fill="#4cae60"/>
+    <ellipse cx="706" cy="408" rx="78" ry="32" fill="#d84e8a"/>
+    <circle cx="198" cy="390" r="24" fill="#ffe28a"/>
+    <circle cx="374" cy="392" r="20" fill="#ff9f50"/>
+    <circle cx="540" cy="388" r="22" fill="#7ed174"/>
+    <circle cx="708" cy="391" r="21" fill="#f17ca5"/>
+  </g>
+  <g stroke="#ffe292" stroke-width="5" opacity="0.35">
+    <path d="M90 258H810"/>
+    <path d="M130 180H770"/>
+    <path d="M132 144L172 210"/>
+    <path d="M260 144L300 210"/>
+    <path d="M388 144L428 210"/>
+    <path d="M516 144L556 210"/>
+    <path d="M644 144L684 210"/>
+  </g>
+  <circle cx="116" cy="82" r="5" fill="#ffd978" opacity="0.55"/>
+  <circle cx="754" cy="82" r="4" fill="#ffd978" opacity="0.5"/>
+</svg>

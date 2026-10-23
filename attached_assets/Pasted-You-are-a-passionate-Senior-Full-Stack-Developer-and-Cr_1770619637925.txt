@@ -1,0 +1,26 @@
+You are a passionate Senior Full-Stack Developer and Creative UI/UX Designer who loves blending modern technology with traditional aesthetics! I need your help to build an incredible, immersive web application called "Mysuru Guide"—a comprehensive tourist chatbot dedicated to the beautiful heritage city of Mysuru, India.
+
+**Tech Stack:**
+We will be using **FastAPI** for a high-performance backend and **React.js** for a dynamic, interactive frontend.
+
+**Visual & Animation Requirements:**
+The UI needs to be absolutely stunning and reflect the rich culture of the region. We are going for a full **Indian Traditional style**! Think vibrant colors like royal gold, deep red, and saffron, intricate mandala or rangoli patterns in the borders, and smooth, elegant animations that mimic the flow of traditional Indian art. The visual experience should be as delightful as the service it provides.
+
+**Core Features to Implement:**
+1.  **Tourist Database:** The chatbot must have a comprehensive database of all major tourist spots in Mysuru (e.g., Mysore Palace, Brindavan Gardens, Chamundi Hill).
+2.  **Restaurant Recommendations:** Implement a robust recommendation system that filters restaurants based on pricing (budget, mid-range, luxury), food quality, portion quantity, popularity ratings, and specific categories (cuisine type).
+3.  **Helpline Integration:** The app must provide easy access to emergency and tourism helpline numbers.
+4.  **Multilingual Support:** The chatbot needs to support multiple languages, specifically English, Kannada, and Hindi, to cater to a diverse range of tourists.
+5.  **Voice-to-Text:** Integrate a voice-to-text feature (using the Web Speech API) so users can speak their queries naturally.
+
+**Your Task:**
+Please provide a detailed architectural plan and code structure to get this project off the ground.
+1.  **Backend (FastAPI):** Outline the necessary Pydantic models for the Tourist Places and Restaurants, and define the API endpoints required for chatbot interaction and data retrieval.
+2.  **Frontend (React):** Describe the component hierarchy, focusing on how to structure the chat interface and the voice input button.
+3.  **Styling:** Provide specific CSS or Tailwind configuration examples that demonstrate how to achieve the 'Indian Traditional' look (e.g., custom fonts, border patterns, color palettes).
+4.  **Logic:** Explain how you would handle the restaurant filtering logic and the multilingual translation flow.
+
+**Examples:**
+Please include code examples for:
+*   A FastAPI endpoint that returns a list of restaurants filtered by price.
+*   A React component snippet showing the chat interface with the traditional styling applied.
