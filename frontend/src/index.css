@@ -5,51 +5,46 @@
 @tailwind utilities;
 
 :root {
-  /* Indian Traditional Palette */
-  /* Royal Gold: 45 100% 50% */
-  /* Deep Red: 0 100% 27% */
-  /* Saffron: 28 100% 60% */
-  /* Emerald Green: 140 54% 55% */
-  /* Off-white/Cream: 40 33% 96% */
-
-  --background: 40 33% 98%; /* Cream/Off-white background */
-  --foreground: 0 0% 20%;   /* Soft black for text */
+  /* Stitch Royal Heritage Palette */
+  /* Cream Surface Background (#faf8ff) -> hsl(257 100% 99%) */
+  --background: 257 60% 99%;
+  --foreground: 224 43% 13%;   /* #131b30 Midnight Navy */
 
   --card: 0 0% 100%;
-  --card-foreground: 0 0% 20%;
+  --card-foreground: 224 43% 13%;
 
   --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 20%;
+  --popover-foreground: 224 43% 13%;
 
-  /* Primary: Deep Red / Royal Maroon */
-  --primary: 350 78% 35%;
-  --primary-foreground: 45 100% 90%; /* Gold tint on text */
+  /* Primary: Royal Crimson / Maroon (#6c0029) -> hsl(337 100% 21%) */
+  --primary: 337 100% 21%;
+  --primary-foreground: 0 0% 100%;
 
-  /* Secondary: Royal Gold */
-  --secondary: 45 90% 55%;
-  --secondary-foreground: 350 78% 25%;
+  /* Secondary: Mysore Sandalwood Ochre (#7d562d) -> hsl(30 46% 33%) */
+  --secondary: 30 46% 33%;
+  --secondary-foreground: 0 0% 100%;
 
-  /* Muted: Soft Sand */
-  --muted: 35 30% 90%;
-  --muted-foreground: 0 0% 40%;
+  /* Muted: Soft Tinted Alabaster */
+  --muted: 234 100% 97%;
+  --muted-foreground: 349 14% 30%; /* #564145 Warm charcoal mauve */
 
-  /* Accent: Saffron */
-  --accent: 28 90% 60%;
-  --accent-foreground: 0 0% 100%;
+  /* Accent: Sandalwood Amber (#ffca98) */
+  --accent: 30 100% 80%;
+  --accent-foreground: 30 46% 25%;
 
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 210 40% 98%;
 
-  --border: 35 30% 85%;
-  --input: 35 30% 85%;
-  --ring: 350 78% 35%;
+  --border: 349 26% 81%; /* #ddbfc3 outline-variant */
+  --input: 349 26% 81%;
+  --ring: 337 100% 21%;
 
   --radius: 0.75rem;
 
   /* Custom fonts variables */
   --font-serif: 'Playfair Display', serif;
-  --font-display: 'Lora', serif;
-  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Playfair Display', serif;
+  --font-sans: 'Plus Jakarta Sans', 'Inter', sans-serif;
 }
 
 .royal-page {

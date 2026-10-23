@@ -549,19 +549,19 @@ const LANGUAGE_COPY: Record<Exclude<ChatLanguage, "Auto">, {
 };
 const MYSURU_FEATURES = [
   {
-    title: "Mysuru Palace",
-    subtitle: "Royal lights and Wodeyar heritage",
-    image: "/images/mysuru-palace-hero.svg",
+    title: "Amba Vilas Palace Trail",
+    subtitle: "Kalyana Mantapa, Golden Ambari & Durbar Halls",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC_6NlF4BNf8751LcdGgNxa0yk-meoYWsmYcWwYrlFL48CnQ1oFRwmxh4wyqib7iEIdUCKYvweLPQxCEF3hNx1kc5yoJqRjjD-7y22Mr8snT98s7KehhOUXIuZJpxbqmWA4knwISFmr7WwR4QHsY96fzNyv8CZLt5hKT-N-V4ltaD5s52my73UOOETrmbppbwv2mszEQHpLAjIe8XGBiARwxOZJzcf04yjuTBE0Gex2xSPuqfviOoxB",
   },
   {
-    title: "Chamundi Hill",
-    subtitle: "Temple views above the city",
-    image: "/images/chamundi-hill-card.svg",
+    title: "Sacred Chamundi Ascent",
+    subtitle: "1,008 Granite steps & Monolithic Nandi",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDCjgr0OM9UmSY40Phi1_oAzA2zcmL7yZevzvwUrShgWA5T6FHp44vg908o_T_jBANaCnWdSIpnsVn44xbkA6r-xbN0gA1beczd8U42aszBscRamjThR0LGworF1jI7ptswaet7x1lEELUlQLTFi13fSOXO0bgplCvNQa9ibAOrGb2wxYQFwxzCoX9DZferVW8ccBvXMxXh5MSdqvQUdoAU-MQIYucl5U6VdkcOduBTngygWNldyTpL",
   },
   {
-    title: "Devaraja Market",
-    subtitle: "Flowers, spices, silk and color",
-    image: "/images/devaraja-market-card.svg",
+    title: "Sandalwood & Silk Artisans",
+    subtitle: "Govt Sandalwood Oil & KSIC Pure Zari Silk",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBn5ROWtX9TA6DYxmqDmSegAX7_DgA79oTY3PpTwYmS-dVOhwKMhNx7V5oF3a4lNzN-a4DIK2abLAP00vkbnWRrH1iRRDPLUq7erW_2ToVhKmD-3QHurWIhHQRRLqPTBiUPWXoQFGGf4aZWOaQp-8RPJNsWa-5CA5fWJcGBQZHLlkAs1duM90ESkeEU1BAZKMzHsXi3TePDLCqLwKt-5RlDQGUlBRljTYqUeqLKokogwTItE4U2shAa",
   },
 ];
 
