@@ -48,15 +48,15 @@ export default function Restaurants() {
       
       <main className="flex-grow px-4 py-12 pb-28 md:pb-12">
         <div className="container mx-auto">
-          <div className="royal-panel mx-auto mb-10 max-w-4xl rounded-xl px-6 py-10 text-center">
+          <div className="royal-panel mx-auto mb-8 sm:mb-10 max-w-4xl rounded-xl px-4 py-6 sm:px-6 sm:py-10 text-center">
             <div className="relative z-10">
-             <div className="royal-chip inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-semibold">
-              <Crown className="w-4 h-4" />
+             <div className="royal-chip inline-flex items-center gap-1.5 sm:gap-2 rounded-full px-2.5 py-0.5 sm:px-3 sm:py-1 text-xs sm:text-sm font-semibold">
+              <Crown className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span>Taste of Mysuru</span>
             </div>
-            <h1 className="mt-4 text-4xl font-bold text-primary md:text-5xl">Dining & Cuisine</h1>
-            <div className="royal-divider mx-auto mt-4 max-w-sm" />
-            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+            <h1 className="mt-3 sm:mt-4 text-2xl sm:text-4xl font-bold text-primary md:text-5xl">Dining & Cuisine</h1>
+            <div className="royal-divider mx-auto mt-3 sm:mt-4 max-w-sm" />
+            <p className="mx-auto mt-3 sm:mt-4 max-w-2xl text-xs sm:text-sm md:text-base text-muted-foreground">
               From heritage hotel dining to legendary dosa counters, explore Mysuru through its most memorable flavors.
             </p>
             </div>
@@ -123,9 +123,9 @@ export default function Restaurants() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: Math.min(idx, 8) * 0.035 }}
-                  className="royal-card group flex gap-5 rounded-lg p-5 transition-all hover:-translate-y-0.5 hover:border-secondary/60 hover:shadow-xl"
+                  className="royal-card group flex flex-col sm:flex-row gap-4 sm:gap-5 rounded-lg p-4 sm:p-5 transition-all hover:-translate-y-0.5 hover:border-secondary/60 hover:shadow-xl"
                 >
-                  <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-secondary/20 bg-muted sm:h-32 sm:w-32">
+                  <div className="h-40 w-full sm:h-32 sm:w-32 flex-shrink-0 overflow-hidden rounded-md border border-secondary/20 bg-muted">
                     <ImageWithFallback
                       src={restaurant.imageUrl || undefined}
                       alt={restaurant.name}

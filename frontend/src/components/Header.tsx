@@ -34,7 +34,7 @@ export function Header() {
       </Button>
 
       {isSettingsOpen && (
-        <div className="absolute right-0 top-11 z-[70] w-64 rounded-lg border border-border bg-popover p-2 text-popover-foreground shadow-xl">
+        <div className="absolute right-0 top-11 z-[70] w-60 max-w-[calc(100vw-2rem)] rounded-lg border border-border bg-popover p-2 text-popover-foreground shadow-xl">
           <div className="px-2 py-1.5 text-sm font-semibold">Settings</div>
           <button
             onClick={() => {
@@ -180,13 +180,13 @@ export function Header() {
       </div>
 
       {/* Mobile Bottom Nav */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 border-t border-secondary/25 bg-background/95 p-2 flex justify-around items-center z-50 shadow-[0_-12px_30px_rgba(0,0,0,0.08)] backdrop-blur-xl safe-area-bottom">
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 border-t border-secondary/25 bg-background/95 px-1 py-1.5 flex justify-around items-center z-50 shadow-[0_-12px_30px_rgba(0,0,0,0.08)] backdrop-blur-xl safe-area-bottom">
         <Link
           href="/"
-          className="flex w-16 flex-col items-center gap-1 rounded-lg p-2 text-primary transition-colors"
+          className="flex min-w-[3rem] sm:w-16 flex-col items-center gap-1 rounded-lg p-1.5 text-primary transition-colors"
           aria-label="Home"
         >
-          <div className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-md border border-secondary/40 bg-primary shadow-sm">
+          <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center overflow-hidden rounded-md border border-secondary/40 bg-primary shadow-sm">
             <img src="/favicon.png" alt="NammaMysuru.ai logo" className="h-full w-full object-cover" />
           </div>
           <span className="text-[10px] font-medium">Home</span>
@@ -198,17 +198,17 @@ export function Header() {
               key={item.href}
               href={item.href}
               className={cn(
-                "flex flex-col items-center gap-1 p-2 rounded-lg transition-colors w-16",
+                "flex flex-col items-center gap-1 p-1.5 rounded-lg transition-colors min-w-[3rem] sm:w-16",
                 isActive ? "text-primary" : "text-muted-foreground"
               )}
             >
               <div className={cn(
-                "p-1.5 rounded-full",
+                "p-1 sm:p-1.5 rounded-full",
                 isActive ? "bg-primary/10 ring-1 ring-secondary/30" : "bg-transparent"
               )}>
-                <item.icon className="w-5 h-5" />
+                <item.icon className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <span className="text-[10px] font-medium">{item.label}</span>
+              <span className="text-[10px] font-medium truncate max-w-full">{item.label}</span>
             </Link>
           );
         })}

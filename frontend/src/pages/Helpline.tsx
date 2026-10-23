@@ -19,17 +19,17 @@ export default function Helpline() {
     <div className="royal-page min-h-screen flex flex-col">
       <Header />
       
-      <main className="flex-grow py-12 px-4">
+      <main className="flex-grow py-8 sm:py-12 px-4 pb-28 md:pb-12">
         <div className="container mx-auto max-w-4xl">
-           <div className="royal-panel mb-12 rounded-xl px-6 py-10 text-center">
-            <div className="relative z-10 space-y-4">
-             <div className="royal-chip inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-semibold">
-              <Crown className="w-4 h-4" />
+           <div className="royal-panel mb-8 sm:mb-12 rounded-xl px-4 py-6 sm:px-6 sm:py-10 text-center">
+            <div className="relative z-10 space-y-3 sm:space-y-4">
+             <div className="royal-chip inline-flex items-center gap-1.5 sm:gap-2 rounded-full px-2.5 py-0.5 sm:px-3 sm:py-1 text-xs sm:text-sm font-semibold">
+              <Crown className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span>Protected travel</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-serif font-bold text-primary">Helpline Numbers</h1>
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-serif font-bold text-primary">Helpline Numbers</h1>
             <div className="royal-divider mx-auto max-w-sm" />
-            <p className="text-muted-foreground">
+            <p className="text-xs sm:text-sm md:text-base text-muted-foreground">
               Essential contact numbers for safety and assistance during your stay in Mysuru.
             </p>
             </div>

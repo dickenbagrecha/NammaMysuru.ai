@@ -227,6 +227,17 @@
   }
 }
 
+/* Safe area bottom for iOS devices with home indicator */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Dynamic viewport height for Chat page — accounts for mobile browser chrome */
+.h-dvh {
+  height: 100vh;
+  height: 100dvh;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

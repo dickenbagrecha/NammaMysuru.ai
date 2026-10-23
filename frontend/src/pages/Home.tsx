@@ -15,7 +15,7 @@ export default function Home() {
     <div className="royal-page min-h-screen flex flex-col">
       <Header />
       
-      <main className="flex-grow">
+      <main className="flex-grow pb-24 md:pb-0">
         <section
           className="relative min-h-[calc(100vh-4rem)] overflow-hidden bg-cover bg-center"
           style={{
@@ -31,14 +31,14 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <span className="inline-flex items-center gap-2 rounded-full border border-secondary/40 bg-white/15 px-4 py-2 text-sm font-semibold shadow-lg backdrop-blur">
-                  <Crown className="h-4 w-4 text-secondary" />
+                <span className="inline-flex items-center gap-2 rounded-full border border-secondary/40 bg-white/15 px-3 py-1.5 text-xs sm:px-4 sm:py-2 sm:text-sm font-semibold shadow-lg backdrop-blur">
+                  <Crown className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-secondary" />
                   Royal Mysuru concierge
                 </span>
-                <h1 className="mt-6 max-w-4xl text-5xl font-bold leading-tight text-white drop-shadow md:text-7xl">
+                <h1 className="mt-4 sm:mt-6 max-w-4xl text-3xl font-bold leading-tight text-white drop-shadow sm:text-5xl md:text-7xl">
                   Experience Mysuru with royal local intelligence
                 </h1>
-                <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/88 md:text-xl">
+                <p className="mt-3 sm:mt-5 max-w-2xl text-base leading-relaxed text-white/88 sm:text-lg md:text-xl">
                   Plan palace visits, silk-market walks, food stops, day trips, and emergency help with an AI guide shaped around the city of palaces.
                 </p>
               </motion.div>

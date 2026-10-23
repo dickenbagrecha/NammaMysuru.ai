@@ -26,15 +26,15 @@ export default function TouristSpots() {
       
       <main className="flex-grow px-4 py-12 pb-28 md:pb-12">
         <div className="container mx-auto">
-          <div className="royal-panel mx-auto mb-10 max-w-4xl rounded-xl px-6 py-10 text-center">
+          <div className="royal-panel mx-auto mb-8 sm:mb-10 max-w-4xl rounded-xl px-4 py-6 sm:px-6 sm:py-10 text-center">
             <div className="relative z-10">
-            <div className="royal-chip inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-semibold">
-              <Crown className="w-4 h-4" />
+            <div className="royal-chip inline-flex items-center gap-1.5 sm:gap-2 rounded-full px-2.5 py-0.5 sm:px-3 sm:py-1 text-xs sm:text-sm font-semibold">
+              <Crown className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span>Royal city archive</span>
             </div>
-            <h1 className="mt-4 text-4xl font-bold text-primary md:text-5xl">Tourist Attractions</h1>
-            <div className="royal-divider mx-auto mt-4 max-w-sm" />
-            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+            <h1 className="mt-3 sm:mt-4 text-2xl sm:text-4xl font-bold text-primary md:text-5xl">Tourist Attractions</h1>
+            <div className="royal-divider mx-auto mt-3 sm:mt-4 max-w-sm" />
+            <p className="mx-auto mt-3 sm:mt-4 max-w-2xl text-xs sm:text-sm md:text-base text-muted-foreground">
               Browse palaces, temples, gardens, markets, and scenic escapes with a curated local lens.
             </p>
             </div>

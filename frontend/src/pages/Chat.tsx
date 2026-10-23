@@ -1055,7 +1055,7 @@ export default function Chat() {
           </div>
 
           {/* Input Area */}
-          <div className="relative group px-1 pb-4">
+          <div className="relative group px-1 pb-20 md:pb-4">
             <div className="flex flex-col gap-2 rounded-lg border border-primary/20 bg-white/92 p-3 shadow-2xl backdrop-blur-md transition-all duration-300 group-focus-within:border-primary/40 group-focus-within:shadow-primary/10 dark:bg-card/95 md:p-4">
               <div className="flex gap-2 overflow-x-auto pb-1">
                 {copy.actions.map((item) => {
