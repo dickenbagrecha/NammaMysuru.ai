@@ -1,4 +1,4 @@
-import { sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
+import { pgTable, text, integer, boolean } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 import { conversations, messages } from "./models/chat";
@@ -7,8 +7,8 @@ import { conversations, messages } from "./models/chat";
 export * from "./models/chat";
 
 // Tourist Spots
-export const touristSpots = sqliteTable("tourist_spots", {
-  id: integer("id").primaryKey({ autoIncrement: true }),
+export const touristSpots = pgTable("tourist_spots", {
+  id: integer("id").primaryKey().generatedByDefaultAsIdentity(),
   name: text("name").notNull(),
   description: text("description").notNull(),
   location: text("location").notNull(),
@@ -18,23 +18,23 @@ export const touristSpots = sqliteTable("tourist_spots", {
 });
 
 // Restaurants
-export const restaurants = sqliteTable("restaurants", {
-  id: integer("id").primaryKey({ autoIncrement: true }),
+export const restaurants = pgTable("restaurants", {
+  id: integer("id").primaryKey().generatedByDefaultAsIdentity(),
   name: text("name").notNull(),
   cuisine: text("cuisine").notNull(),
   priceRange: text("price_range").notNull(),
   rating: integer("rating").default(0),
-  isVegetarian: integer("is_vegetarian", { mode: "boolean" }).default(false),
+  isVegetarian: boolean("is_vegetarian").default(false),
   location: text("location").notNull(),
   imageUrl: text("image_url"),
-  // Extended fields (added via migration, all nullable)
+  // Extended fields
   // 'pure_veg' | 'veg_and_non_veg' | 'non_veg' | 'unknown'
   dietaryClassification: text("dietary_classification"),
   // 'restaurant' | 'cafe' | 'cafeteria' | 'bakery' | 'traditional' | 'sweet_shop' | 'juice_bar'
   category: text("category"),
   neighbourhood: text("neighbourhood"),
-  isVeganFriendly: integer("is_vegan_friendly", { mode: "boolean" }),
-  isJainFriendly: integer("is_jain_friendly", { mode: "boolean" }),
+  isVeganFriendly: boolean("is_vegan_friendly"),
+  isJainFriendly: boolean("is_jain_friendly"),
   openingHours: text("opening_hours"),
   menuUrl: text("menu_url"),
   description: text("description"),

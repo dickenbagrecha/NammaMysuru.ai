@@ -21,14 +21,35 @@ app.use(
 );
 
 app.use((req, res, next) => {
-  const allowedOrigin = process.env.CORS_ORIGIN || "*";
-  res.header("Access-Control-Allow-Origin", allowedOrigin);
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.header("Access-Control-Allow-Credentials", "true");
+  const origin = req.headers.origin;
+
+  // Parse comma-separated allowed origins from CORS_ORIGIN
+  const rawOrigins = process.env.CORS_ORIGIN || "";
+  const allowedOrigins = rawOrigins
+    .split(",")
+    .map((o) => o.trim())
+    .filter(Boolean);
+
+  // If request has an Origin header, check against allowed list
+  if (origin) {
+    res.setHeader("Vary", "Origin");
+
+    if (allowedOrigins.includes(origin)) {
+      res.setHeader("Access-Control-Allow-Origin", origin);
+      res.setHeader("Access-Control-Allow-Credentials", "true");
+      res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+      res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    } else if (req.method === "OPTIONS") {
+      // Disallowed origin attempting preflight
+      return res.sendStatus(403);
+    }
+  }
+
+  // Handle preflight for allowed origins or non-origin requests
   if (req.method === "OPTIONS") {
     return res.sendStatus(204);
   }
+
   next();
 });
 

@@ -1,20 +1,26 @@
-import { sqliteTable, integer, text } from "drizzle-orm/sqlite-core";
+import { pgTable, text, integer, timestamp } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 import { sql } from "drizzle-orm";
 
-export const conversations = sqliteTable("conversations", {
-  id: integer("id").primaryKey({ autoIncrement: true }),
+export const conversations = pgTable("conversations", {
+  id: integer("id").primaryKey().generatedByDefaultAsIdentity(),
   title: text("title").notNull(),
-  createdAt: integer("created_at", { mode: "timestamp" }).default(sql`(unixepoch())`).notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true, mode: "date" })
+    .default(sql`now()`)
+    .notNull(),
 });
 
-export const messages = sqliteTable("messages", {
-  id: integer("id").primaryKey({ autoIncrement: true }),
-  conversationId: integer("conversation_id").notNull().references(() => conversations.id, { onDelete: "cascade" }),
+export const messages = pgTable("messages", {
+  id: integer("id").primaryKey().generatedByDefaultAsIdentity(),
+  conversationId: integer("conversation_id")
+    .notNull()
+    .references(() => conversations.id, { onDelete: "cascade" }),
   role: text("role").notNull(),
   content: text("content").notNull(),
-  createdAt: integer("created_at", { mode: "timestamp" }).default(sql`(unixepoch())`).notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true, mode: "date" })
+    .default(sql`now()`)
+    .notNull(),
 });
 
 export const insertConversationSchema = createInsertSchema(conversations).omit({
@@ -31,4 +37,3 @@ export type Conversation = typeof conversations.$inferSelect;
 export type InsertConversation = z.infer<typeof insertConversationSchema>;
 export type Message = typeof messages.$inferSelect;
 export type InsertMessage = z.infer<typeof insertMessageSchema>;
-

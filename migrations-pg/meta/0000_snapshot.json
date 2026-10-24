@@ -1,0 +1,338 @@
+{
+  "id": "b3aac0f6-4043-4954-bc87-ae29e0e70865",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.conversations": {
+      "name": "conversations",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "identity": {
+            "type": "byDefault",
+            "name": "conversations_id_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "2147483647",
+            "cache": "1",
+            "cycle": false
+          }
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.messages": {
+      "name": "messages",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "identity": {
+            "type": "byDefault",
+            "name": "messages_id_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "2147483647",
+            "cache": "1",
+            "cycle": false
+          }
+        },
+        "conversation_id": {
+          "name": "conversation_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "role": {
+          "name": "role",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "content": {
+          "name": "content",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "messages_conversation_id_conversations_id_fk": {
+          "name": "messages_conversation_id_conversations_id_fk",
+          "tableFrom": "messages",
+          "tableTo": "conversations",
+          "columnsFrom": [
+            "conversation_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.restaurants": {
+      "name": "restaurants",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "identity": {
+            "type": "byDefault",
+            "name": "restaurants_id_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "2147483647",
+            "cache": "1",
+            "cycle": false
+          }
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cuisine": {
+          "name": "cuisine",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "price_range": {
+          "name": "price_range",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rating": {
+          "name": "rating",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "default": 0
+        },
+        "is_vegetarian": {
+          "name": "is_vegetarian",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false,
+          "default": false
+        },
+        "location": {
+          "name": "location",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "image_url": {
+          "name": "image_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "dietary_classification": {
+          "name": "dietary_classification",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "category": {
+          "name": "category",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "neighbourhood": {
+          "name": "neighbourhood",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_vegan_friendly": {
+          "name": "is_vegan_friendly",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "is_jain_friendly": {
+          "name": "is_jain_friendly",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "opening_hours": {
+          "name": "opening_hours",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "menu_url": {
+          "name": "menu_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "source_url": {
+          "name": "source_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "verification_status": {
+          "name": "verification_status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'unverified'"
+        },
+        "verified_at": {
+          "name": "verified_at",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.tourist_spots": {
+      "name": "tourist_spots",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "identity": {
+            "type": "byDefault",
+            "name": "tourist_spots_id_seq",
+            "schema": "public",
+            "increment": "1",
+            "startWith": "1",
+            "minValue": "1",
+            "maxValue": "2147483647",
+            "cache": "1",
+            "cycle": false
+          }
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "location": {
+          "name": "location",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "image_url": {
+          "name": "image_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "visiting_hours": {
+          "name": "visiting_hours",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ticket_price": {
+          "name": "ticket_price",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
