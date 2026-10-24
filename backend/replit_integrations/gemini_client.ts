@@ -7,7 +7,7 @@ if (!process.env.GEMINI_API_KEY) {
 
 const genAI = new GoogleGenerativeAI(apiKey);
 
-const textModelName = process.env.GEMINI_MODEL || "gemini-2.5-flash-lite";
+const textModelName = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
 
 export const model = genAI.getGenerativeModel({ 
     model: textModelName,

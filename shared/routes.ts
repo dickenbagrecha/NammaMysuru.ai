@@ -40,6 +40,14 @@ export const api = {
         cuisine: z.string().optional(),
         priceRange: z.string().optional(),
         isVegetarian: z.coerce.boolean().optional(),
+        // New filter fields
+        dietaryClassification: z.string().optional(), // 'pure_veg'|'veg_and_non_veg'|'non_veg'
+        category: z.string().optional(),
+        neighbourhood: z.string().optional(),
+        isVeganFriendly: z.coerce.boolean().optional(),
+        isJainFriendly: z.coerce.boolean().optional(),
+        search: z.string().optional(),
+        minRating: z.coerce.number().optional(),
       }).optional(),
       responses: {
         200: z.array(z.custom<typeof restaurants.$inferSelect>()),

@@ -10,7 +10,18 @@ export interface IStorage {
   clearTouristSpots(): Promise<void>;
 
   // Restaurants
-  getRestaurants(filters?: { cuisine?: string; priceRange?: string; isVegetarian?: boolean }): Promise<Restaurant[]>;
+  getRestaurants(filters?: {
+    cuisine?: string;
+    priceRange?: string;
+    isVegetarian?: boolean;
+    dietaryClassification?: string;
+    category?: string;
+    neighbourhood?: string;
+    isVeganFriendly?: boolean;
+    isJainFriendly?: boolean;
+    search?: string;
+    minRating?: number;
+  }): Promise<Restaurant[]>;
   getRestaurant(id: number): Promise<Restaurant | undefined>;
   createRestaurant(restaurant: InsertRestaurant): Promise<Restaurant>;
   clearRestaurants(): Promise<void>;
@@ -37,7 +48,18 @@ export class DatabaseStorage implements IStorage {
   }
 
   // Restaurants
-  async getRestaurants(filters?: { cuisine?: string; priceRange?: string; isVegetarian?: boolean }): Promise<Restaurant[]> {
+  async getRestaurants(filters?: {
+    cuisine?: string;
+    priceRange?: string;
+    isVegetarian?: boolean;
+    dietaryClassification?: string;
+    category?: string;
+    neighbourhood?: string;
+    isVeganFriendly?: boolean;
+    isJainFriendly?: boolean;
+    search?: string;
+    minRating?: number;
+  }): Promise<Restaurant[]> {
     const conditions: SQL[] = [];
 
     if (filters?.cuisine) {
@@ -46,15 +68,49 @@ export class DatabaseStorage implements IStorage {
     if (filters?.priceRange) {
       conditions.push(eq(restaurants.priceRange, filters.priceRange));
     }
+    // Legacy isVegetarian filter (kept for backwards compat)
     if (filters?.isVegetarian !== undefined) {
       conditions.push(eq(restaurants.isVegetarian, filters.isVegetarian));
     }
-
-    if (conditions.length > 0) {
-      return await db.select().from(restaurants).where(and(...conditions));
+    // New dietary classification filter
+    if (filters?.dietaryClassification) {
+      conditions.push(eq(restaurants.dietaryClassification, filters.dietaryClassification));
+    }
+    if (filters?.category) {
+      conditions.push(eq(restaurants.category, filters.category));
+    }
+    if (filters?.neighbourhood) {
+      conditions.push(like(restaurants.neighbourhood, `%${filters.neighbourhood}%`));
+    }
+    if (filters?.isVeganFriendly !== undefined) {
+      conditions.push(eq(restaurants.isVeganFriendly, filters.isVeganFriendly));
+    }
+    if (filters?.isJainFriendly !== undefined) {
+      conditions.push(eq(restaurants.isJainFriendly, filters.isJainFriendly));
+    }
+    if (filters?.minRating !== undefined) {
+      // Use gte from drizzle
+      const { gte } = await import("drizzle-orm");
+      conditions.push(gte(restaurants.rating, filters.minRating));
     }
 
-    return await db.select().from(restaurants);
+    let results: Restaurant[];
+    if (conditions.length > 0) {
+      results = await db.select().from(restaurants).where(and(...conditions));
+    } else {
+      results = await db.select().from(restaurants);
+    }
+
+    // Search filter (applied in-memory after DB fetch for multi-field support)
+    if (filters?.search) {
+      const q = filters.search.toLowerCase();
+      results = results.filter((r) =>
+        [r.name, r.cuisine, r.location, r.neighbourhood, r.description, r.category]
+          .some((f) => f?.toLowerCase().includes(q))
+      );
+    }
+
+    return results;
   }
 
   async getRestaurant(id: number): Promise<Restaurant | undefined> {
@@ -73,3 +129,4 @@ export class DatabaseStorage implements IStorage {
 }
 
 export const storage = new DatabaseStorage();
+
