@@ -1,58 +1,70 @@
 # Deployment Guide: NammaMysuru.ai
 
-This document provides deployment guidelines for hosting NammaMysuru.ai across modern cloud platforms.
+This document provides deployment guidelines for hosting NammaMysuru.ai across production cloud platforms.
 
 ---
 
 ## 1. Production Architecture Overview
 
-The recommended architecture separates frontend CDN hosting from backend cloud compute:
+The deployed architecture decouples frontend CDN hosting, persistent backend compute, and serverless managed database:
 
-- **Frontend**: Hosted on **Vercel** (Edge CDN Static Site / SPA).
-- **Backend API**: Hosted on a persistent container or Node runtime (e.g. **Render**, **Railway**, **Fly.io**, or **VPS**).
-- **Database**:
-  - *Local/Single-node VM*: Persistent disk mounted with `sqlite.db`.
-  - *Serverless/Distributed*: Managed Postgres via **Neon** or **Supabase** using Drizzle ORM.
+- **Frontend**: Hosted on **Vercel** (Edge CDN Static Site / SPA).<br />*Live URL*: `https://nammamysuruai.vercel.app/`
+- **Backend API**: Hosted on **Render** (Node.js Web Service).<br />*Live URL*: `https://nammamysuru-ai.onrender.com`<br />*Health Check*: `https://nammamysuru-ai.onrender.com/api/health`
+- **Database**: Managed **Neon PostgreSQL** accessed via Drizzle ORM and `node-postgres` connection pool.
 
 ---
 
 ## 2. Frontend Deployment (Vercel)
 
-The frontend is prepared for independent static deployment.
+The frontend is configured for static edge deployment via Vite.
 
 ### Settings in Vercel Dashboard:
 - **Framework Preset**: `Vite`
-- **Root Directory**: `frontend` (or repository root if building from top-level)
-- **Build Command**: `npm run build:frontend` (or `vite build`)
-- **Output Directory**: `dist/public` (or `dist` if executing within `frontend/`)
+- **Root Directory**: Repository root (`./`)
+- **Build Command**: `npm run build:frontend`
+- **Output Directory**: `dist/public`
 - **Environment Variables**:
-  - `VITE_API_BASE_URL`: `https://your-backend-service.onrender.com`
+  - `VITE_API_BASE_URL`: `https://nammamysuru-ai.onrender.com`
 
 ### Single Page Application (SPA) Routing:
-The file [`frontend/vercel.json`](file:///c:/DICKEN-BAGRECHA/Local%20Disk%20%28D%29/Projects/NammaMysuru.ai-main/frontend/vercel.json) configures standard rewrite rules to guarantee deep links (e.g. `/chat`, `/spots`, `/restaurants`) route cleanly to `index.html`.
+The root configuration file [`vercel.json`](file:///c:/DICKEN-BAGRECHA/Local%20Disk%20%28D%29/Projects/NammaMysuru.ai-main/vercel.json) configures standard rewrite rules to guarantee deep links (e.g. `/chat`, `/spots`, `/restaurants`, `/helpline`) route cleanly to `/index.html`.
 
 ---
 
-## 3. Backend Deployment (Render / Railway / Cloud VM)
+## 3. Backend Deployment (Render)
 
-Because the application provides streaming responses via Server-Sent Events (SSE) and uses SQLite for local state, a persistent Node.js environment is ideal.
+The Express backend handles REST APIs, strict CORS origin checks, Gemini AI streaming via Server-Sent Events (SSE), and database operations.
 
-### Build and Start:
-- **Build Command**: `npm run build:backend`
-- **Start Command**: `node dist/index.cjs`
-- **Environment Variables**:
-  - `PORT`: `5000` (or host-assigned `$PORT`)
-  - `GEMINI_API_KEY`: Your private Google AI Studio API key
-  - `CORS_ORIGIN`: `https://your-frontend.vercel.app`
+### Render Web Service Configuration:
+- **Environment**: `Node`
+- **Node Version**: `20.x`
+- **Build Command**: `npm ci --include=dev && npm run build`
+- **Start Command**: `npm run start`
+- **Health Check Path**: `/api/health`
+
+### Environment Variables on Render:
+- `PORT`: (Supplied automatically by Render, defaults to `5000`)
+- `NODE_ENV`: `production`
+- `DATABASE_URL`: `postgresql://user:password@ep-host.region.aws.neon.tech/neondb?sslmode=require` (Pooled connection)
+- `GEMINI_API_KEY`: Google AI Studio API key (kept strictly server-side)
+- `GEMINI_MODEL`: `gemini-3.5-flash-lite`
+- `CORS_ORIGIN`: `https://nammamysuruai.vercel.app`
 
 ---
 
-## 4. Database Strategy & Considerations
+## 4. Database Strategy & PostgreSQL on Neon
 
-### Current State:
-- Uses SQLite with `better-sqlite3`.
-- Auto-seeds default tourist spots and dining directories on startup.
-- Conversations and messages are persisted to `sqlite.db`.
+### Active Production Database:
+- Hosted on **Neon PostgreSQL**.
+- Runtime adapter: `backend/db.ts` (re-exports `backend/db.pg.ts`).
+- Tables: `tourist_spots`, `restaurants`, `conversations`, `messages`.
+- Schema definitions: `shared/schema.ts` (PostgreSQL Drizzle schema).
+- DDL Migrations: `migrations-pg/0000_shallow_morlocks.sql`.
 
-### Production Persistence Note:
-Vercel serverless functions have an ephemeral filesystem. If deploying the backend to serverless functions, database writes to local `sqlite.db` will not persist across invocations. For high-scale or serverless environments, transitioning the Drizzle schema to PostgreSQL (e.g. via Neon serverless driver) is recommended.
+### Connection Configuration:
+- **Runtime Pool**: Uses `DATABASE_URL` with SSL (`rejectUnauthorized: false` for managed hosts).
+- **Direct Migrations**: Uses `DATABASE_URL_DIRECT` (direct unpooled endpoint) with `drizzle.pg.config.ts` when running DDL commands.
+
+### Rollback & Local Development Support:
+- SQLite schemas are preserved in `shared/schema.sqlite.ts` and `shared/models/chat.sqlite.ts`.
+- The safe data migration script `script/migrate-sqlite-to-postgres.ts` is available with dry-run and host confirmation guards.

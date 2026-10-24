@@ -6,16 +6,16 @@ NammaMysuru.ai employs a clean full-stack architecture with decoupled frontend a
 
 ```mermaid
 flowchart TB
-    subgraph Browser ["Frontend Client (React + Vite)"]
+    subgraph Browser ["Frontend Client (React + Vite on Vercel)"]
         UI["UI Pages & Radix Components"]
         APIClient["API Client (lib/api.ts)"]
         QueryState["TanStack React Query Cache"]
         AudioRecord["Web Audio Recorder & Streamer"]
     end
 
-    subgraph ServerLayer ["Backend Service (Express + Node.js)"]
+    subgraph ServerLayer ["Backend Service (Express + Node.js on Render)"]
         HTTP["Express HTTP Server (backend/index.ts)"]
-        CORSMW["Dynamic CORS & Middleware"]
+        CORSMW["Strict CORS & Allowlist Middleware"]
         SpotRouter["Heritage Spots Router"]
         RestRouter["Restaurants Router"]
         ChatRouter["Conversational Chat Router (SSE)"]
@@ -24,8 +24,8 @@ flowchart TB
     end
 
     subgraph DataIntegrations ["Data & External Providers"]
-        SQLite[(SQLite DB: sqlite.db via Drizzle)]
-        GeminiAI["Google Gemini 2.5 Flash API"]
+        PostgresDB[(Neon PostgreSQL via node-postgres + Drizzle)]
+        GeminiAI["Google Gemini 3.5 Flash Lite API"]
         OpenMeteo["Open-Meteo Weather API"]
     end
 
@@ -41,9 +41,9 @@ flowchart TB
     CORSMW --> AudioRouter
     CORSMW --> HealthRouter
 
-    SpotRouter --> SQLite
-    RestRouter --> SQLite
-    ChatRouter --> SQLite
+    SpotRouter --> PostgresDB
+    RestRouter --> PostgresDB
+    ChatRouter --> PostgresDB
     ChatRouter --> GeminiAI
     ChatRouter --> OpenMeteo
     AudioRouter --> GeminiAI
@@ -54,7 +54,7 @@ flowchart TB
 ## 2. Layer Boundaries & Responsibilities
 
 ### Frontend (`frontend/`)
-- **Scope**: Browser-only SPA execution.
+- **Scope**: Browser-only SPA execution deployed to Vercel Edge CDN.
 - **Components**:
   - `src/pages/`: Route targets (`Home`, `Chat`, `TouristSpots`, `Restaurants`, `Helpline`, `Login`).
   - `src/components/`: Modular UI system built on Tailwind CSS and Radix UI primitives.
@@ -63,14 +63,15 @@ flowchart TB
   - `public/`: Images, vector graphics, and Web Audio worklets.
 
 ### Backend (`backend/`)
-- **Scope**: Express HTTP API server and external service orchestration.
+- **Scope**: Express HTTP API server and external service orchestration deployed to Render.
 - **Components**:
-  - `index.ts`: Application bootstrap, CORS middleware, body parsers, and error handling.
-  - `routes.ts`: Core REST routes for tourist attractions, dining, and system health.
+  - `index.ts`: Application bootstrap, strict CORS allowlist middleware, body parsers, and error handling.
+  - `routes.ts`: Core REST routes for tourist attractions, dining, and system health (`/api/health`).
   - `storage.ts`: Repository operations interfacing with Drizzle ORM.
-  - `db.ts`: SQLite database handle.
+  - `db.ts` / `db.pg.ts`: Neon PostgreSQL database connection pool and Drizzle client.
+  - `restaurant-provenance.ts`: Verified restaurant metadata and data provenance records.
   - `replit_integrations/`:
-    - `gemini_client.ts`: Google Generative AI client with fallback protection.
+    - `gemini_client.ts`: Google Generative AI client (`gemini-3.5-flash-lite`) with fallback protection.
     - `chat/routes.ts`: Multi-lingual conversational pipeline with function-calling tools.
     - `audio/routes.ts`: Base64 audio decoding and streaming synthesis.
     - `weather.ts`: Real-time weather provider.
@@ -78,9 +79,10 @@ flowchart TB
 ### Shared Layer (`shared/`)
 - **Scope**: Shared validation schemas and contracts.
 - **Components**:
-  - `schema.ts`: Drizzle table definitions and Zod insert schemas.
+  - `schema.ts`: Canonical PostgreSQL Drizzle table definitions (`tourist_spots`, `restaurants`) and Zod schemas.
+  - `models/chat.ts`: Active PostgreSQL `conversations` and `messages` schemas.
+  - `schema.sqlite.ts` & `models/chat.sqlite.ts`: Preserved SQLite schemas for rollback.
   - `routes.ts`: Standardized route paths and request/response Zod contracts.
-  - `models/chat.ts`: Conversation and message entities.
 
 ---
 
@@ -89,8 +91,8 @@ flowchart TB
 1. **Standard REST Endpoints**:
    - `GET /api/spots`: Returns tourist spots with cache headers.
    - `GET /api/spots/:id`: Returns single spot details.
-   - `GET /api/restaurants`: Returns restaurants with cuisine, price, and vegetarian filtering.
-   - `GET /api/health`: Validates backend service availability.
+   - `GET /api/restaurants`: Returns restaurants with dietary, cuisine, neighbourhood, and verification filters.
+   - `GET /api/health`: Validates backend service availability and uptime.
 
 2. **Server-Sent Events (SSE)**:
    - `POST /api/conversations/:id/messages`: Streams Gemini AI tokens chunk-by-chunk to the frontend in real time.

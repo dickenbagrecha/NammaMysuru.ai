@@ -6,9 +6,10 @@ This document outlines environment variables, requirements, and local setup step
 
 ## 1. Prerequisites
 
-- **Node.js**: `v20.x` or higher (Active LTS recommended; tested with Node v24).
+- **Node.js**: `v20.x` or higher (Active LTS recommended).
 - **npm**: `v10.x` or higher.
 - **Git**: Installed and configured.
+- **Database**: PostgreSQL (e.g. [Neon](https://neon.tech/) serverless PostgreSQL) for production/staging, with local SQLite schema preserved for rollback.
 
 ---
 
@@ -17,13 +18,15 @@ This document outlines environment variables, requirements, and local setup step
 | Variable | Scope | Required | Default | Description |
 | :--- | :--- | :--- | :--- | :--- |
 | `PORT` | Backend | Optional | `5000` | Port on which Express server listens |
+| `DATABASE_URL` | Backend | **Yes** (in production) | None | PostgreSQL connection URI (e.g., Neon pooled endpoint) |
+| `DATABASE_URL_DIRECT` | Backend / CLI | Optional | None | Direct unpooled PostgreSQL connection string for DDL migrations |
 | `GEMINI_API_KEY` | Backend | **Yes** (for AI features) | None | Google AI Studio API key for Gemini models |
-| `GEMINI_MODEL` | Backend | Optional | `gemini-2.5-flash-lite` | Target Gemini model name |
-| `CORS_ORIGIN` | Backend | Optional | `*` | Allowed origin for frontend requests |
-| `VITE_API_BASE_URL` | Frontend | Optional | `""` (relative `/api`) | Base URL pointing to deployed backend API |
+| `GEMINI_MODEL` | Backend | Optional | `gemini-3.5-flash-lite` | Target Gemini model name |
+| `CORS_ORIGIN` | Backend | Optional | `""` | Comma-separated list of allowed frontend origins (e.g., `https://nammamysuruai.vercel.app,http://localhost:5173`) |
+| `VITE_API_BASE_URL` | Frontend | Optional | `""` (relative `/api`) | Base URL pointing to deployed backend API (e.g., `https://nammamysuru-ai.onrender.com`) |
 
 > [!WARNING]
-> Never commit `.env` or `.env.local` files to Git. Keep `GEMINI_API_KEY` private on the server. Do not prefix server secrets with `VITE_`.
+> Never commit `.env` or `.env.local` files to Git. Keep `GEMINI_API_KEY` and `DATABASE_URL` private on the server. Do not prefix server secrets with `VITE_`.
 
 ---
 
@@ -35,9 +38,9 @@ This document outlines environment variables, requirements, and local setup step
    cd NammaMysuru.ai
    ```
 
-2. **Install dependencies**:
+2. **Install dependencies cleanly**:
    ```bash
-   npm install
+   npm ci
    ```
 
 3. **Configure environment**:
@@ -45,16 +48,18 @@ This document outlines environment variables, requirements, and local setup step
    # Copy sample environment configuration
    cp .env.example .env
    ```
-   Open `.env` and insert your Gemini API Key:
+   Open `.env` and insert your Gemini API Key and PostgreSQL connection string:
    ```env
    GEMINI_API_KEY=AIzaSy...your_actual_key
+   GEMINI_MODEL=gemini-3.5-flash-lite
+   DATABASE_URL=postgresql://user:password@ep-host.region.aws.neon.tech/neondb?sslmode=require
+   CORS_ORIGIN=http://localhost:5173,http://localhost:5000
    ```
 
-4. **Initialize Database**:
+4. **Verify Database Schema**:
    ```bash
-   npm run db:push
+   npx drizzle-kit push --config=drizzle.pg.config.ts
    ```
-   This creates and syncs the schema with local `sqlite.db`.
 
 5. **Start Development Server**:
    ```bash
