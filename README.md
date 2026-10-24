@@ -4,18 +4,21 @@
 
 ### AI-powered Mysuru tourism companion with a royal, tech-first experience.
 
-![NammaMysuru.ai](https://capsule-render.vercel.app/api?type=waving&height=260&color=0:3b0714,45:8e1321,100:d7a832&text=NammaMysuru.ai&fontColor=fff4c2&fontSize=58&fontAlignY=40&desc=Royal%20Mysuru%20Tourism%20AI%20Guide&descAlignY=60&descSize=18)
-
+[![Live Website](https://img.shields.io/badge/Live_Website-nammamysuruai.vercel.app-00dfa2?style=for-the-badge&logo=vercel&logoColor=white)](https://nammamysuruai.vercel.app/)
 [![React](https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react&logoColor=111)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vite.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38BDF8?style=for-the-badge&logo=tailwindcss&logoColor=111)](https://tailwindcss.com/)
 [![Express](https://img.shields.io/badge/Express-5-111827?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
-[![Gemini](https://img.shields.io/badge/Gemini-2.5_Flash_Lite-8E75B2?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/)
+[![Gemini](https://img.shields.io/badge/Gemini-3.5_Flash_Lite-8E75B2?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/)
+
+![NammaMysuru.ai](https://capsule-render.vercel.app/api?type=waving&height=260&color=0:3b0714,45:8e1321,100:d7a832&text=NammaMysuru.ai&fontColor=fff4c2&fontSize=58&fontAlignY=40&desc=Royal%20Mysuru%20Tourism%20AI%20Guide&descAlignY=60&descSize=18)
 
 **Explore palaces. Plan itineraries. Find food. Ask in English, Kannada, or Hindi.**
 
-[Repository](https://github.com/Skandamrao/ChatRao_Mysuru_AI_Guide) - [Mysuru Tourism](https://mysore.nic.in/en/tourism/) - [Karnataka Tourism](https://karnatakatourism.org/)
+🌐 **[Experience Live Demo: nammamysuruai.vercel.app](https://nammamysuruai.vercel.app/)**
+
+[Mysuru Tourism](https://mysore.nic.in/en/tourism/) • [Karnataka Tourism](https://karnatakatourism.org/)
 
 </div>
 
