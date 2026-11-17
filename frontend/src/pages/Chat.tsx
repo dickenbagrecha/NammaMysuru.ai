@@ -4,7 +4,8 @@ import { useConversations, useCreateConversation, useConversation, useDeleteConv
 import {
   Send, User, Loader2, Plus, MessageSquare, Trash2, Menu, Languages, Crown,
   WandSparkles, MapPinned, Utensils, Camera, ShieldCheck,
-  Volume2, VolumeX, Mic, MicOff, Copy, Check, Star, MapPin, Clock, Coins, ExternalLink
+  Volume2, VolumeX, Mic, MicOff, Copy, Check, Star, MapPin, Clock, Coins, ExternalLink,
+  ArrowDown, PanelLeftClose, PanelLeftOpen, Sun, Moon
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -259,179 +260,257 @@ function ChatMessage({
   restaurants: any[];
   onOpenDetail: (item: any) => void;
 }) {
+  const { theme } = useAppSettings();
   const isUser = role === "user";
-  const mentionedItems = !isUser ? findMentionedItems(content, spots, restaurants) : [];
+  // Only evaluate mentioned items when message is finalized to prevent mid-stream layout shift
+  const mentionedItems = !isUser && messageId !== -1 ? findMentionedItems(content, spots, restaurants) : [];
 
   return (
     <div className="w-full mb-6 text-left">
       <motion.div
-        initial={{ opacity: 0, y: 10 }}
+        initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.25 }}
         className={cn(
           "flex w-full",
           isUser ? "justify-end" : "justify-start"
         )}
       >
-        <div className={cn(
-          "flex max-w-[92%] gap-3 md:max-w-[78%]",
-          isUser ? "flex-row-reverse" : "flex-row"
-        )}>
-          <div className={cn(
-            "flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border-2 shadow-lg",
-            isUser
-              ? "bg-primary text-primary-foreground border-primary/20"
-              : "bg-secondary text-secondary-foreground border-secondary/20 ring-4 ring-secondary/10"
-          )}>
-            {isUser ? <User className="h-5 w-5" /> : <Crown className="h-5 w-5" />}
-          </div>
-
-          <div className={cn(
-            "relative overflow-hidden rounded-2xl p-5 text-sm leading-relaxed shadow-md md:text-base flex flex-col w-full",
-            isUser
-              ? "bg-primary text-primary-foreground rounded-tr-sm"
-              : "bg-white border-2 border-secondary/25 rounded-tl-sm text-foreground bg-pattern-mandala dark:bg-card"
-          )}>
-            {!isUser && (
-              <>
-                <div className="absolute right-0 top-0 -mr-8 -mt-8 h-16 w-16 rounded-full bg-secondary/10 blur-2xl" />
-                <div className="mb-3 flex items-center gap-2 border-b border-secondary/15 pb-2 text-xs font-bold uppercase tracking-wide text-primary/75">
-                  <WandSparkles className="h-3.5 w-3.5 text-secondary" />
-                  {assistantTitle ?? LANGUAGE_COPY.English.assistantTitle}
-                </div>
-              </>
-            )}
-            
-            <div className="flex-grow text-left">
-              {isUser ? renderInlineMarkdown(content) : renderMarkdown(content)}
+        {isUser ? (
+          /* User Message Bubble - Stitch Light Maroon or Dark Royal Burgundy */
+          <div className="flex gap-3 max-w-[85%] md:max-w-[72%] flex-row-reverse">
+            <div className={cn(
+              "flex h-9 w-9 sm:h-10 sm:w-10 flex-shrink-0 items-center justify-center rounded-xl border shadow-sm",
+              theme === "dark"
+                ? "bg-gradient-to-br from-maroon to-maroon-deep text-gold-light border-gold/40 shadow-maroon/30"
+                : "bg-maroon text-white border-maroon-dark shadow-xs"
+            )}>
+              <User className="h-4 w-4 sm:h-5 sm:w-5" />
             </div>
 
-            {/* Utility toolbar inside bubble */}
             <div className={cn(
-              "mt-3 flex items-center justify-between border-t pt-2 text-xs",
-              isUser ? "border-primary-foreground/15 text-primary-foreground/60" : "border-secondary/15 text-muted-foreground/60"
+              "relative overflow-hidden rounded-2xl rounded-tr-sm p-3.5 sm:p-5 text-sm sm:text-[15px] leading-relaxed shadow-sm",
+              theme === "dark"
+                ? "bg-gradient-to-r from-maroon-dark to-maroon text-amber-50 border border-gold/30 shadow-md shadow-maroon/40"
+                : "bg-maroon text-white shadow-xs"
             )}>
-              <span className="text-[10px] uppercase font-bold tracking-wider">
-                {isUser ? "You" : "Concierge"}
-              </span>
-              <div className="flex items-center gap-2">
-                {/* TTS Button */}
-                {!isUser && messageId !== -1 && (
-                  <button
-                    onClick={() => onSpeak(messageId, content)}
-                    className="text-primary/70 hover:text-primary transition-colors p-1 rounded hover:bg-secondary/15 flex items-center gap-1.5"
-                    title={speakingMsgId === messageId ? "Stop speaking" : "Speak message"}
-                  >
-                    {speakingMsgId === messageId ? (
-                      <>
-                        <VoiceWave />
-                        <VolumeX className="h-3.5 w-3.5 text-secondary animate-pulse" />
-                      </>
-                    ) : (
-                      <Volume2 className="h-3.5 w-3.5" />
-                    )}
-                  </button>
-                )}
-                {/* Copy Button */}
+              <div className="text-left font-medium">
+                {renderInlineMarkdown(content)}
+              </div>
+              <div className={cn(
+                "mt-2 flex items-center justify-between border-t pt-1.5 text-[10px]",
+                theme === "dark" ? "border-gold/20 text-gold-light/70" : "border-white/20 text-white/70"
+              )}>
+                <span className="font-bold uppercase tracking-wider">You</span>
                 <button
                   onClick={() => onCopy(messageId, content)}
-                  className={cn(
-                    "transition-colors p-1 rounded",
-                    isUser
-                      ? "text-primary-foreground/70 hover:text-primary-foreground hover:bg-white/10"
-                      : "text-primary/70 hover:text-primary hover:bg-secondary/15"
-                  )}
+                  className="hover:opacity-100 opacity-80 transition-opacity p-0.5 rounded"
                   title="Copy message"
                 >
-                  {copiedId === messageId ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
+                  {copiedId === messageId ? <Check className="h-3 w-3 text-emerald-300" /> : <Copy className="h-3 w-3" />}
                 </button>
               </div>
             </div>
           </div>
-        </div>
-      </motion.div>
-
-      {/* Render mentioned items carousel outside bubble but aligned */}
-      {!isUser && mentionedItems.length > 0 && (
-        <div className="mt-3 pl-14 pr-4 w-full">
-          <div className="text-[10px] font-extrabold text-primary/75 mb-2 flex items-center gap-1.5 tracking-wider uppercase">
-            <MapPinned className="h-3.5 w-3.5 text-secondary animate-bounce" />
-            <span>Places referenced in this response</span>
-          </div>
-          <div className="flex gap-3 overflow-x-auto pb-3 scrollbar-thin scrollbar-thumb-secondary/35 scrollbar-track-transparent snap-x">
-            {mentionedItems.map((item) => {
-              const isSpot = item.type === 'spot';
-              return (
-                <div
-                  key={`${item.type}-${item.id}`}
-                  onClick={() => onOpenDetail(item)}
-                  className="w-48 flex-shrink-0 bg-white/80 dark:bg-card/90 border border-secondary/25 hover:border-secondary rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col cursor-pointer snap-start hover:scale-[1.02] group text-left"
-                >
-                  {/* Thumbnail */}
-                  <div className="h-24 w-full relative bg-secondary/15 overflow-hidden">
-                    <ImageWithFallback
-                      src={item.imageUrl || undefined}
-                      alt={item.name}
-                      className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      fallbackType={isSpot ? "spot" : "dining"}
-                    />
-                    {/* Type Badge */}
-                    <div className="absolute top-2 left-2 bg-primary/95 backdrop-blur-sm text-[9px] font-bold text-white px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
-                      {isSpot ? (
-                        <>
-                          <MapPinned className="h-2.5 w-2.5 text-secondary" />
-                          <span>SPOT</span>
-                        </>
-                      ) : (
-                        <>
-                          <Utensils className="h-2.5 w-2.5 text-secondary" />
-                          <span>DINE</span>
-                        </>
-                      )}
-                    </div>
+        ) : (
+          /* Assistant Concierge Message Card - Stitch Design 1 Light Parchment or Design 3 Dusk Velvet */
+          <div className="w-full max-w-[98%] sm:max-w-[95%] lg:max-w-[92%]">
+            <article className={cn(
+              "rounded-2xl border p-4 sm:p-6 transition-all duration-300 relative",
+              theme === "dark"
+                ? "bg-gradient-to-b from-[#21141C] to-[#180A12] border-gold/25 shadow-md text-[#F7F3E9]"
+                : "bg-gradient-to-b from-[#FFFDF9] to-[#FAF6EE] border-[#EBE2D3] shadow-xs text-slate-800"
+            )}>
+              {/* Concierge Card Header */}
+              <div className={cn(
+                "flex items-start justify-between pb-3 sm:pb-4 border-b",
+                theme === "dark" ? "border-gold/20" : "border-gold/15"
+              )}>
+                <div className="flex items-center gap-2.5 sm:gap-3">
+                  <div className={cn(
+                    "h-9 w-9 rounded-lg flex items-center justify-center shrink-0 border",
+                    theme === "dark"
+                      ? "bg-gradient-to-br from-maroon to-maroon-deep text-gold-light border-gold/50 shadow-[0_0_12px_rgba(243,194,70,0.2)]"
+                      : "bg-maroon text-gold-light border-gold/30 shadow-xs"
+                  )}>
+                    <Crown className="w-5 h-5 text-gold-light" />
                   </div>
-
-                  {/* Info */}
-                  <div className="p-3 flex-grow flex flex-col justify-between bg-pattern-mandala/5">
-                    <div>
-                      <h4 className="font-serif font-bold text-sm text-primary group-hover:text-secondary transition-colors line-clamp-1">
-                        {item.name}
-                      </h4>
-                      <p className="text-[10px] text-muted-foreground mt-1 line-clamp-2">
-                        {isSpot ? item.location : `${item.cuisine} • ${item.priceRange}`}
-                      </p>
-                    </div>
-
-                    <div className="mt-2.5 flex items-center justify-between border-t border-secondary/10 pt-2">
-                      {isSpot ? (
-                        <span className="text-[9px] font-bold text-secondary truncate">
-                          {item.ticketPrice || 'Free'}
-                        </span>
-                      ) : (
-                        <div className="flex items-center gap-0.5">
-                          {Array.from({ length: 5 }).map((_, i) => (
-                            <Star
-                              key={i}
-                              className={cn(
-                                "h-2.5 w-2.5",
-                                i < (item.rating || 0)
-                                  ? "fill-secondary text-secondary"
-                                  : "text-muted-foreground/30"
-                              )}
-                            />
-                          ))}
-                        </div>
-                      )}
-                      <span className="text-[9px] font-bold text-primary group-hover:underline flex items-center gap-0.5">
-                        Details <ExternalLink className="h-2 w-2" />
-                      </span>
-                    </div>
+                  <div>
+                    <span className={cn(
+                      "text-[10px] sm:text-[11px] font-bold tracking-[0.2em] uppercase",
+                      theme === "dark" ? "text-gold" : "text-maroon"
+                    )}>
+                      Concierge
+                    </span>
+                    <p className={cn(
+                      "text-[10px] sm:text-xs",
+                      theme === "dark" ? "text-amber-100/70" : "text-slate-500"
+                    )}>
+                      Royal Heritage AI • Wadiyar Dynasty &amp; Cultural Guide
+                    </p>
                   </div>
                 </div>
-              );
-            })}
+
+                {/* Message Interaction Buttons */}
+                <div className={cn(
+                  "flex items-center space-x-1",
+                  theme === "dark" ? "text-gold/70" : "text-slate-400"
+                )}>
+                  {/* TTS Button */}
+                  {messageId !== -1 && (
+                    <button
+                      onClick={() => onSpeak(messageId, content)}
+                      className={cn(
+                        "p-1.5 rounded-lg transition-colors",
+                        theme === "dark"
+                          ? "hover:text-gold-light hover:bg-gold/15"
+                          : "hover:text-maroon hover:bg-gold/10"
+                      )}
+                      title={speakingMsgId === messageId ? "Stop speaking" : "Listen Audio"}
+                    >
+                      {speakingMsgId === messageId ? (
+                        <div className="flex items-center gap-1">
+                          <VoiceWave />
+                          <VolumeX className="h-4 w-4 animate-pulse text-gold" />
+                        </div>
+                      ) : (
+                        <Volume2 className="h-4 w-4" />
+                      )}
+                    </button>
+                  )}
+                  {/* Copy Button */}
+                  <button
+                    onClick={() => onCopy(messageId, content)}
+                    className={cn(
+                      "p-1.5 rounded-lg transition-colors",
+                      theme === "dark"
+                        ? "hover:text-gold-light hover:bg-gold/15"
+                        : "hover:text-maroon hover:bg-gold/10"
+                    )}
+                    title="Copy message"
+                  >
+                    {copiedId === messageId ? <Check className="h-4 w-4 text-emerald-500" /> : <Copy className="h-4 w-4" />}
+                  </button>
+                </div>
+              </div>
+
+              {/* Dialogue Text Body */}
+              <div className={cn(
+                "mt-4 text-sm sm:text-[15px] leading-relaxed text-left",
+                theme === "dark" ? "text-[#F7F3E9]" : "text-slate-700"
+              )}>
+                {renderMarkdown(content)}
+                {messageId === -1 && <span className="typing-cursor" />}
+              </div>
+            </article>
+
+            {/* Places Referenced Section (Stitch Design 1 & 3 Horizontal Carousel) */}
+            {mentionedItems.length > 0 && (
+              <div className="space-y-3 pt-3 w-full">
+                <div className="flex items-center justify-between px-1">
+                  <div className={cn(
+                    "flex items-center space-x-2 font-bold text-xs uppercase tracking-wider",
+                    theme === "dark" ? "text-gold" : "text-maroon"
+                  )}>
+                    <MapPin className={cn("w-4 h-4", theme === "dark" ? "text-gold-light" : "text-gold-muted")} />
+                    <span>Places Referenced in this Response ({mentionedItems.length})</span>
+                  </div>
+                  <span className={cn(
+                    "text-[11px] hidden sm:inline",
+                    theme === "dark" ? "text-amber-200/60" : "text-slate-500"
+                  )}>
+                    Scroll horizontally to view all
+                  </span>
+                </div>
+
+                {/* Horizontal Cards Carousel */}
+                <div className="flex space-x-4 overflow-x-auto pb-4 pt-1 snap-x scroll-smooth scrollbar-thin">
+                  {mentionedItems.map((item) => {
+                    const isSpot = item.type === "spot";
+                    return (
+                      <div
+                        key={`${item.type}-${item.id}`}
+                        onClick={() => onOpenDetail(item)}
+                        className={cn(
+                          "min-w-[260px] max-w-[260px] sm:min-w-[270px] sm:max-w-[270px] rounded-2xl overflow-hidden snap-start flex flex-col cursor-pointer transition-all duration-300",
+                          theme === "dark"
+                            ? "bg-dusk-850 border border-gold/30 shadow-md hover:shadow-card-lift hover:border-gold group"
+                            : "bg-white border border-[#E6DECE] shadow-xs hover:shadow-card-lift group"
+                        )}
+                      >
+                        {/* Image Thumbnail */}
+                        <div className={cn(
+                          "relative h-36 overflow-hidden",
+                          theme === "dark" ? "bg-dusk-950 border-b border-gold/20" : "bg-slate-100"
+                        )}>
+                          <ImageWithFallback
+                            src={item.imageUrl || undefined}
+                            alt={item.name}
+                            className={cn(
+                              "w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500",
+                              theme === "dark" ? "filter brightness-105" : ""
+                            )}
+                            fallbackType={isSpot ? "spot" : "dining"}
+                          />
+                          <span className={cn(
+                            "absolute top-2.5 left-2.5 backdrop-blur-xs text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full flex items-center gap-1 border shadow-xs",
+                            isSpot
+                              ? (theme === "dark"
+                                  ? "bg-maroon-dark/90 text-gold-light border-gold/40"
+                                  : "bg-maroon/90 text-white border-white/20")
+                              : (theme === "dark"
+                                  ? "bg-amber-900/90 text-gold-light border-gold/40"
+                                  : "bg-amber-700/90 text-white border-white/20")
+                          )}>
+                            <span className={cn("h-1.5 w-1.5 rounded-full", isSpot ? "bg-amber-400" : "bg-emerald-400")}></span>
+                            {isSpot ? "Spot" : "Culinary"}
+                          </span>
+                        </div>
+
+                        {/* Card Body */}
+                        <div className="p-3.5 flex-1 flex flex-col justify-between text-left">
+                          <div>
+                            <h3 className={cn(
+                              "font-serif font-bold text-sm leading-snug line-clamp-1 transition-colors",
+                              theme === "dark" ? "text-white group-hover:text-gold-light" : "text-slate-900"
+                            )}>
+                              {item.name}
+                            </h3>
+                            <p className={cn(
+                              "text-xs mt-1 line-clamp-2",
+                              theme === "dark" ? "text-slate-300" : "text-slate-500"
+                            )}>
+                              {isSpot ? item.location : `${item.cuisine} • ${item.priceRange}`}
+                            </p>
+                          </div>
+
+                          <div className={cn(
+                            "mt-3.5 pt-2.5 border-t flex items-center justify-between text-xs",
+                            theme === "dark" ? "border-gold/15" : "border-slate-100"
+                          )}>
+                            <span className={cn(
+                              "font-medium truncate max-w-[150px]",
+                              theme === "dark" ? "text-gold-light/90" : "text-slate-600"
+                            )}>
+                              {isSpot ? (item.ticketPrice || "Free Entry") : (item.priceRange || "Authentic Mysuru")}
+                            </span>
+                            <span className={cn(
+                              "font-semibold flex items-center gap-0.5 hover:underline",
+                              theme === "dark" ? "text-gold" : "text-maroon"
+                            )}>
+                              Details →
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
-        </div>
-      )}
+        )}
+      </motion.div>
     </div>
   );
 }
@@ -565,8 +644,16 @@ const MYSURU_FEATURES = [
   },
 ];
 
+const STITCH_PROMPTS = [
+  { emoji: "👑", label: "Royal day plan", prompt: "Plan a one-day royal heritage tour of Mysuru" },
+  { emoji: "🏛️", label: "Palace route", prompt: "Tell me about Mysore Palace and illumination timings" },
+  { emoji: "🍛", label: "Mysuru feast", prompt: "Which restaurants are recommended for authentic Mysuru food?" },
+  { emoji: "📷", label: "Photo moments", prompt: "Where are the best photography spots in Mysuru?" },
+  { emoji: "🛡️", label: "Safe travel", prompt: "What are the emergency numbers and safety guidelines in Mysuru?" },
+];
+
 export default function Chat() {
-  const { theme } = useAppSettings();
+  const { theme, setTheme } = useAppSettings();
   const [activeId, setActiveId] = useState<number | null>(null);
   const [inputText, setInputText] = useState("");
   const [streamingText, setStreamingText] = useState("");
@@ -784,10 +871,72 @@ export default function Chat() {
     }
   }, [conversations, activeId, createConv]);
 
-  // Scroll to bottom
+  // Dedicated scroll container ref & scroll position tracking
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isAtBottom, setIsAtBottom] = useState(true);
+  const [showJumpButton, setShowJumpButton] = useState(false);
+
+  // Deterministic scroll position detection (locks to bottom unless user scrolls up > 100px)
+  const handleScroll = () => {
+    if (!scrollContainerRef.current) return;
+    const { scrollTop, scrollHeight, clientHeight } = scrollContainerRef.current;
+    const distanceFromBottom = scrollHeight - (scrollTop + clientHeight);
+    const atBottom = distanceFromBottom < 100;
+    setIsAtBottom(atBottom);
+    setShowJumpButton(!atBottom);
+  };
+
+  const scrollToBottom = (smooth = true) => {
+    if (!scrollContainerRef.current) return;
+    if (smooth) {
+      scrollContainerRef.current.scrollTo({
+        top: scrollContainerRef.current.scrollHeight,
+        behavior: "smooth",
+      });
+    } else {
+      scrollContainerRef.current.scrollTop = scrollContainerRef.current.scrollHeight;
+    }
+    setIsAtBottom(true);
+    setShowJumpButton(false);
+  };
+
+  // Only auto-scroll when user is already at the bottom (never yank viewport down when reading above)
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [conversationData?.messages, streamingText, activeId]);
+    if (!scrollContainerRef.current) return;
+    if (isAtBottom) {
+      scrollContainerRef.current.scrollTop = scrollContainerRef.current.scrollHeight;
+    }
+  }, [streamingText, conversationData?.messages]);
+
+  // When activeId changes, initialize scroll to bottom
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      scrollToBottom(false);
+    }, 80);
+    return () => clearTimeout(timer);
+  }, [activeId]);
+
+  // Desktop Collapsible Sidebar state (persisted across route changes in localStorage)
+  const [isDesktopSidebarOpen, setIsDesktopSidebarOpen] = useState<boolean>(() => {
+    if (typeof window !== "undefined") {
+      const urlParam = new URLSearchParams(window.location.search).get("sidebar");
+      if (urlParam === "closed" || urlParam === "false") return false;
+      if (urlParam === "open" || urlParam === "true") return true;
+      const saved = localStorage.getItem("nammamysuru_sidebar_open");
+      if (saved !== null) return saved === "true";
+    }
+    return false; // Default collapsed by default as required by Stitch specification!
+  });
+
+  const toggleDesktopSidebar = () => {
+    setIsDesktopSidebarOpen((prev) => {
+      const next = !prev;
+      if (typeof window !== "undefined") {
+        localStorage.setItem("nammamysuru_sidebar_open", String(next));
+      }
+      return next;
+    });
+  };
 
   const handleNewChat = async () => {
     const c = await createConv("New Chat");
@@ -817,6 +966,11 @@ export default function Chat() {
         textareaRef.current.style.height = "auto";
       }
 
+      // Re-anchor to bottom when user explicitly submits a message
+      setIsAtBottom(true);
+      setShowJumpButton(false);
+      setTimeout(() => scrollToBottom(true), 40);
+
       await sendMessage({
         id: activeId,
         content: textToSend,
@@ -841,43 +995,103 @@ export default function Chat() {
   };
 
   const SidebarContent = () => (
-    <div className="flex flex-col h-full">
-      <div className="p-4 border-b">
-        <Button onClick={handleNewChat} className="w-full gap-2 bg-primary hover:bg-primary/90 text-white shadow-md transition-all hover:scale-[1.02]">
-          <Plus className="w-4 h-4" /> New Conversation
+    <div className={cn(
+      "flex flex-col h-full transition-colors duration-300",
+      theme === "dark" ? "bg-dusk-900 border-r border-gold/20" : "bg-parchment-100 border-r border-[#E6DECE]"
+    )}>
+      {/* Sidebar Top Header with New Conversation & Desktop Collapse Button */}
+      <div className={cn(
+        "p-3.5 border-b flex items-center justify-between gap-2 shrink-0",
+        theme === "dark" ? "border-gold/15" : "border-[#E8DFC9]/70"
+      )}>
+        <button
+          onClick={handleNewChat}
+          className={cn(
+            "flex-1 py-2.5 px-4 font-semibold text-sm flex items-center justify-center gap-2 rounded-xl shadow-sm transition-all active:scale-[0.98]",
+            theme === "dark"
+              ? "bg-gradient-to-r from-maroon via-maroon-dark to-maroon text-gold-light border border-gold/40 hover:border-gold hover:shadow-gold-glow shadow-md"
+              : "bg-maroon hover:bg-maroon-dark text-white"
+          )}
+        >
+          <Plus className={cn("w-4 h-4", theme === "dark" ? "text-gold" : "text-white")} />
+          <span>New Conversation</span>
+        </button>
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={toggleDesktopSidebar}
+          className={cn(
+            "hidden md:flex h-9 w-9 rounded-xl transition-colors shrink-0",
+            theme === "dark" ? "text-gold-light/70 hover:text-gold hover:bg-dusk-800" : "text-slate-500 hover:text-maroon hover:bg-parchment-200"
+          )}
+          title="Collapse sidebar"
+        >
+          <PanelLeftClose className="w-4 h-4" />
         </Button>
       </div>
-      <ScrollArea className="flex-grow p-4">
-        <div className="space-y-2">
+
+      {/* History Items Section */}
+      <ScrollArea className="flex-grow px-2.5 py-3">
+        <div className="space-y-1.5">
+          <div className={cn(
+            "px-2 pb-1 text-[11px] font-bold uppercase tracking-wider",
+            theme === "dark" ? "text-gold/60" : "text-slate-400"
+          )}>
+            Recents
+          </div>
+
           {isLoadingConvs ? (
-            <div className="text-center text-muted-foreground py-4">Loading chats...</div>
+            <div className="text-center text-xs text-muted-foreground py-6 animate-pulse">Loading conversations...</div>
+          ) : conversations?.length === 0 ? (
+            <div className="text-center text-xs text-muted-foreground py-6">No previous chats. Start a new one!</div>
           ) : conversations?.map((conv) => (
             <div
               key={conv.id}
               onClick={() => { setActiveId(conv.id); setIsSidebarOpen(false); }}
               className={cn(
-                "group flex items-center justify-between p-3 rounded-xl cursor-pointer transition-all border",
+                "group relative flex items-start gap-2.5 sm:gap-3 p-2.5 rounded-xl transition-all cursor-pointer text-left border",
                 activeId === conv.id
-                  ? "bg-secondary/15 border-secondary/30 shadow-sm"
-                  : "hover:bg-muted border-transparent"
+                  ? (theme === "dark"
+                      ? "bg-dusk-800 border-gold/35 shadow-md text-white"
+                      : "bg-white border-[#E0D5C1] shadow-xs text-slate-900")
+                  : (theme === "dark"
+                      ? "border-transparent text-slate-300 hover:bg-dusk-800/80 hover:text-white"
+                      : "border-transparent text-slate-600 hover:bg-white/70 hover:text-slate-900")
               )}
             >
-              <div className="flex items-center gap-3 overflow-hidden">
-                <MessageSquare className={cn("w-4 h-4 flex-shrink-0", activeId === conv.id ? "text-secondary" : "text-muted-foreground")} />
-                <div className="flex flex-col overflow-hidden">
-                  <span className={cn("truncate font-medium text-sm", activeId === conv.id ? "text-foreground" : "text-muted-foreground group-hover:text-foreground")}>
-                    {conv.title || "New Chat"}
-                  </span>
-                  <span className="text-[10px] text-muted-foreground/70">
-                    {format(new Date(conv.createdAt ?? new Date()), "MMM d, h:mm a")}
-                  </span>
-                </div>
+              {/* Vertical Accent Pill for Active Item */}
+              <div className={cn(
+                "w-1.5 h-6 rounded-full self-center shrink-0 transition-all",
+                activeId === conv.id
+                  ? (theme === "dark" ? "bg-gold shadow-[0_0_8px_#F3C246]" : "bg-maroon")
+                  : "bg-transparent"
+              )} />
+
+              <MessageSquare className={cn(
+                "w-4 h-4 mt-0.5 shrink-0 transition-colors",
+                activeId === conv.id
+                  ? (theme === "dark" ? "text-gold" : "text-maroon")
+                  : (theme === "dark" ? "text-slate-500 group-hover:text-gold" : "text-slate-400 group-hover:text-slate-600")
+              )} />
+
+              <div className="min-w-0 flex-1">
+                <h4 className="text-xs font-semibold truncate leading-tight">
+                  {conv.title || "New Chat"}
+                </h4>
+                <p className={cn(
+                  "text-[10px] mt-0.5",
+                  theme === "dark" ? "text-slate-400" : "text-slate-500"
+                )}>
+                  {format(new Date(conv.createdAt ?? new Date()), "MMM d, h:mm a")}
+                </p>
               </div>
+
               <Button
                 variant="ghost"
                 size="icon"
-                className="h-6 w-6 opacity-0 group-hover:opacity-100 transition-opacity text-muted-foreground hover:text-destructive"
+                className="h-6 w-6 opacity-0 group-hover:opacity-100 transition-opacity text-muted-foreground hover:text-destructive flex-shrink-0 ml-1"
                 onClick={(e) => handleDeleteChat(e, conv.id)}
+                title="Delete chat"
               >
                 <Trash2 className="w-3 h-3" />
               </Button>
@@ -885,221 +1099,384 @@ export default function Chat() {
           ))}
         </div>
       </ScrollArea>
+
+      {/* Sidebar Footer — Wadiyar Era Gateway */}
+      <div className={cn(
+        "p-3 border-t text-[11px] flex items-center justify-between shrink-0",
+        theme === "dark"
+          ? "border-gold/20 bg-dusk-950 text-slate-400"
+          : "border-[#E8DFC9]/70 bg-parchment-200/50 text-slate-500"
+      )}>
+        <span className="flex items-center gap-1.5 font-medium">
+          <span className={cn(
+            "h-2 w-2 rounded-full",
+            theme === "dark" ? "bg-gold shadow-[0_0_6px_#F3C246]" : "bg-emerald-500"
+          )}></span>
+          Gateway v2.4 (Wadiyar Era)
+        </span>
+        <span className={cn("font-bold", theme === "dark" ? "text-gold" : "text-[#C59B27]")}>
+          ಕನ್ನಡ
+        </span>
+      </div>
     </div>
   );
 
   return (
-    <div
-      className="h-screen h-dvh flex flex-col overflow-hidden bg-background bg-cover bg-center"
-      style={{
-        backgroundImage: `${theme === "dark"
-          ? "linear-gradient(rgba(18, 3, 8, 0.86), rgba(18, 3, 8, 0.78))"
-          : "linear-gradient(rgba(255, 250, 240, 0.9), rgba(255, 250, 240, 0.86))"
-          }, url('/images/royal-silk-pattern.svg')`,
-      }}
-    >
+    <div className="h-screen h-dvh flex flex-col overflow-hidden bg-heritage-pattern">
       <Header />
 
       <main className="relative flex min-h-0 w-full flex-grow overflow-hidden">
-        {/* Desktop Sidebar */}
-        <aside className="hidden w-80 flex-col border-r bg-white/70 backdrop-blur-sm dark:bg-card/80 md:flex">
-          <SidebarContent />
+        {/* Desktop Collapsible Sidebar (ChatGPT-style collapse with state persistence) */}
+        <aside
+          className={cn(
+            "hidden md:flex flex-col flex-shrink-0 transition-all duration-300 ease-in-out overflow-hidden z-20",
+            isDesktopSidebarOpen
+              ? "w-72 lg:w-80 opacity-100"
+              : "w-0 opacity-0 border-r-0 pointer-events-none"
+          )}
+        >
+          <div className="w-72 lg:w-80 h-full flex flex-col">
+            <SidebarContent />
+          </div>
         </aside>
 
-        {/* Mobile Header / Sidebar Trigger */}
-        <div className="md:hidden absolute top-4 left-4 z-20">
-          <Sheet open={isSidebarOpen} onOpenChange={setIsSidebarOpen}>
-            <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="shadow-md bg-white dark:bg-card dark:text-foreground dark:border-secondary/30">
-                <Menu className="w-5 h-5" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="left" className="w-[80%] max-w-[300px] p-0">
-              <SidebarContent />
-            </SheetContent>
-          </Sheet>
-        </div>
+        {/* Mobile Slide-Over Drawer Sheet */}
+        <Sheet open={isSidebarOpen} onOpenChange={setIsSidebarOpen}>
+          <SheetContent side="left" className="w-[85%] max-w-[320px] p-0 border-r border-gold/30">
+            <SidebarContent />
+          </SheetContent>
+        </Sheet>
 
-        {/* Chat Container */}
-        <div className="relative mx-auto flex min-h-0 w-full max-w-5xl flex-grow flex-col overflow-hidden px-4 pb-3 pt-4 md:px-8 md:pb-4 md:pt-5">
-          {/* Header Area */}
-          {!hasMessages ? (
-            <div className="mb-3 pl-12 text-center md:mb-4 md:pl-0">
-              <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 shadow-sm dark:border-emerald-500/30 dark:bg-emerald-950">
-                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-xs font-semibold text-emerald-800 dark:text-emerald-200">NammaMysuru.ai Online</span>
-              </div>
-              <h1 className="flex flex-col items-center justify-center gap-1 font-serif text-xl font-bold text-primary sm:text-2xl md:flex-row md:gap-2 md:text-3xl">
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={greetingIndex}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.5 }}
-                    className="inline-block min-w-[120px] text-center text-primary md:text-right"
-                  >
-                    {ROYAL_GREETINGS[greetingIndex]}!
-                  </motion.span>
-                </AnimatePresence>
-                <span>{copy.headline}</span>
-              </h1>
-              <p className="mx-auto mt-1 hidden max-w-xl text-xs font-medium text-muted-foreground sm:block sm:text-sm">
-                {copy.intro}
-              </p>
-            </div>
-          ) : (
-            <div className="mb-2 flex items-center justify-between pl-12 md:pl-0">
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 shadow-sm dark:border-emerald-500/30 dark:bg-emerald-950">
-                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-xs font-semibold text-emerald-800 dark:text-emerald-200">NammaMysuru.ai Online</span>
-              </div>
-              <h2 className="font-serif font-bold text-sm text-primary uppercase tracking-wider hidden sm:block">
-                {conversationData?.title || "Royal Consultation"}
-              </h2>
-            </div>
-          )}
+        {/* Main Conversation Region (Unified Workspace integrating output and composer) */}
+        <div className="relative flex flex-col flex-1 min-h-0 w-full overflow-hidden transition-all duration-300 p-2 sm:p-3 md:p-5">
 
-          {!hasMessages && (
-            <div className="mb-3 flex gap-3 overflow-x-auto pb-1 sm:grid sm:grid-cols-3 sm:overflow-visible sm:pb-0 md:mb-4">
-              {MYSURU_FEATURES.map((item) => (
-                <button
-                  key={item.title}
-                  onClick={() => handleUseSuggestion(`Tell me about ${item.title}`)}
-                  className="group relative min-h-[64px] min-w-[176px] overflow-hidden rounded-lg border border-secondary/30 text-left shadow-lg transition hover:-translate-y-0.5 hover:border-secondary sm:min-w-0 sm:min-h-[86px] md:min-h-[92px]"
-                >
-                  <img src={item.image} alt="" className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/55 to-black/25" />
-                  <div className="relative z-10 p-2.5 sm:p-3 md:p-4">
-                    <div className="text-sm font-bold text-secondary">{item.title}</div>
-                    <div className="mt-1 hidden max-w-[13rem] text-xs leading-relaxed text-white/85 sm:block">{item.subtitle}</div>
-                  </div>
-                </button>
-              ))}
-            </div>
-          )}
-
-          {/* Chat Area */}
-          <div className="relative mb-3 min-h-0 flex-1 overflow-y-auto rounded-lg border border-secondary/35 bg-white/90 p-4 shadow-2xl backdrop-blur-md dark:bg-card/90 md:mb-4 md:p-8">
-            {isLoadingConv ? (
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="flex flex-col items-center gap-4">
-                  <Loader2 className="w-10 h-10 text-primary animate-spin" />
-                  <p className="text-primary font-serif animate-pulse">Connecting to NammaMysuru.ai...</p>
-                </div>
-              </div>
-            ) : (
-              <>
-                {conversationData?.messages?.map((msg) => (
-                  <ChatMessage
-                    key={msg.id}
-                    messageId={msg.id}
-                    role={msg.role as "user" | "assistant"}
-                    content={msg.content}
-                    assistantTitle={copy.assistantTitle}
-                    speakingMsgId={speakingMsgId}
-                    onSpeak={handleSpeak}
-                    copiedId={copiedId}
-                    onCopy={handleCopy}
-                    spots={spots}
-                    restaurants={restaurants}
-                    onOpenDetail={setSelectedItem}
-                  />
-                ))}
-
-                {/* Streaming Content */}
-                {streamingText && (
-                  <ChatMessage
-                    messageId={-1}
-                    role="assistant"
-                    content={streamingText}
-                    assistantTitle={copy.assistantTitle}
-                    speakingMsgId={speakingMsgId}
-                    onSpeak={handleSpeak}
-                    copiedId={copiedId}
-                    onCopy={handleCopy}
-                    spots={spots}
-                    restaurants={restaurants}
-                    onOpenDetail={setSelectedItem}
-                  />
+          {/* Top Status Bar Controls Strip */}
+          <section className="flex flex-wrap items-center justify-between gap-2.5 mb-2.5 px-1 shrink-0">
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              {/* Desktop Toggle Button */}
+              <button
+                type="button"
+                onClick={toggleDesktopSidebar}
+                className={cn(
+                  "hidden md:flex p-2 rounded-xl transition-colors shadow-xs border items-center justify-center",
+                  theme === "dark"
+                    ? "bg-dusk-900 hover:bg-dusk-800 border-gold/30 text-gold-light shadow-sm"
+                    : "bg-white hover:bg-parchment-200 border-[#DFD6C6] text-slate-600"
                 )}
-
-                {isSending && !streamingText && (
-                  <TypingIndicator label={copy.typing} />
+                title={isDesktopSidebarOpen ? "Collapse sidebar" : "Open sidebar"}
+                aria-label="Toggle Sidebar"
+              >
+                {isDesktopSidebarOpen ? (
+                  <PanelLeftClose className="w-4 h-4" />
+                ) : (
+                  <PanelLeftOpen className="w-4 h-4" />
                 )}
+              </button>
 
-                <div ref={messagesEndRef} />
-              </>
-            )}
+              {/* Mobile Toggle Button */}
+              <button
+                type="button"
+                onClick={() => setIsSidebarOpen(true)}
+                className={cn(
+                  "md:hidden p-2 rounded-xl transition-colors shadow-xs border flex items-center justify-center",
+                  theme === "dark"
+                    ? "bg-dusk-900 hover:bg-dusk-800 border-gold/30 text-gold-light"
+                    : "bg-white hover:bg-parchment-200 border-[#DFD6C6] text-slate-600"
+                )}
+                title="Open conversation menu"
+                aria-label="Open conversation menu"
+              >
+                <Menu className="w-4 h-4" />
+              </button>
 
-            {(!conversationData?.messages || conversationData.messages.length === 0) && !streamingText && (
-              <div className="h-full flex flex-col items-center justify-center text-center px-6">
-                <div className="mb-5 flex h-20 w-20 items-center justify-center rounded-lg border border-secondary/30 bg-secondary/15 shadow-inner">
-                  <Crown className="h-10 w-10 text-secondary" />
-                </div>
-                <h2 className="mb-2 font-serif text-2xl font-bold text-primary">{copy.welcomeTitle}</h2>
-                <p className="max-w-md text-muted-foreground">{copy.welcomeBody}</p>
-                <div className="mt-6 flex max-w-xl flex-wrap justify-center gap-2">
-                  {copy.suggestions.map((prompt) => (
-                    <button
-                      key={prompt}
-                      onClick={() => handleUseSuggestion(prompt)}
-                      className="rounded-lg border border-border dark:border-secondary/30 bg-white dark:bg-card px-3 py-2 text-sm text-foreground shadow-sm transition hover:border-primary/30 hover:text-primary"
-                    >
-                      {prompt}
-                    </button>
-                  ))}
-                </div>
+              {/* Online Status Pill */}
+              <div className={cn(
+                "inline-flex items-center gap-2 px-3 py-1 rounded-full shadow-xs text-xs font-semibold border",
+                theme === "dark"
+                  ? "bg-dusk-900 border-emerald-500/40 text-emerald-400"
+                  : "bg-white/90 border-emerald-200/80 text-emerald-800"
+              )}>
+                <span className={cn(
+                  "h-2 w-2 rounded-full",
+                  theme === "dark" ? "bg-emerald-400 animate-pulse shadow-[0_0_8px_#34D399]" : "bg-emerald-500 animate-pulse"
+                )}></span>
+                <span>NammaMysuru.ai Online</span>
               </div>
-            )}
-          </div>
 
-          {/* Input Area */}
-          <div className="relative group px-1 pb-20 md:pb-4">
-            <div className="flex flex-col gap-2 rounded-lg border border-primary/20 bg-white/92 p-3 shadow-2xl backdrop-blur-md transition-all duration-300 group-focus-within:border-primary/40 group-focus-within:shadow-primary/10 dark:bg-card/95 md:p-4">
-              <div className="flex gap-2 overflow-x-auto pb-1">
-                {copy.actions.map((item) => {
-                  const Icon = item.icon;
-                  return (
-                    <button
-                      key={item.label}
-                      onClick={() => handleUseSuggestion(item.prompt)}
-                      className="flex min-w-fit items-center gap-2 rounded-md border border-secondary/30 bg-secondary/10 px-2.5 py-1.5 text-xs font-bold text-primary transition-all hover:-translate-y-0.5 hover:border-secondary hover:bg-secondary/20 md:px-3 md:py-2"
-                    >
-                      <Icon className="h-3.5 w-3.5 text-secondary" />
-                      {item.label}
-                    </button>
-                  );
-                })}
-              </div>
+              {/* Active Conversation Title */}
+              {hasMessages ? (
+                <span className={cn(
+                  "hidden sm:inline-flex items-center text-xs font-semibold uppercase tracking-widest gap-1.5 truncate max-w-[200px] lg:max-w-xs",
+                  theme === "dark" ? "text-gold-light" : "text-maroon"
+                )}>
+                  <span>•</span>
+                  <span className="truncate">{conversationData?.title || "Royal Consultation"}</span>
+                </span>
+              ) : null}
+            </div>
+
+            {/* Right Controls: Quick Theme Toggle & Language Strip */}
+            <div className="flex items-center space-x-2">
+              {/* Quick 1-Click Theme Toggle Button */}
+              <button
+                type="button"
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className={cn(
+                  "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold border transition-all shadow-xs",
+                  theme === "dark"
+                    ? "bg-dusk-900 border-gold/35 text-gold hover:text-gold-light hover:bg-dusk-800"
+                    : "bg-white border-[#DFD6C6] text-slate-600 hover:text-maroon hover:bg-parchment-200"
+                )}
+                title={theme === "dark" ? "Switch to Light Theme (Design 1)" : "Switch to Royal Evening Dark Theme (Design 3)"}
+              >
+                {theme === "dark" ? <Sun className="w-3.5 h-3.5 text-gold" /> : <Moon className="w-3.5 h-3.5 text-maroon" />}
+                <span className="hidden sm:inline">{theme === "dark" ? "Dark (Design 3)" : "Light (Design 1)"}</span>
+              </button>
 
               {/* Language Selector */}
-              <div className="flex flex-wrap items-center justify-center gap-2">
-                <div className="mr-1 flex items-center gap-1 text-xs font-semibold text-muted-foreground">
-                  <Languages className="h-3.5 w-3.5" />
-                  {copy.replyLabel}
-                </div>
+              <div className={cn(
+                "flex items-center space-x-1 border rounded-full p-0.5 sm:p-1 text-xs",
+                theme === "dark"
+                  ? "bg-dusk-900/90 border-gold/25 shadow-md"
+                  : "bg-white/90 border-[#E3D9CC] shadow-xs"
+              )}>
+                <span className="text-slate-400 pl-2 pr-1 font-serif text-[11px] hidden xs:inline">
+                  Reply in:
+                </span>
                 {LANGUAGES.map((lang) => (
                   <button
                     key={lang}
                     onClick={() => setLanguage(lang)}
                     className={cn(
-                      "rounded-md border px-2.5 py-0.5 text-xs font-bold uppercase transition-all duration-200 md:px-3 md:py-1",
+                      "rounded-full px-2 sm:px-2.5 py-0.5 text-[11px] font-bold transition-all duration-200",
                       language === lang
-                        ? "bg-primary text-primary-foreground border-primary"
-                        : "bg-transparent text-muted-foreground border-transparent hover:bg-secondary/10 hover:text-primary"
+                        ? (theme === "dark"
+                            ? "bg-gradient-to-r from-maroon to-maroon-dark text-gold font-medium border border-gold/40 shadow-[0_0_10px_rgba(243,194,70,0.2)]"
+                            : "bg-maroon text-white font-medium shadow-xs")
+                        : (theme === "dark"
+                            ? "text-slate-300 hover:text-gold"
+                            : "text-slate-600 hover:text-slate-900")
                     )}
                   >
                     {SAFE_LANGUAGE_DISPLAY[lang]}
                   </button>
                 ))}
               </div>
+            </div>
+          </section>
 
-              <div className="flex items-end gap-3">
+          {/* ONE Single Cohesive Master Panel (Upper Chat Stream + Bottom Composer) */}
+          <section className={cn(
+            "flex-1 rounded-3xl flex flex-col overflow-hidden relative transition-colors duration-300",
+            theme === "dark"
+              ? "bg-dusk-900/90 backdrop-blur-xl border border-gold/30 shadow-royal-glow"
+              : "bg-white/85 backdrop-blur-md border border-[#DFD6C6] shadow-royal"
+          )}>
+
+            {/* Main Messages Viewport (Scrolls independently within unified workspace) */}
+            <div
+              ref={scrollContainerRef}
+              onScroll={handleScroll}
+              className="flex-1 min-h-0 overflow-y-auto px-4 sm:px-6 md:px-8 py-4 sm:py-6 scrollbar-thin"
+            >
+              {/* Empty / Welcome State matching Stitch Design 1 & 3 */}
+              {!hasMessages && !streamingText && (
+                <div className="w-full max-w-4xl mx-auto py-2 sm:py-4">
+                  {/* Royal AI Concierge Welcome Card */}
+                  <article className={cn(
+                    "rounded-2xl border p-5 sm:p-6 shadow-xs relative text-left mb-6 transition-all",
+                    theme === "dark"
+                      ? "bg-gradient-to-b from-[#21141C] to-[#180A12] border-gold/25 shadow-md text-[#F7F3E9]"
+                      : "bg-gradient-to-b from-[#FFFDF9] to-[#FAF6EE] border-[#EBE2D3] shadow-xs text-slate-800"
+                  )}>
+                    <div className={cn(
+                      "flex items-center gap-3 pb-4 border-b mb-4",
+                      theme === "dark" ? "border-gold/20" : "border-gold/15"
+                    )}>
+                      <div className={cn(
+                        "h-10 w-10 rounded-xl flex items-center justify-center shrink-0 border",
+                        theme === "dark"
+                          ? "bg-gradient-to-br from-maroon to-maroon-deep text-gold-light border-gold/50 shadow-[0_0_12px_rgba(243,194,70,0.2)]"
+                          : "bg-maroon text-gold-light border-gold/30 shadow-xs"
+                      )}>
+                        <Crown className="w-5 h-5 text-gold-light" />
+                      </div>
+                      <div>
+                        <span className={cn(
+                          "text-[11px] font-bold tracking-[0.2em] uppercase",
+                          theme === "dark" ? "text-gold" : "text-maroon"
+                        )}>
+                          Concierge
+                        </span>
+                        <p className={cn(
+                          "text-xs",
+                          theme === "dark" ? "text-amber-100/70" : "text-slate-500"
+                        )}>
+                          Royal Heritage AI • Wadiyar Dynasty &amp; Cultural Guide
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="space-y-3">
+                      <p className={cn(
+                        "font-serif text-lg md:text-xl font-semibold italic",
+                        theme === "dark"
+                          ? "text-gold-light drop-shadow-[0_0_10px_rgba(243,194,70,0.3)]"
+                          : "text-maroon"
+                      )}>
+                        Namaskara! Welcome to the royal realm of Mysuru.
+                      </p>
+                      <p className={cn(
+                        "text-sm md:text-[15px] leading-relaxed",
+                        theme === "dark" ? "text-amber-50/90" : "text-slate-700"
+                      )}>
+                        Experience the royal charm of Mysuru. From the opulence of Amba Vilas illuminated against the night sky, to the delicate teakwood ceilings of Tipu Sultan’s Dariya Daulat Bagh and savoring iconic Mylari dosas, I am delighted to assist you with every detail of your journey today.
+                      </p>
+                    </div>
+                  </article>
+
+                  {/* Stitch Suggested Prompt Chips Grid */}
+                  <div className="space-y-2 text-center">
+                    <div className={cn(
+                      "text-xs font-bold uppercase tracking-wider mb-2",
+                      theme === "dark" ? "text-gold/70" : "text-maroon/70"
+                    )}>
+                      Suggested Inquiries
+                    </div>
+                    <div className="flex flex-wrap justify-center gap-2 sm:gap-2.5">
+                      {STITCH_PROMPTS.map((item) => (
+                        <button
+                          key={item.label}
+                          onClick={() => handleUseSuggestion(item.prompt)}
+                          className={cn(
+                            "whitespace-nowrap px-3.5 py-1.5 rounded-full flex items-center gap-1.5 transition-all text-xs font-medium",
+                            theme === "dark"
+                              ? "bg-dusk-800 hover:bg-gold/20 border border-gold/30 hover:border-gold text-slate-200 hover:text-gold-light shadow-sm"
+                              : "bg-white hover:bg-gold/15 border border-[#DECDB8] text-slate-700 hover:text-maroon shadow-2xs"
+                          )}
+                        >
+                          <span>{item.emoji}</span>
+                          <span>{item.label}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {isLoadingConv ? (
+                <div className="h-full flex items-center justify-center py-20">
+                  <div className="flex flex-col items-center gap-4">
+                    <Loader2 className={cn("w-10 h-10 animate-spin", theme === "dark" ? "text-gold" : "text-maroon")} />
+                    <p className={cn("font-serif animate-pulse", theme === "dark" ? "text-gold" : "text-maroon")}>
+                      Connecting to NammaMysuru.ai Concierge...
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  {conversationData?.messages?.map((msg) => (
+                    <ChatMessage
+                      key={msg.id}
+                      messageId={msg.id}
+                      role={msg.role as "user" | "assistant"}
+                      content={msg.content}
+                      assistantTitle={copy.assistantTitle}
+                      speakingMsgId={speakingMsgId}
+                      onSpeak={handleSpeak}
+                      copiedId={copiedId}
+                      onCopy={handleCopy}
+                      spots={spots}
+                      restaurants={restaurants}
+                      onOpenDetail={setSelectedItem}
+                    />
+                  ))}
+
+                  {/* Streaming Content */}
+                  {streamingText && (
+                    <ChatMessage
+                      messageId={-1}
+                      role="assistant"
+                      content={streamingText}
+                      assistantTitle={copy.assistantTitle}
+                      speakingMsgId={speakingMsgId}
+                      onSpeak={handleSpeak}
+                      copiedId={copiedId}
+                      onCopy={handleCopy}
+                      spots={spots}
+                      restaurants={restaurants}
+                      onOpenDetail={setSelectedItem}
+                    />
+                  )}
+
+                  {isSending && !streamingText && (
+                    <TypingIndicator label={copy.typing} />
+                  )}
+
+                  <div ref={messagesEndRef} />
+                </>
+              )}
+            </div>
+
+            {/* Floating Jump to Latest Button (Inside unified workspace) */}
+            <AnimatePresence>
+              {showJumpButton && (
+                <motion.button
+                  initial={{ opacity: 0, y: 10, scale: 0.9 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 10, scale: 0.9 }}
+                  onClick={() => scrollToBottom(true)}
+                  className={cn(
+                    "absolute bottom-28 right-6 z-30 flex items-center gap-2 rounded-full px-4 py-2 text-xs font-bold shadow-2xl backdrop-blur-md border transition-all hover:scale-105 active:scale-95",
+                    theme === "dark"
+                      ? "bg-maroon-dark/95 text-gold-light border-gold/40 shadow-[0_0_15px_rgba(243,194,70,0.3)]"
+                      : "bg-maroon/95 text-white border-gold/40 shadow-royal"
+                  )}
+                >
+                  <span>Jump to latest</span>
+                  <ArrowDown className="h-3.5 w-3.5 animate-bounce" />
+                </motion.button>
+              )}
+            </AnimatePresence>
+
+            {/* Lower Integrated Composer Area: Suggested Prompt Chips + Roomy Multiline Bar */}
+            <footer className={cn(
+              "p-3 sm:p-4 md:p-5 shrink-0 border-t transition-colors",
+              theme === "dark"
+                ? "bg-gradient-to-t from-dusk-950 via-dusk-900 to-dusk-850 border-gold/20"
+                : "bg-gradient-to-t from-[#FAF7F2] to-white/90 border-[#E8DFC9]"
+            )}>
+              {/* Suggested Prompt Pills */}
+              <div className="flex items-center gap-2 overflow-x-auto pb-2.5 sm:pb-3 scrollbar-none text-xs font-medium">
+                {STITCH_PROMPTS.map((chip) => (
+                  <button
+                    key={chip.label}
+                    type="button"
+                    onClick={() => handleUseSuggestion(chip.prompt)}
+                    className={cn(
+                      "whitespace-nowrap px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full flex items-center gap-1.5 transition-all text-xs shrink-0",
+                      theme === "dark"
+                        ? "bg-dusk-800 hover:bg-gold/20 border border-gold/30 hover:border-gold text-slate-200 hover:text-gold-light shadow-sm hover:shadow-[0_0_12px_rgba(243,194,70,0.2)]"
+                        : "bg-white hover:bg-gold/15 border border-[#DECDB8] text-slate-700 hover:text-maroon shadow-2xs"
+                    )}
+                  >
+                    <span>{chip.emoji}</span>
+                    <span>{chip.label}</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* Main Input Form Container */}
+              <form
+                className="relative flex items-center"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSend();
+                }}
+              >
                 <textarea
                   ref={textareaRef}
-                  placeholder={hasMessages ? copy.placeholderContinue : copy.placeholderNew}
-                  className="min-h-[24px] flex-grow resize-none border-none bg-transparent py-1.5 font-medium text-foreground placeholder:text-muted-foreground/50 focus:ring-0 md:py-2"
+                  autoComplete="off"
                   rows={1}
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
@@ -1109,40 +1486,67 @@ export default function Chat() {
                       handleSend();
                     }
                   }}
+                  placeholder={hasMessages ? copy.placeholderContinue : copy.placeholderNew}
+                  className={cn(
+                    "w-full resize-none text-sm md:text-base rounded-2xl pl-4 sm:pl-5 pr-28 py-3.5 focus:outline-hidden shadow-inner transition-all min-h-[50px] max-h-[140px] leading-relaxed",
+                    theme === "dark"
+                      ? "bg-dusk-950 border border-gold/30 text-slate-100 placeholder-amber-200/40 focus:ring-2 focus:ring-gold/30 focus:border-gold"
+                      : "bg-[#FAF7F0] border border-[#DDD3C2] text-slate-800 placeholder-slate-400 focus:ring-2 focus:ring-maroon/20 focus:border-maroon"
+                  )}
                 />
 
-                {/* Microphone Button */}
-                <button
-                  type="button"
-                  onClick={toggleListening}
-                  className={cn(
-                    "mb-1 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border transition-all relative overflow-hidden shadow-md",
-                    isListening
-                      ? "bg-red-500 text-white border-red-500 hover:bg-red-600"
-                      : "bg-white dark:bg-card border-primary/20 dark:border-secondary/30 text-primary dark:text-foreground hover:bg-secondary/15"
-                  )}
-                  title={isListening ? "Listening... Click to stop" : "Speak to type"}
-                >
-                  {isListening ? (
-                    <>
-                      <span className="absolute inset-0 rounded-lg bg-red-500 animate-ping opacity-75" />
-                      <MicOff className="h-5 w-5 relative z-10" />
-                    </>
-                  ) : (
-                    <Mic className="h-5 w-5" />
-                  )}
-                </button>
+                {/* Right-side input actions */}
+                <div className="absolute right-2.5 bottom-2.5 flex items-center space-x-1 sm:space-x-1.5">
+                  {/* Verified Mysuru Heritage Knowledge Base Badge */}
+                  <span
+                    className={cn(
+                      "hidden sm:inline-flex items-center justify-center p-1.5 rounded-lg transition-colors",
+                      theme === "dark" ? "text-emerald-400 hover:bg-emerald-950/40" : "text-emerald-600 hover:bg-emerald-50"
+                    )}
+                    title="Verified Mysuru Heritage Knowledge Base"
+                  >
+                    <ShieldCheck className="w-4 h-4" />
+                  </span>
 
-                <button
-                  onClick={handleSend}
-                  disabled={!inputText.trim() || isSending}
-                  className="mb-1 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-md transition-all hover:bg-primary/90 disabled:opacity-30"
-                >
-                  {isSending ? <Loader2 className="h-5 w-5 animate-spin" /> : <Send className="w-5 h-5" />}
-                </button>
-              </div>
-            </div>
-          </div>
+                  {/* Voice Input Button */}
+                  <button
+                    type="button"
+                    onClick={toggleListening}
+                    className={cn(
+                      "p-2 rounded-xl transition-all",
+                      isListening
+                        ? "bg-red-500 text-white animate-pulse"
+                        : theme === "dark"
+                          ? "text-slate-400 hover:text-gold hover:bg-gold/15"
+                          : "text-slate-500 hover:text-maroon hover:bg-gold/15"
+                    )}
+                    title={isListening ? "Listening... Click to stop" : "Speak to Mysore AI"}
+                  >
+                    {isListening ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
+                  </button>
+
+                  {/* Send Button */}
+                  <button
+                    type="submit"
+                    disabled={!inputText.trim() || isSending}
+                    className={cn(
+                      "p-2.5 rounded-xl transition-all active:scale-95 disabled:opacity-40",
+                      theme === "dark"
+                        ? "bg-gradient-to-r from-maroon via-maroon-dark to-maroon text-gold hover:text-gold-light hover:border-gold border border-gold/40 shadow-md shadow-maroon/50"
+                        : "bg-maroon hover:bg-maroon-dark text-white shadow-sm"
+                    )}
+                    title="Send message"
+                  >
+                    {isSending ? (
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                    ) : (
+                      <Send className="w-4 h-4 rotate-45 transform -translate-y-0.5" />
+                    )}
+                  </button>
+                </div>
+              </form>
+            </footer>
+          </section>
         </div>
       </main>
 

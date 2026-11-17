@@ -19,7 +19,11 @@ sqlite.db-journal
 # Environment variables & secrets
 .env
 .env*.local
+backend/.env
+**/.env
 !.env.example
+!backend/.env.example
+!frontend/.env.example
 
 # Logs
 npm-debug.log*

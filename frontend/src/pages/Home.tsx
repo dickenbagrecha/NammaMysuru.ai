@@ -3,6 +3,16 @@ import { Link, useLocation } from "wouter";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
+import {
+  Landmark,
+  Lightbulb,
+  Award,
+  Mountain,
+  Calendar as CalendarIcon,
+  Compass,
+  Users,
+  ChevronDown,
+} from "lucide-react";
 
 export default function Home() {
   const [, setLocation] = useLocation();
@@ -165,17 +175,28 @@ export default function Home() {
 
       <main className="flex-grow pb-20 md:pb-0">
         {/* HERO SECTION WITH EXPANSIVE VISTA & CONSOLE */}
-        <section className="relative w-full overflow-hidden bg-stitch-surface-container-highest">
-          {/* Background Image Layer with Editorial Gradient Scrim */}
-          <div
-            className="absolute inset-0 bg-cover bg-center w-full h-full scale-105 transform motion-safe:transition-transform motion-safe:duration-1000"
-            style={{
-              backgroundImage:
-                "url('https://lh3.googleusercontent.com/aida-public/AB6AXuClUX2Llnp8quxfjy3i4EdW2dNhl54j256G3gfXvp-oTH3rsPjNYXK0pkCIrrxllReZeD2xQEe6UbT0FNz9BhsrNrWwD_MgEzD8NgqWK2IPDVCp8msf3-ADlgD8LD6XcE-5t7QvRG-Be40-4QAHnBhdoB7YyMj1kHe3lqNjS6Lk2rhOvGgx49uBC6k6Rzpfi8LW5QVWRauz53OUas13yEps0EenZHjIXzqnMz36KWyE25YvAaa7Ub9Y')",
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-stitch-surface via-stitch-surface/65 to-stitch-primary/85 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-gradient-to-b from-stitch-primary/75 via-transparent to-stitch-surface" />
+        <section className="relative w-full overflow-hidden bg-black">
+          {/* Responsive 4K Palace Background Layer */}
+          <picture className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none select-none">
+            <source media="(min-width: 2560px)" srcSet="/images/hero/mysore_palace_hero_4k.webp" type="image/webp" />
+            <source media="(min-width: 1536px)" srcSet="/images/hero/mysore_palace_hero_2560.webp" type="image/webp" />
+            <source media="(min-width: 1024px)" srcSet="/images/hero/mysore_palace_hero_1920.webp" type="image/webp" />
+            <source media="(max-width: 640px)" srcSet="/images/hero/mysore_palace_hero_mobile.webp" type="image/webp" />
+            <source srcSet="/images/hero/mysore_palace_hero_1536.webp" type="image/webp" />
+            <img
+              src="/images/hero/mysore_palace_hero_1920.jpg"
+              alt="Mysore Palace illuminated with 100,000 royal lights at night"
+              fetchPriority="high"
+              decoding="async"
+              className="w-full h-full object-cover object-center scale-100 transform motion-safe:transition-transform motion-safe:duration-1000"
+            />
+          </picture>
+
+          {/* Carefully tuned scrims for pristine text contrast without washing out the palace */}
+          {/* Top dark gradient ensures the main headline and badge have > 12:1 WCAG AAA contrast against deep sky */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/40 to-transparent pointer-events-none" />
+          {/* Bottom gentle gradient anchors the quick stats and discovery console */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent pointer-events-none" />
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-28 pb-16 lg:pt-36 lg:pb-24 flex flex-col justify-between min-h-[840px]">
             {/* Royal Overline and Main Typography */}
@@ -184,14 +205,14 @@ export default function Home() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-stitch-surface/90 backdrop-blur-md shadow-sm border border-stitch-outline-variant/30"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md shadow-md border border-gold/40"
               >
-                <span className="w-2 h-2 rounded-full bg-stitch-primary animate-ping" />
-                <span className="text-[11px] font-bold text-stitch-primary uppercase tracking-widest">
+                <span className="w-2 h-2 rounded-full bg-gold animate-ping" />
+                <span className="text-[11px] font-bold text-gold uppercase tracking-widest">
                   Heritage Capital of Karnataka
                 </span>
-                <span className="text-stitch-outline-variant text-xs">•</span>
-                <span className="text-[11px] text-stitch-secondary font-semibold">
+                <span className="text-white/40 text-xs">•</span>
+                <span className="text-[11px] text-white/80 font-semibold">
                   Est. 1399 CE
                 </span>
               </motion.div>
@@ -200,74 +221,74 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-stitch-on-surface leading-[1.1] drop-shadow-sm"
+                className="font-royal text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15] drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]"
               >
-                Step into Royalty: Experience the City of Palaces, Sandalwood &amp; Silk
+                Step into <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-gold-light to-gold drop-shadow-[0_0_25px_rgba(243,194,70,0.45)]">Royalty</span>: Experience the City of Palaces, Sandalwood &amp; Silk
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-base sm:text-lg lg:text-xl text-stitch-on-surface-variant max-w-2xl font-normal leading-relaxed"
+                className="text-base sm:text-lg lg:text-xl text-[#F4EFE6]/95 max-w-2xl font-normal leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]"
               >
                 Immerse yourself in centuries of Wodeyar heritage, illuminated grand palaces, aromatic incense bazaars, and timeless royal traditions.
               </motion.p>
             </div>
 
-            {/* Quick Stats Row (Floating Brass Glass Pills) */}
+            {/* Quick Stats Row (Floating Brass Glass Pills with Crystal-Clear Contrast) */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 my-8">
-              <div className="p-4 rounded-xl bg-stitch-surface/90 backdrop-blur-md shadow-md border border-stitch-outline-variant/30 flex items-center gap-3.5 hover:bg-white transition-all">
-                <div className="w-11 h-11 rounded-lg bg-stitch-primary-container text-white flex items-center justify-center shrink-0 shadow-sm">
-                  <span className="material-symbols-outlined text-[24px]">account_balance</span>
+              <div className="p-4 rounded-xl bg-black/65 backdrop-blur-md shadow-lg border border-white/15 flex items-center gap-3.5 hover:bg-black/80 hover:border-gold/50 transition-all">
+                <div className="w-11 h-11 rounded-lg bg-gradient-to-br from-maroon to-maroon-dark text-gold flex items-center justify-center shrink-0 shadow-md border border-gold/30">
+                  <Landmark className="w-5 h-5 text-gold" />
                 </div>
                 <div className="min-w-0">
-                  <span className="font-serif text-lg font-bold text-stitch-primary block leading-tight">
+                  <span className="font-royal text-lg font-bold text-gold block leading-tight">
                     7 Grand
                   </span>
-                  <span className="text-xs text-stitch-on-surface-variant truncate block font-medium">
+                  <span className="text-xs text-[#F4EFE6]/90 truncate block font-medium">
                     Royal Palaces
                   </span>
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl bg-stitch-surface/90 backdrop-blur-md shadow-md border border-stitch-outline-variant/30 flex items-center gap-3.5 hover:bg-white transition-all">
-                <div className="w-11 h-11 rounded-lg bg-stitch-secondary-container text-stitch-on-secondary-container flex items-center justify-center shrink-0 shadow-sm">
-                  <span className="material-symbols-outlined text-[24px]">lightbulb</span>
+              <div className="p-4 rounded-xl bg-black/65 backdrop-blur-md shadow-lg border border-white/15 flex items-center gap-3.5 hover:bg-black/80 hover:border-gold/50 transition-all">
+                <div className="w-11 h-11 rounded-lg bg-gradient-to-br from-amber-600 to-amber-800 text-gold-light flex items-center justify-center shrink-0 shadow-md border border-gold/30">
+                  <Lightbulb className="w-5 h-5 text-gold-light" />
                 </div>
                 <div className="min-w-0">
-                  <span className="font-serif text-lg font-bold text-stitch-secondary block leading-tight">
+                  <span className="font-royal text-lg font-bold text-gold block leading-tight">
                     100,000+
                   </span>
-                  <span className="text-xs text-stitch-on-surface-variant truncate block font-medium">
+                  <span className="text-xs text-[#F4EFE6]/90 truncate block font-medium">
                     Illumination Bulbs
                   </span>
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl bg-stitch-surface/90 backdrop-blur-md shadow-md border border-stitch-outline-variant/30 flex items-center gap-3.5 hover:bg-white transition-all">
-                <div className="w-11 h-11 rounded-lg bg-stitch-tertiary-container text-white flex items-center justify-center shrink-0 shadow-sm">
-                  <span className="material-symbols-outlined text-[24px]">festival</span>
+              <div className="p-4 rounded-xl bg-black/65 backdrop-blur-md shadow-lg border border-white/15 flex items-center gap-3.5 hover:bg-black/80 hover:border-gold/50 transition-all">
+                <div className="w-11 h-11 rounded-lg bg-gradient-to-br from-emerald-800 to-emerald-950 text-emerald-300 flex items-center justify-center shrink-0 shadow-md border border-emerald-500/30">
+                  <Award className="w-5 h-5 text-emerald-300" />
                 </div>
                 <div className="min-w-0">
-                  <span className="font-serif text-lg font-bold text-stitch-tertiary block leading-tight">
+                  <span className="font-royal text-lg font-bold text-gold block leading-tight">
                     400+ Yrs
                   </span>
-                  <span className="text-xs text-stitch-on-surface-variant truncate block font-medium">
+                  <span className="text-xs text-[#F4EFE6]/90 truncate block font-medium">
                     Dasara Tradition
                   </span>
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl bg-stitch-surface/90 backdrop-blur-md shadow-md border border-stitch-outline-variant/30 flex items-center gap-3.5 hover:bg-white transition-all">
-                <div className="w-11 h-11 rounded-lg bg-stitch-surface-container-highest text-stitch-primary flex items-center justify-center shrink-0 shadow-sm">
-                  <span className="material-symbols-outlined text-[24px]">landscape</span>
+              <div className="p-4 rounded-xl bg-black/65 backdrop-blur-md shadow-lg border border-white/15 flex items-center gap-3.5 hover:bg-black/80 hover:border-gold/50 transition-all">
+                <div className="w-11 h-11 rounded-lg bg-gradient-to-br from-slate-800 to-slate-950 text-gold flex items-center justify-center shrink-0 shadow-md border border-gold/30">
+                  <Mountain className="w-5 h-5 text-gold" />
                 </div>
                 <div className="min-w-0">
-                  <span className="font-serif text-lg font-bold text-stitch-primary block leading-tight">
+                  <span className="font-royal text-lg font-bold text-gold block leading-tight">
                     1,008 Steps
                   </span>
-                  <span className="text-xs text-stitch-on-surface-variant truncate block font-medium">
+                  <span className="text-xs text-[#F4EFE6]/90 truncate block font-medium">
                     Chamundi Betta Hill
                   </span>
                 </div>
@@ -275,7 +296,7 @@ export default function Home() {
             </div>
 
             {/* Experience & Trip Filter Console */}
-            <div className="w-full bg-stitch-surface-container-lowest/95 backdrop-blur-xl rounded-2xl p-5 lg:p-6 shadow-xl border border-stitch-outline-variant/40 relative">
+            <div className="w-full bg-white/95 dark:bg-dusk-900/95 backdrop-blur-xl rounded-2xl p-5 lg:p-6 shadow-2xl border border-gold/30 relative">
               <form
                 className="grid grid-cols-1 md:grid-cols-12 gap-4 items-end"
                 onSubmit={handleDiscoverySubmit}
@@ -284,18 +305,18 @@ export default function Home() {
                 <div className="md:col-span-3 space-y-1.5">
                   <label
                     htmlFor="visit-date"
-                    className="text-[11px] uppercase tracking-wider text-stitch-secondary font-bold flex items-center gap-1.5"
+                    className="text-[11px] uppercase tracking-wider text-slate-700 dark:text-gold font-bold flex items-center gap-1.5"
                   >
-                    <span className="material-symbols-outlined text-[16px]">calendar_today</span>
+                    <CalendarIcon className="w-3.5 h-3.5 text-maroon dark:text-gold" />
                     <span>Visit Date</span>
                   </label>
-                  <div className="relative bg-stitch-surface-container-low rounded-lg p-2.5 flex items-center gap-2 border border-stitch-outline-variant/30">
-                    <span className="material-symbols-outlined text-stitch-on-surface-variant text-[18px]">event</span>
+                  <div className="relative bg-parchment-200/60 dark:bg-dusk-800/80 rounded-lg p-2.5 flex items-center gap-2 border border-[#DFD6C6] dark:border-gold/25">
+                    <CalendarIcon className="w-4 h-4 text-slate-500 dark:text-slate-400 shrink-0" />
                     <input
                       id="visit-date"
                       type="date"
                       defaultValue={new Date().toISOString().split("T")[0]}
-                      className="w-full bg-transparent text-sm text-stitch-on-surface font-semibold focus:outline-none cursor-pointer"
+                      className="w-full bg-transparent text-sm text-slate-900 dark:text-white font-semibold focus:outline-none cursor-pointer"
                     />
                   </div>
                 </div>
@@ -304,28 +325,26 @@ export default function Home() {
                 <div className="md:col-span-4 space-y-1.5">
                   <label
                     htmlFor="interest-select"
-                    className="text-[11px] uppercase tracking-wider text-stitch-secondary font-bold flex items-center gap-1.5"
+                    className="text-[11px] uppercase tracking-wider text-slate-700 dark:text-gold font-bold flex items-center gap-1.5"
                   >
-                    <span className="material-symbols-outlined text-[16px]">attractions</span>
+                    <Compass className="w-3.5 h-3.5 text-maroon dark:text-gold" />
                     <span>Primary Experience</span>
                   </label>
-                  <div className="relative bg-stitch-surface-container-low rounded-lg p-2.5 flex items-center gap-2 border border-stitch-outline-variant/30">
-                    <span className="material-symbols-outlined text-stitch-primary text-[18px]">castle</span>
+                  <div className="relative bg-parchment-200/60 dark:bg-dusk-800/80 rounded-lg p-2.5 flex items-center gap-2 border border-[#DFD6C6] dark:border-gold/25">
+                    <Landmark className="w-4 h-4 text-maroon dark:text-gold shrink-0" />
                     <select
                       id="interest-select"
                       value={selectedInterest}
                       onChange={(e) => setSelectedInterest(e.target.value)}
-                      className="w-full bg-transparent text-sm text-stitch-on-surface font-semibold focus:outline-none appearance-none cursor-pointer pr-6"
+                      className="w-full bg-transparent text-sm text-slate-900 dark:text-white font-semibold focus:outline-none appearance-none cursor-pointer pr-6"
                     >
-                      <option value="palace">Palace Tours &amp; Durbar Halls</option>
-                      <option value="culinary">Culinary Trail &amp; Original Mysore Pak</option>
-                      <option value="dasara">Dasara Grandeur &amp; Golden Howdah</option>
-                      <option value="artisans">Sandalwood Distilleries &amp; Silk Weaves</option>
-                      <option value="nature">Nature, Karanji Lake &amp; Chamundi Hills</option>
+                      <option value="palace" className="dark:bg-dusk-900 text-slate-900 dark:text-white">Palace Tours &amp; Durbar Halls</option>
+                      <option value="culinary" className="dark:bg-dusk-900 text-slate-900 dark:text-white">Culinary Trail &amp; Original Mysore Pak</option>
+                      <option value="dasara" className="dark:bg-dusk-900 text-slate-900 dark:text-white">Dasara Grandeur &amp; Golden Howdah</option>
+                      <option value="artisans" className="dark:bg-dusk-900 text-slate-900 dark:text-white">Sandalwood Distilleries &amp; Silk Weaves</option>
+                      <option value="nature" className="dark:bg-dusk-900 text-slate-900 dark:text-white">Nature, Karanji Lake &amp; Chamundi Hills</option>
                     </select>
-                    <span className="material-symbols-outlined absolute right-2.5 text-stitch-on-surface-variant pointer-events-none text-[18px]">
-                      expand_more
-                    </span>
+                    <ChevronDown className="w-4 h-4 absolute right-2.5 text-slate-400 pointer-events-none" />
                   </div>
                 </div>
 
@@ -333,27 +352,25 @@ export default function Home() {
                 <div className="md:col-span-2 space-y-1.5">
                   <label
                     htmlFor="party-size"
-                    className="text-[11px] uppercase tracking-wider text-stitch-secondary font-bold flex items-center gap-1.5"
+                    className="text-[11px] uppercase tracking-wider text-slate-700 dark:text-gold font-bold flex items-center gap-1.5"
                   >
-                    <span className="material-symbols-outlined text-[16px]">group</span>
+                    <Users className="w-3.5 h-3.5 text-maroon dark:text-gold" />
                     <span>Travelers</span>
                   </label>
-                  <div className="relative bg-stitch-surface-container-low rounded-lg p-2.5 flex items-center gap-2 border border-stitch-outline-variant/30">
-                    <span className="material-symbols-outlined text-stitch-on-surface-variant text-[18px]">person</span>
+                  <div className="relative bg-parchment-200/60 dark:bg-dusk-800/80 rounded-lg p-2.5 flex items-center gap-2 border border-[#DFD6C6] dark:border-gold/25">
+                    <Users className="w-4 h-4 text-slate-500 dark:text-slate-400 shrink-0" />
                     <select
                       id="party-size"
                       value={partySize}
                       onChange={(e) => setPartySize(e.target.value)}
-                      className="w-full bg-transparent text-sm text-stitch-on-surface font-semibold focus:outline-none appearance-none cursor-pointer pr-4"
+                      className="w-full bg-transparent text-sm text-slate-900 dark:text-white font-semibold focus:outline-none appearance-none cursor-pointer pr-6"
                     >
-                      <option value="2">2 Adults</option>
-                      <option value="1">Solo Pilgrim</option>
-                      <option value="family">Family (4-6)</option>
-                      <option value="group">Royal Tour (8+)</option>
+                      <option value="2" className="dark:bg-dusk-900 text-slate-900 dark:text-white">2 Adults</option>
+                      <option value="1" className="dark:bg-dusk-900 text-slate-900 dark:text-white">Solo Pilgrim</option>
+                      <option value="family" className="dark:bg-dusk-900 text-slate-900 dark:text-white">Family (4-6)</option>
+                      <option value="group" className="dark:bg-dusk-900 text-slate-900 dark:text-white">Royal Tour (8+)</option>
                     </select>
-                    <span className="material-symbols-outlined absolute right-2 text-stitch-on-surface-variant pointer-events-none text-[18px]">
-                      expand_more
-                    </span>
+                    <ChevronDown className="w-4 h-4 absolute right-2 text-slate-400 pointer-events-none" />
                   </div>
                 </div>
 
@@ -361,42 +378,40 @@ export default function Home() {
                 <div className="md:col-span-3">
                   <button
                     type="submit"
-                    className="w-full py-3 px-6 rounded-lg bg-stitch-primary-container text-stitch-on-primary text-sm font-bold flex items-center justify-center gap-2 shadow-lg hover:bg-stitch-primary transition-all active:scale-[0.98] group"
+                    className="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-maroon via-maroon-dark to-maroon hover:from-maroon-dark hover:to-maroon text-white text-sm font-bold flex items-center justify-center gap-2 shadow-lg shadow-maroon/30 hover:shadow-xl transition-all active:scale-[0.98] group border border-gold/30"
                   >
                     <span>Discover Mysuru</span>
-                    <span className="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">
-                      explore
-                    </span>
+                    <Compass className="w-4 h-4 text-gold transition-transform group-hover:rotate-45" />
                   </button>
                 </div>
               </form>
 
               {/* Quick Filter Suggested Tags */}
-              <div className="mt-4 pt-3 border-t border-stitch-outline-variant/20 flex flex-wrap items-center gap-2">
-                <span className="text-[11px] text-stitch-on-surface-variant uppercase tracking-wider font-bold">
+              <div className="mt-4 pt-3 border-t border-slate-200 dark:border-gold/20 flex flex-wrap items-center gap-2">
+                <span className="text-[11px] text-slate-500 dark:text-slate-400 uppercase tracking-wider font-bold">
                   Suggested Trails:
                 </span>
                 <Link
                   href="/spots"
-                  className="px-2.5 py-1 rounded-full bg-stitch-surface-container text-xs text-stitch-on-surface hover:bg-stitch-primary hover:text-white transition-colors"
+                  className="px-2.5 py-1 rounded-full bg-parchment-200 dark:bg-dusk-800 text-xs text-slate-700 dark:text-slate-200 hover:bg-maroon hover:text-white transition-colors border border-transparent hover:border-gold/30"
                 >
                   ✨ Evening Illumination Special
                 </Link>
                 <Link
                   href="/restaurants"
-                  className="px-2.5 py-1 rounded-full bg-stitch-surface-container text-xs text-stitch-on-surface hover:bg-stitch-primary hover:text-white transition-colors"
+                  className="px-2.5 py-1 rounded-full bg-parchment-200 dark:bg-dusk-800 text-xs text-slate-700 dark:text-slate-200 hover:bg-maroon hover:text-white transition-colors border border-transparent hover:border-gold/30"
                 >
                   ☕ Mylari Butter Dosa &amp; Mysore Pak
                 </Link>
                 <Link
                   href="/chat"
-                  className="px-2.5 py-1 rounded-full bg-stitch-surface-container text-xs text-stitch-on-surface hover:bg-stitch-primary hover:text-white transition-colors"
+                  className="px-2.5 py-1 rounded-full bg-parchment-200 dark:bg-dusk-800 text-xs text-slate-700 dark:text-slate-200 hover:bg-maroon hover:text-white transition-colors border border-transparent hover:border-gold/30"
                 >
                   🥻 KSIC Pure Crepe Silk Looms
                 </Link>
                 <Link
                   href="/spots"
-                  className="px-2.5 py-1 rounded-full bg-stitch-surface-container text-xs text-stitch-on-surface hover:bg-stitch-primary hover:text-white transition-colors"
+                  className="px-2.5 py-1 rounded-full bg-parchment-200 dark:bg-dusk-800 text-xs text-slate-700 dark:text-slate-200 hover:bg-maroon hover:text-white transition-colors border border-transparent hover:border-gold/30"
                 >
                   🌿 1008 Steps Chamundi Ascent
                 </Link>

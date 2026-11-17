@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NammaMysuru.ai - Royal Heritage &amp; Culture AI Concierge</title>
+<!-- Tailwind CSS v3 with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Cinzel Decorative, Playfair Display & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Theme Configuration -->
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            maroon: {
+              DEFAULT: '#881337',
+              dark: '#580A23',
+              deep: '#360617',
+              light: '#A51D45',
+              surface: '#240E1B',
+            },
+            gold: {
+              DEFAULT: '#F3C246',
+              light: '#FFDC73',
+              muted: '#D4AF37',
+              tint: '#2A1F13'
+            },
+            dusk: {
+              950: '#0D070B',
+              900: '#140A10',
+              850: '#1A0F16',
+              800: '#21141C',
+              700: '#2E1B27'
+            }
+          },
+          fontFamily: {
+            royal: ['Cinzel', 'serif'],
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          boxShadow: {
+            'royal-glow': '0 8px 32px -4px rgba(243, 194, 70, 0.15), 0 2px 14px -2px rgba(136, 19, 55, 0.4)',
+            'card-lift': '0 12px 28px -6px rgba(0, 0, 0, 0.6), 0 0 15px rgba(243, 194, 70, 0.12)',
+            'gold-glow': '0 0 20px rgba(243, 194, 70, 0.25)',
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="custom-scrollbars">
+    /* Luxurious dark royal scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #140A10;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #3B2230;
+      border-radius: 9999px;
+      border: 1px solid rgba(243, 194, 70, 0.2);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #580A23;
+    }
+  </style>
+<style data-purpose="royal-patterns">
+    /* Deep midnight royal damask/filigree watermark pattern */
+    .bg-heritage-pattern {
+      background-color: #0D070B;
+      background-image: radial-gradient(#F3C24615 0.75px, transparent 0.75px), radial-gradient(#88133718 0.75px, #0D070B 0.75px);
+      background-size: 32px 32px;
+      background-position: 0 0, 16px 16px;
+    }
+
+    /* Subtle shimmer for streaming cursor */
+    @keyframes royal-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 8px #F3C246; }
+      50% { opacity: 0.35; transform: scale(0.92); box-shadow: none; }
+    }
+    .typing-cursor {
+      display: inline-block;
+      width: 7px;
+      height: 17px;
+      background-color: #F3C246;
+      margin-left: 4px;
+      vertical-align: middle;
+      animation: royal-pulse 0.9s infinite ease-in-out;
+    }
+  </style>
+<!-- END: Custom Styles -->
+</head>
+<body class="bg-heritage-pattern text-slate-100 font-sans antialiased h-screen overflow-hidden flex flex-col selection:bg-gold selection:text-maroon-deep">
+<!-- BEGIN: LiveCulturalTicker -->
+<!-- Topmost cultural bulletin banner - Deep Illuminated Dusk theme -->
+<aside class="bg-gradient-to-r from-[#180A12] via-[#2A1120] to-[#180A12] text-amber-100 text-xs py-2 px-6 flex items-center justify-between border-b border-gold/20 shadow-md shadow-black/40 z-30 shrink-0" data-purpose="live-cultural-ticker">
+<div class="flex items-center space-x-3 overflow-hidden text-ellipsis whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-500/20 text-gold-light font-semibold tracking-wider text-[10px] uppercase border border-gold/40 shadow-xs">
+<span class="h-1.5 w-1.5 rounded-full bg-gold animate-ping"></span>
+        ✨ Live Cultural Notice
+      </span>
+<span class="text-gold/40 font-serif">|</span>
+<span class="font-medium tracking-wide text-amber-50 text-[13px]">
+        ✨ <strong class="text-gold font-semibold">ROYAL EVENING ILLUMINATION</strong> | Mysuru Dasara &amp; Palace Illumination in Progress: 100,000 royal incandescent bulbs illuminated
+      </span>
+</div>
+<a class="text-gold hover:text-gold-light text-xs font-semibold flex items-center gap-1 shrink-0 ml-4 transition-colors group" href="#ask-concierge">
+<span>Ask Concierge</span>
+<svg class="w-3.5 h-3.5 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</aside>
+<!-- END: LiveCulturalTicker -->
+<!-- BEGIN: MainHeader -->
+<!-- Main brand and global navigation header - Royal Dusk Illumination style -->
+<header class="bg-dusk-950/90 backdrop-blur-md border-b border-gold/20 px-6 py-2.5 flex items-center justify-between shadow-lg shadow-black/50 z-20 shrink-0" data-purpose="primary-navbar">
+<!-- Brand identity -->
+<div class="flex items-center space-x-4">
+<!-- Royal emblem Gandaberunda inspired crest -->
+<div class="h-11 w-11 rounded-xl bg-gradient-to-br from-maroon via-maroon-dark to-maroon-deep flex items-center justify-center shadow-lg shadow-maroon/40 border border-gold/50 relative overflow-hidden group">
+<div class="absolute inset-0 bg-gold/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<svg class="w-6 h-6 text-gold-light" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24">
+<path d="M12 2L9.5 7H14.5L12 2Z" fill="currentColor" fill-opacity="0.4"></path>
+<path d="M3 10L6.5 13L12 8L17.5 13L21 10L19.5 19H4.5L3 10Z" stroke-linecap="round" stroke-linejoin="round"></path>
+<circle cx="12" cy="14" fill="currentColor" r="2"></circle>
+<path d="M5 21H19" stroke-linecap="round"></path>
+</svg>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-2xl font-serif font-bold tracking-tight text-gold-light">Namma<span class="text-slate-100">Mysuru</span><span class="text-gold font-sans font-semibold text-lg">.ai</span></span>
+</div>
+<p class="text-[9.5px] uppercase tracking-[0.24em] font-bold text-amber-200/70">Royal Heritage &amp; Culture</p>
+</div>
+</div>
+<!-- Navigation links & actions -->
+<div class="flex items-center space-x-6 text-[13.5px]">
+<nav class="hidden md:flex items-center space-x-5 text-slate-300 font-medium">
+<a class="flex items-center gap-1.5 hover:text-gold transition-colors py-1 hover:drop-shadow-[0_0_8px_rgba(243,194,70,0.5)]" href="#places">
+<svg class="w-4 h-4 text-gold/70" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path><path d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg>
+          Places
+        </a>
+<a class="flex items-center gap-1.5 hover:text-gold transition-colors py-1 hover:drop-shadow-[0_0_8px_rgba(243,194,70,0.5)]" href="#dining">
+<svg class="w-4 h-4 text-gold/70" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg>
+          Dining
+        </a>
+<a class="flex items-center gap-1.5 hover:text-gold transition-colors py-1 hover:drop-shadow-[0_0_8px_rgba(243,194,70,0.5)]" href="#helpline">
+<svg class="w-4 h-4 text-gold/70" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg>
+          Helpline
+        </a>
+</nav>
+<!-- Active Guide pill & tools -->
+<div class="flex items-center space-x-3">
+<!-- Active Evening Illumination Theme Badge -->
+<div class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-dusk-850/80 border border-gold/40 text-gold-light text-xs font-medium shadow-xs">
+<span class="text-sm">🌙</span>
+<span>Royal Illumination</span>
+</div>
+<button class="flex items-center gap-2 bg-gradient-to-r from-maroon to-maroon-dark text-gold-light px-4 py-1.5 rounded-full font-medium shadow-md shadow-maroon/30 border border-gold/30 hover:border-gold transition-all" type="button">
+<svg class="w-4 h-4 text-gold" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm1-12c2.21 0 4 1.79 4 4 0 1.5-1.2 2.5-2.2 3.2-.6.4-.8.8-.8 1.8h-2c0-1.5 1-2.4 2-3.1.7-.5 1-.9 1-1.9 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.21 1.79-4 4-4z"></path></svg>
+<span>Guide</span>
+</button>
+<button class="p-2 text-slate-300 hover:text-gold hover:bg-dusk-800 rounded-lg transition-colors border border-gold/20" title="Settings" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg>
+</button>
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 border border-gold/50 text-gold-light hover:bg-gold/10 font-semibold rounded-lg transition-all text-xs" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Login</span>
+</button>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: MainLayout -->
+<div class="flex-1 flex overflow-hidden relative">
+<!-- BEGIN: CollapsibleSidebar -->
+<!-- Conversation History & Session Sidebar - Dark Obsidian Velvet theme -->
+<aside class="w-72 bg-dusk-900 border-r border-gold/20 flex flex-col shrink-0 transition-all duration-300 ease-in-out relative z-10" data-purpose="history-sidebar" id="chat-sidebar">
+<!-- New conversation top button -->
+<div class="p-3.5 border-b border-gold/15">
+<button class="w-full bg-gradient-to-r from-maroon via-maroon-dark to-maroon text-gold-light border border-gold/40 hover:border-gold hover:shadow-gold-glow rounded-xl py-2.5 px-4 font-semibold text-sm flex items-center justify-center gap-2 shadow-md transition-all active:scale-[0.98]" id="btn-new-chat" type="button">
+<svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 4.5v15m7.5-7.5h-15" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
+<span>New Conversation</span>
+</button>
+</div>
+<!-- History list scroll section -->
+<div class="flex-1 overflow-y-auto px-2.5 py-3 space-y-1.5" data-purpose="history-items">
+<div class="px-2 pb-1 text-[11px] font-bold uppercase tracking-wider text-gold/60">Recents</div>
+<!-- Active conversation item with glowing amber-gold left accent -->
+<div class="group relative flex items-start gap-3 p-2.5 rounded-xl bg-dusk-800 border border-gold/35 shadow-md cursor-pointer">
+<div class="w-1.5 h-6 bg-gold rounded-full self-center shrink-0 shadow-[0_0_8px_#F3C246]"></div>
+<svg class="w-4 h-4 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg>
+<div class="min-w-0 flex-1">
+<h4 class="text-xs font-semibold text-white truncate">Performance &amp; UX Benchmark Suite</h4>
+<p class="text-[10px] text-slate-400 mt-0.5">Nov 18, 12:50 AM</p>
+</div>
+</div>
+<!-- History items list in dark mode -->
+<div class="group flex items-start gap-3 p-2.5 rounded-xl hover:bg-dusk-800/80 transition-colors cursor-pointer text-slate-300">
+<div class="w-1.5 h-6 shrink-0"></div>
+<svg class="w-4 h-4 text-slate-500 group-hover:text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg>
+<div class="min-w-0 flex-1">
+<h4 class="text-xs font-medium text-slate-300 truncate group-hover:text-white">Perf Baseline Test</h4>
+<p class="text-[10px] text-slate-500 mt-0.5">Nov 18, 12:46 AM</p>
+</div>
+</div>
+<div class="group flex items-start gap-3 p-2.5 rounded-xl hover:bg-dusk-800/80 transition-colors cursor-pointer text-slate-300">
+<div class="w-1.5 h-6 shrink-0"></div>
+<svg class="w-4 h-4 text-slate-500 group-hover:text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg>
+<div class="min-w-0 flex-1">
+<h4 class="text-xs font-medium text-slate-300 truncate group-hover:text-white">Personalisation: PERS-020</h4>
+<p class="text-[10px] text-slate-500 mt-0.5">Nov 18, 12:17 AM</p>
+</div>
+</div>
+<div class="group flex items-start gap-3 p-2.5 rounded-xl hover:bg-dusk-800/80 transition-colors cursor-pointer text-slate-300">
+<div class="w-1.5 h-6 shrink-0"></div>
+<svg class="w-4 h-4 text-slate-500 group-hover:text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg>
+<div class="min-w-0 flex-1">
+<h4 class="text-xs font-medium text-slate-300 truncate group-hover:text-white">Personalisation: PERS-019</h4>
+<p class="text-[10px] text-slate-500 mt-0.5">Nov 18, 12:17 AM</p>
+</div>
+</div>
+<div class="group flex items-start gap-3 p-2.5 rounded-xl hover:bg-dusk-800/80 transition-colors cursor-pointer text-slate-300">
+<div class="w-1.5 h-6 shrink-0"></div>
+<svg class="w-4 h-4 text-slate-500 group-hover:text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg>
+<div class="min-w-0 flex-1">
+<h4 class="text-xs font-medium text-slate-300 truncate group-hover:text-white">Personalisation: PERS-018</h4>
+<p class="text-[10px] text-slate-500 mt-0.5">Nov 18, 12:17 AM</p>
+</div>
+</div>
+<div class="group flex items-start gap-3 p-2.5 rounded-xl hover:bg-dusk-800/80 transition-colors cursor-pointer text-slate-300">
+<div class="w-1.5 h-6 shrink-0"></div>
+<svg class="w-4 h-4 text-slate-500 group-hover:text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg>
+<div class="min-w-0 flex-1">
+<h4 class="text-xs font-medium text-slate-300 truncate group-hover:text-white">Test D: Multi-Turn Personalisation</h4>
+<p class="text-[10px] text-slate-500 mt-0.5">Nov 18, 12:16 AM</p>
+</div>
+</div>
+</div>
+<!-- Bottom cultural credit footer in sidebar -->
+<div class="p-3 border-t border-gold/20 bg-dusk-950 text-[11px] text-slate-400 flex items-center justify-between">
+<span class="flex items-center gap-1.5 font-medium">
+<span class="h-2 w-2 rounded-full bg-gold shadow-[0_0_6px_#F3C246]"></span>
+          Gateway v2.4 (Wadiyar Era)
+        </span>
+<span class="text-gold font-bold">ಕನ್ನಡ</span>
+</div>
+</aside>
+<!-- END: CollapsibleSidebar -->
+<!-- BEGIN: MainChatWorkspace -->
+<!-- Primary unified workspace container -->
+<main class="flex-1 flex flex-col h-full overflow-hidden p-3 md:p-5">
+<!-- Top controls strip: Collapse sidebar button + Status pill + Language toggle -->
+<section class="flex flex-wrap items-center justify-between gap-3 mb-3 px-1 shrink-0" data-purpose="chat-status-bar">
+<div class="flex items-center space-x-3">
+<!-- Sidebar Toggle Button -->
+<button aria-label="Toggle Sidebar" class="p-2 rounded-xl bg-dusk-900 hover:bg-dusk-800 border border-gold/30 text-gold-light transition-colors shadow-sm" id="sidebar-toggle" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<!-- System Status Pill -->
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dusk-900 border border-emerald-500/40 shadow-xs text-xs font-semibold text-emerald-400">
+<span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_#34D399]"></span>
+<span>NammaMysuru.ai Online</span>
+</div>
+<span class="hidden sm:inline-flex items-center text-xs font-semibold text-gold-light uppercase tracking-widest gap-1.5">
+<span class="text-gold/40 font-bold">•</span>
+            Performance &amp; UX Benchmark Suite
+          </span>
+</div>
+<!-- Language Switcher Strip -->
+<div class="flex items-center space-x-1.5 bg-dusk-900/90 border border-gold/25 rounded-full p-1 shadow-md text-xs" data-purpose="language-selector">
+<span class="text-slate-400 pl-2 pr-1 font-serif text-[11px] flex items-center gap-1">
+<svg class="w-3.5 h-3.5 text-gold/70" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+            Reply in:
+          </span>
+<button class="lang-pill px-3 py-1 rounded-full bg-gradient-to-r from-maroon to-maroon-dark text-gold font-medium border border-gold/40 shadow-[0_0_10px_rgba(243,194,70,0.2)] transition-colors" type="button">Auto</button>
+<button class="lang-pill px-2.5 py-1 rounded-full text-slate-300 hover:text-gold transition-colors" type="button">English</button>
+<button class="lang-pill px-2.5 py-1 rounded-full text-slate-300 hover:text-gold font-medium transition-colors" type="button">ಕನ್ನಡ</button>
+<button class="lang-pill px-2.5 py-1 rounded-full text-slate-300 hover:text-gold transition-colors" type="button">हिन्दी</button>
+</div>
+</section>
+<!-- UNIFIED COHESIVE CONTAINER (Upper Chat Stream + Bottom Composer) -->
+<section class="flex-1 bg-dusk-900/90 backdrop-blur-xl rounded-3xl border border-gold/30 shadow-royal-glow flex flex-col overflow-hidden relative" data-purpose="unified-chat-workspace">
+<!-- Upper: Scrollable Chat History & Response Content -->
+<div class="flex-1 overflow-y-auto px-6 py-6 space-y-6" id="chat-messages-container">
+<!-- AI Heritage Concierge Message Card - Velvet Plum & Mysore Gold -->
+<article class="rounded-2xl bg-gradient-to-b from-[#21141C] to-[#180A12] border border-gold/25 p-6 shadow-md relative" data-purpose="concierge-message">
+<div class="flex items-start justify-between pb-4 border-b border-gold/20">
+<div class="flex items-center gap-3">
+<div class="h-9 w-9 rounded-lg bg-gradient-to-br from-maroon to-maroon-deep flex items-center justify-center text-gold-light shadow-md border border-gold/50 shadow-[0_0_12px_rgba(243,194,70,0.2)]">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-.778.099-1.533.284-2.253" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path></svg>
+</div>
+<div>
+<span class="text-[11px] font-bold tracking-[0.2em] uppercase text-gold">Concierge</span>
+<p class="text-xs text-amber-100/70">Royal Heritage AI • Wadiyar Dynasty &amp; Cultural Guide</p>
+</div>
+</div>
+<!-- Message Interaction Buttons -->
+<div class="flex items-center space-x-1.5 text-gold/70">
+<button class="p-1.5 hover:text-gold-light hover:bg-gold/15 rounded-lg transition-colors" title="Listen Audio" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.082-1.638.238-2.42.234-.847 1.058-1.354 1.938-1.354h2.24z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<button class="p-1.5 hover:text-gold-light hover:bg-gold/15 rounded-lg transition-colors" title="Copy Message" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15.666 3.888A2.25 2.25 0 0013.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 01-.75.75H9a.75.75 0 01-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 011.927-.184" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+<!-- Dialogue Text Body with Simulated Streaming Feel -->
+<div class="mt-4 space-y-3 text-[#F7F3E9] text-sm md:text-[15px] leading-relaxed">
+<p class="font-serif text-lg md:text-xl text-gold-light font-semibold italic drop-shadow-[0_0_10px_rgba(243,194,70,0.3)]">
+                Namaskara! Welcome to the royal realm of Mysuru.
+              </p>
+<p class="text-amber-50/90">
+                Experience the royal charm of Mysuru. From the opulence of Amba Vilas illuminated against the night sky, to the delicate teakwood ceilings of Tipu Sultan’s Dariya Daulat Bagh and savoring iconic Mylari dosas, I am delighted to assist you with every detail of your journey today.<span class="typing-cursor"></span>
+</p>
+</div>
+</article>
+<!-- Places Referenced Section -->
+<div class="space-y-3 pt-2" data-purpose="referenced-places">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2 text-gold font-bold text-xs uppercase tracking-wider">
+<svg class="w-4 h-4 text-gold-light" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Places Referenced in this Response (5)</span>
+</div>
+<span class="text-xs text-amber-200/60">Scroll horizontally to view all</span>
+</div>
+<!-- Horizontal Cards Carousel in Night Illumination Luxury Style -->
+<div class="flex space-x-4 overflow-x-auto pb-4 pt-1 snap-x scroll-smooth">
+<!-- Card 1: Mysuru Palace -->
+<div class="min-w-[270px] max-w-[270px] bg-dusk-850 rounded-2xl border border-gold/30 overflow-hidden shadow-md hover:shadow-card-lift hover:border-gold transition-all duration-300 snap-start flex flex-col group">
+<div class="relative h-36 bg-dusk-950 overflow-hidden border-b border-gold/20">
+<img alt="Mysuru Palace illuminated" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 filter brightness-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD97h5OUjKzDTg3Au-ycXIiHjBr3W0IddJ43YVbfzBf1EaQXbYEL05xRXSD1D5Oq6c0qtHJWWAWTNb9KCitgll2aqQQMYF-VUrCX00sydBsRV0YavWw2XKOIwqITxafn9CbMNsQVNy5PsXQYRhqNRa3wW7NjBAGWmtP5ro4KWXESu_HvquVFe-RL1DvIP21C2tWW0DHoGk2DhjA4cEF19BtBXr8i_qIbBtIXze2Qpk"/>
+<span class="absolute top-2.5 left-2.5 bg-maroon-dark/90 backdrop-blur-xs text-gold-light text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full flex items-center gap-1 border border-gold/40 shadow-sm">
+<span class="h-1.5 w-1.5 rounded-full bg-gold shadow-[0_0_6px_#F3C246]"></span> Spot
+                  </span>
+</div>
+<div class="p-3.5 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-serif font-bold text-white text-sm leading-snug line-clamp-1 group-hover:text-gold-light transition-colors">Mysuru Palace (Amba Vilas)</h3>
+<p class="text-xs text-slate-300 mt-1 line-clamp-2">Sayyaji Rao Rd, Agrahara, Chamrajpura, Mysuru</p>
+</div>
+<div class="mt-4 pt-2.5 border-t border-gold/15 flex items-center justify-between text-xs">
+<span class="text-gold-light/90 font-medium">Adults: ₹70, Children: ₹30</span>
+<a class="text-gold font-semibold flex items-center gap-0.5 hover:underline" href="#palace-details">
+                      Details
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+</div>
+</div>
+<!-- Card 2: Jaganmohan Palace Art Gallery -->
+<div class="min-w-[270px] max-w-[270px] bg-dusk-850 rounded-2xl border border-gold/30 overflow-hidden shadow-md hover:shadow-card-lift hover:border-gold transition-all duration-300 snap-start flex flex-col group">
+<div class="relative h-36 bg-dusk-950 overflow-hidden border-b border-gold/20">
+<img alt="Jaganmohan Palace Art Gallery" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 filter brightness-95" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_PxEx7igVJIz3TJaYVX1Y2BiktBV78TOTotSNev4jUPMDy1uL32C77pyirsufTs6l9U9pYxnUxVhID9v1Oiqeoy8mK8IESo2jnGQs6L4t8ut48WJ-_2VrapyzqrtS4sEzEg32KV9k4ZqhOFizRS5T47_0yV8ua_EbskeKC4v1JztDupqMdzoUpYIUBbODYLWKFHUOlgCBLAWE4-v9xy3Lx5U6mVaUjor-mJznB7I"/>
+<span class="absolute top-2.5 left-2.5 bg-maroon-dark/90 backdrop-blur-xs text-gold-light text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full flex items-center gap-1 border border-gold/40 shadow-sm">
+<span class="h-1.5 w-1.5 rounded-full bg-gold shadow-[0_0_6px_#F3C246]"></span> Spot
+                  </span>
+</div>
+<div class="p-3.5 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-serif font-bold text-white text-sm leading-snug line-clamp-1 group-hover:text-gold-light transition-colors">Jaganmohan Palace Art...</h3>
+<p class="text-xs text-slate-300 mt-1 line-clamp-2">Deshika Rd, Chamrajpura, Mysuru</p>
+</div>
+<div class="mt-4 pt-2.5 border-t border-gold/15 flex items-center justify-between text-xs">
+<span class="text-gold-light/90 font-medium">Adults: ₹40, Children: ₹20</span>
+<a class="text-gold font-semibold flex items-center gap-0.5 hover:underline" href="#jaganmohan-details">
+                      Details
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+</div>
+</div>
+<!-- Card 3: Lalitha Mahal Palace Hotel -->
+<div class="min-w-[270px] max-w-[270px] bg-dusk-850 rounded-2xl border border-gold/30 overflow-hidden shadow-md hover:shadow-card-lift hover:border-gold transition-all duration-300 snap-start flex flex-col group">
+<div class="relative h-36 bg-dusk-950 overflow-hidden border-b border-gold/20">
+<img alt="Lalitha Mahal Palace Hotel" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 filter brightness-95" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8qRB9zduSvfryK_PYBif2PM-yedmyBVxLaNF1EF8nPRYer4FKZCKu9vim-Nd4Jwp7qB_jwt3BX202NBX6EhmCesJAmW_x9sbG1uoK8Cp38OzcOp2Tq2eyR-kVLo5umVnvy12VvgOooGVu5PkINLVtfbm7_Djh7SGX4rCi6OBfbnokJqTq21ZHKt4c2z5ZqzNeYujM__bBqAeShxJeDBGiguLnmKqAWwVchdMK3Rs"/>
+<span class="absolute top-2.5 left-2.5 bg-maroon-dark/90 backdrop-blur-xs text-gold-light text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full flex items-center gap-1 border border-gold/40 shadow-sm">
+<span class="h-1.5 w-1.5 rounded-full bg-gold shadow-[0_0_6px_#F3C246]"></span> Spot
+                  </span>
+</div>
+<div class="p-3.5 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-serif font-bold text-white text-sm leading-snug line-clamp-1 group-hover:text-gold-light transition-colors">Lalitha Mahal Palace Hotel</h3>
+<p class="text-xs text-slate-300 mt-1 line-clamp-2">Lalitha Mahal Palace Rd, Mysuru</p>
+</div>
+<div class="mt-4 pt-2.5 border-t border-gold/15 flex items-center justify-between text-xs">
+<span class="text-gold-light/90 font-medium">Entry: ₹100</span>
+<a class="text-gold font-semibold flex items-center gap-0.5 hover:underline" href="#lalitha-details">
+                      Details
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+</div>
+</div>
+<!-- Card 4: Dariya Daulat Bagh -->
+<div class="min-w-[270px] max-w-[270px] bg-dusk-850 rounded-2xl border border-gold/30 overflow-hidden shadow-md hover:shadow-card-lift hover:border-gold transition-all duration-300 snap-start flex flex-col group">
+<div class="relative h-36 bg-dusk-950 overflow-hidden border-b border-gold/20">
+<img alt="Dariya Daulat Bagh Summer Palace" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 filter brightness-95" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6qj1oj4IXBVqtRvR182YTOW-kzZh8CHfoecAvW_TYs4iq94JKWZ3XcPp7TwHVgq0-muIKLh1BX0F2iVTtb9CKW6N1wf53VhKftXMB7EX4re_z24kxTOmLnOY6izTxLERGYZz3SPqvV3BNWPDkq5rEKxmMYhOfqERuihhlJa8CHBer9LtF0FZ5Q7jtMiuWQ_w-3jWTio2oRLqA8NB8jeXLBvoU4HpBLaEx90_XtFw"/>
+<span class="absolute top-2.5 left-2.5 bg-maroon-dark/90 backdrop-blur-xs text-gold-light text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full flex items-center gap-1 border border-gold/40 shadow-sm">
+<span class="h-1.5 w-1.5 rounded-full bg-gold shadow-[0_0_6px_#F3C246]"></span> Spot
+                  </span>
+</div>
+<div class="p-3.5 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-serif font-bold text-white text-sm leading-snug line-clamp-1 group-hover:text-gold-light transition-colors">Dariya Daulat Bagh (Tipu...)</h3>
+<p class="text-xs text-slate-300 mt-1 line-clamp-2">Srirangapatna, Mandya District</p>
+</div>
+<div class="mt-4 pt-2.5 border-t border-gold/15 flex items-center justify-between text-xs">
+<span class="text-gold-light/90 font-medium">Adults: ₹15, Forn: ₹200</span>
+<a class="text-gold font-semibold flex items-center gap-0.5 hover:underline" href="#dariya-details">
+                      Details
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+</div>
+</div>
+<!-- Card 5: Vinayaka Mylari -->
+<div class="min-w-[270px] max-w-[270px] bg-dusk-850 rounded-2xl border border-gold/30 overflow-hidden shadow-md hover:shadow-card-lift hover:border-gold transition-all duration-300 snap-start flex flex-col group">
+<div class="relative h-36 bg-dusk-950 overflow-hidden border-b border-gold/20">
+<img alt="Authentic Mysore Butter Dosa Mylari" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 filter brightness-95" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEayo062uDQShoaxf6ZlkK-gDrNgmX2n6zkOCzJQGMA-5DGSyM7Tj1Pj-o2wbl5N_YmkDtN718oB-l8w9pRBxQZIX8WrjTT5sWaB_EjJbnF8B3jNzDRy7JH5W5n-W0JqGyg9JqKCvv0n7FSmth2HDErMa1gOBmZAtzZmDG646UWt2Tmr2ejDKSKvxGs-Oc_unCAB5Oa1j1PWFNsyuqBY8ZmnO948wTV5toteetNsI"/>
+<span class="absolute top-2.5 left-2.5 bg-amber-900/90 backdrop-blur-xs text-gold-light text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full flex items-center gap-1 border border-gold/40 shadow-sm">
+<span class="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_#34D399]"></span> Culinary
+                  </span>
+</div>
+<div class="p-3.5 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-serif font-bold text-white text-sm leading-snug line-clamp-1 group-hover:text-gold-light transition-colors">Original Vinayaka Mylari</h3>
+<p class="text-xs text-slate-300 mt-1 line-clamp-2">Shop 79, Nazarbad Main Rd, Mysuru</p>
+</div>
+<div class="mt-4 pt-2.5 border-t border-gold/15 flex items-center justify-between text-xs">
+<span class="text-gold-light/90 font-medium">Avg: ₹60 - ₹120</span>
+<a class="text-gold font-semibold flex items-center gap-0.5 hover:underline" href="#mylari-details">
+                      Details
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Lower Integrated Composer Area: Suggested Prompt Chips + Rounded Input Bar -->
+<footer class="p-4 md:p-5 bg-gradient-to-t from-dusk-950 via-dusk-900 to-dusk-850 border-t border-gold/20 shrink-0" data-purpose="integrated-chat-composer">
+<!-- Suggested Prompt Pills in Dark Luxury Gold -->
+<div class="flex items-center gap-2 overflow-x-auto pb-3 scrollbar-none text-xs font-medium">
+<button class="prompt-chip whitespace-nowrap px-3.5 py-1.5 rounded-full bg-dusk-800 hover:bg-gold/20 border border-gold/30 hover:border-gold text-slate-200 hover:text-gold-light flex items-center gap-1.5 transition-all shadow-sm hover:shadow-[0_0_12px_rgba(243,194,70,0.2)]" type="button">
+<span>👑</span>
+<span>Royal day plan</span>
+</button>
+<button class="prompt-chip whitespace-nowrap px-3.5 py-1.5 rounded-full bg-dusk-800 hover:bg-gold/20 border border-gold/30 hover:border-gold text-slate-200 hover:text-gold-light flex items-center gap-1.5 transition-all shadow-sm hover:shadow-[0_0_12px_rgba(243,194,70,0.2)]" type="button">
+<span>🏛️</span>
+<span>Palace route</span>
+</button>
+<button class="prompt-chip whitespace-nowrap px-3.5 py-1.5 rounded-full bg-dusk-800 hover:bg-gold/20 border border-gold/30 hover:border-gold text-slate-200 hover:text-gold-light flex items-center gap-1.5 transition-all shadow-sm hover:shadow-[0_0_12px_rgba(243,194,70,0.2)]" type="button">
+<span>🍛</span>
+<span>Mysuru feast</span>
+</button>
+<button class="prompt-chip whitespace-nowrap px-3.5 py-1.5 rounded-full bg-dusk-800 hover:bg-gold/20 border border-gold/30 hover:border-gold text-slate-200 hover:text-gold-light flex items-center gap-1.5 transition-all shadow-sm hover:shadow-[0_0_12px_rgba(243,194,70,0.2)]" type="button">
+<span>📷</span>
+<span>Photo moments</span>
+</button>
+<button class="prompt-chip whitespace-nowrap px-3.5 py-1.5 rounded-full bg-dusk-800 hover:bg-gold/20 border border-gold/30 hover:border-gold text-slate-200 hover:text-gold-light flex items-center gap-1.5 transition-all shadow-sm hover:shadow-[0_0_12px_rgba(243,194,70,0.2)]" type="button">
+<span>🛡️</span>
+<span>Safe travel</span>
+</button>
+</div>
+<!-- Main Input Field Container -->
+<form class="relative flex items-center" id="chat-form" onsubmit="event.preventDefault();">
+<input autocomplete="off" class="w-full bg-dusk-950 border border-gold/30 text-slate-100 placeholder-amber-200/40 text-sm md:text-base rounded-2xl pl-5 pr-28 py-3.5 focus:outline-hidden focus:ring-2 focus:ring-gold/30 focus:border-gold shadow-inner transition-all" id="user-input" placeholder="Continue in English, Kannada, or Hindi..." type="text"/>
+<!-- Right-side input actions -->
+<div class="absolute right-2.5 flex items-center space-x-1.5">
+<!-- Security / Heritage Knowledge Verified Badge -->
+<span class="hidden sm:inline-flex items-center justify-center p-1.5 rounded-lg text-emerald-400 hover:bg-emerald-950/40 transition-colors" title="Verified Mysuru Heritage Knowledge Base">
+<svg class="w-4 h-4" fill="currentColor" viewbox="0 0 24 24">
+<path clip-rule="evenodd" d="M12.516 2.17a.75.75 0 00-1.032 0 11.209 11.209 0 01-7.877 3.08.75.75 0 00-.722.515A12.74 12.74 0 002.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 00.374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 00-.722-.516l-.143.001c-2.996 0-5.717-1.17-7.734-3.08zm3.094 8.016a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" fill-rule="evenodd"></path>
+</svg>
+</span>
+<!-- Voice Input Button -->
+<button class="p-2 text-slate-400 hover:text-gold hover:bg-gold/15 rounded-xl transition-all" id="mic-btn" title="Speak to Mysore AI" type="button">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<!-- Send Button with Royal Burgundy and Gold highlight -->
+<button class="bg-gradient-to-r from-maroon via-maroon-dark to-maroon text-gold hover:text-gold-light hover:border-gold active:scale-95 p-2.5 rounded-xl border border-gold/40 shadow-md shadow-maroon/50 transition-all" id="send-btn" type="submit">
+<svg class="w-4 h-4 rotate-45 transform -translate-y-0.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path></svg>
+</button>
+</div>
+</form>
+</footer>
+</section>
+<!-- END: UNIFIED COHESIVE CONTAINER -->
+</main>
+<!-- END: MainChatWorkspace -->
+</div>
+<!-- END: MainLayout -->
+<!-- BEGIN: ClientLogicScript -->
+<!-- Interactivity handlers: Sidebar toggle, Language selection, Prompt injection -->
+<script data-purpose="chat-interactivity">
+    document.addEventListener('DOMContentLoaded', () => {
+      const sidebar = document.getElementById('chat-sidebar');
+      const toggleBtn = document.getElementById('sidebar-toggle');
+      const inputField = document.getElementById('user-input');
+      const promptChips = document.querySelectorAll('.prompt-chip');
+      const langPills = document.querySelectorAll('.lang-pill');
+
+      // 1. Sidebar Toggle Implementation
+      if (toggleBtn && sidebar) {
+        toggleBtn.addEventListener('click', () => {
+          if (sidebar.classList.contains('-ml-72')) {
+            sidebar.classList.remove('-ml-72');
+          } else {
+            sidebar.classList.add('-ml-72');
+          }
+        });
+      }
+
+      // 2. Language Switcher Toggle
+      langPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          langPills.forEach(p => {
+            p.classList.remove('bg-gradient-to-r', 'from-maroon', 'to-maroon-dark', 'text-gold', 'border', 'border-gold/40', 'shadow-[0_0_10px_rgba(243,194,70,0.2)]');
+            p.classList.add('text-slate-300');
+          });
+          pill.classList.remove('text-slate-300');
+          pill.classList.add('bg-gradient-to-r', 'from-maroon', 'to-maroon-dark', 'text-gold', 'border', 'border-gold/40', 'shadow-[0_0_10px_rgba(243,194,70,0.2)]');
+        });
+      });
+
+      // 3. Prompt chips click to autofill and focus
+      promptChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          const text = chip.querySelector('span:last-child')?.textContent;
+          if (text && inputField) {
+            inputField.value = `Tell me more about the ${text} for Mysuru`;
+            inputField.focus();
+          }
+        });
+      });
+
+      // 4. Input form submission feedback simulation
+      const chatForm = document.getElementById('chat-form');
+      if (chatForm) {
+        chatForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          if (!inputField.value.trim()) return;
+          
+          // Clear field and simulate query transition
+          const query = inputField.value;
+          inputField.value = '';
+          inputField.placeholder = `Asking about "${query.substring(0, 24)}..."`;
+          setTimeout(() => {
+            inputField.placeholder = "Continue in English, Kannada, or Hindi...";
+          }, 2400);
+        });
+      }
+    });
+  </script>
+<!-- END: ClientLogicScript -->
+</body></html>

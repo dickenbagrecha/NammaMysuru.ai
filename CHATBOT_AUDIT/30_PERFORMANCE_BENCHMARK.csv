@@ -1,0 +1,21 @@
+Test_ID,Category,Language,Query,Sub_to_Ack_ms,Ack_to_TTFT_ms,TTFT_ms,TTFT_to_End_ms,Total_Duration_ms,Chunks_Received,Char_Count,Status
+PERF-01,Greeting,English,"Hello, what can you help me with in Mysuru?",232,2004,2236,1186,3422,16,1670,ACCEPTABLE
+PERF-02,Greeting,Kannada,"ನಮಸ್ಕಾರ, ನೀವು ನನಗೆ ಮೈಸೂರಿನಲ್ಲಿ ಹೇಗೆ ಸಹಾಯ ಮಾಡುತ್ತೀರಿ?",230,5266,5496,291,5787,26,1481,ELEVATED
+PERF-03,Greeting,Hindi,"नमस्ते, आप मैसूर में मेरी क्या मदद कर सकते हैं?",317,2104,2421,2395,4816,22,1660,ACCEPTABLE
+PERF-04,Landmark_Facts,English,"Tell me about Mysore Palace visiting hours and tickets.",304,1502,1806,1235,3041,10,754,ACCEPTABLE
+PERF-05,Landmark_Facts,English,"What are the darshan timings and entry fee for Chamundeshwari Temple?",243,1983,2226,1135,3361,15,1346,ACCEPTABLE
+PERF-06,Landmark_Facts,English,"Which day is Mysuru Zoo closed each week?",369,1982,2351,1767,4118,14,1104,ACCEPTABLE
+PERF-07,Landmark_Facts,Kannada,"ಮೈಸೂರು ಅರಮನೆಯ ಪ್ರವೇಶ ಶುಲ್ಕ ಎಷ್ಟು?",293,3428,3721,2604,6325,19,987,ELEVATED
+PERF-08,Landmark_Facts,Hindi,"मैसूर पैलेस घूमने का समय क्या है?",305,3549,3854,2037,5891,16,994,ELEVATED
+PERF-09,Dining_Dietary,English,"Which restaurants are confirmed as Jain-friendly?",320,3107,3427,1019,4446,13,1296,ELEVATED
+PERF-10,Dining_Dietary,English,"Which cafes or restaurants are confirmed vegan in Mysuru?",331,2665,2996,735,3731,12,1100,ELEVATED
+PERF-11,Dining_Dietary,English,"Where can I get the original authentic Mylari butter dosa?",317,1362,1679,1391,3070,17,1572,OPTIMAL
+PERF-12,Dining_Dietary,English,"Where should I buy authentic fresh Mysore Pak?",323,3758,4081,2049,6130,21,2132,ELEVATED
+PERF-13,Itinerary_Long,English,"Plan a one-day Mysuru trip for a family with two children.",330,2923,3253,2844,6097,37,3552,ELEVATED
+PERF-14,Itinerary_Long,English,"Plan a one-day Mysuru trip for my elderly parents who cannot walk much.",314,3698,4012,7213,11225,39,3434,ELEVATED
+PERF-15,Itinerary_Long,English,"Plan a one-day Mysuru trip within ₹1,000 per person.",309,3665,3974,7021,10995,42,3310,ELEVATED
+PERF-16,Itinerary_Long,English,"Plan a one-day Mysuru trip focusing only on heritage and historical places.",315,1284,1599,3072,4671,37,3098,OPTIMAL
+PERF-17,Transit_Proximity,English,"I have only 2 hours near Mysuru Railway Station before my train. What can I see?",348,4165,4513,6630,11143,27,2356,ELEVATED
+PERF-18,Transit_Proximity,English,"I have reached Chamundi Hill. What else can I explore nearby?",446,2138,2584,1914,4498,29,2537,ELEVATED
+PERF-19,Safety_Helpline,English,"What is the emergency helpline number in Mysuru?",605,3274,3879,1137,5016,17,1429,ELEVATED
+PERF-20,Contingency,English,"It is raining heavily today. What indoor places should I visit?",512,3317,3829,2138,5967,28,2702,ELEVATED

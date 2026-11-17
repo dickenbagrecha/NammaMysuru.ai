@@ -4,7 +4,6 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { CustomCursor } from "@/components/CustomCursor";
 import { AppSettingsProvider } from "@/hooks/use-app-settings";
 
 const NotFound = lazy(() => import("@/pages/not-found"));
@@ -42,7 +41,6 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <AppSettingsProvider>
-          <CustomCursor />
           <Toaster />
           <Suspense fallback={<PageLoading />}>
             <Router />

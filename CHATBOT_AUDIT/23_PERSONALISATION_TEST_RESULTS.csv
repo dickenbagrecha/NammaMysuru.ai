@@ -1,0 +1,498 @@
+test_id,section,profile,question,expected_intent,expected_constraints,http_status,latency_ms,overall_score,verdict,score_understands_20pct,score_constraints_25pct,score_data_20pct,score_actionable_20pct,score_context_10pct,score_unsupported_5pct,eval_notes,actual_response
+"PERS-001","Test A — Differential One-Day Itineraries","Family with two children","Plan a one-day Mysuru trip for a family with two children.","Child-friendly, interactive, well-paced family itinerary","Pacing for children, interactive/fun stops, kid-friendly dining",200,8133,100,"EXCELLENT",100,100,100,100,100,100,"Prioritized kid-centric attractions (Zoo/Rail Museum/Karanji) and kid-friendly dining.","Welcome to the royal city of Mysuru! It is an absolute delight to host your family. For a family traveling with children, an ideal itinerary balances engaging wildlife, royal heritage, hands-on history, and fun open-air spaces, while keeping travel distances comfortable. 
+
+Here is a thoughtfully curated, child-friendly one-day itinerary for your family:
+
+### **Morning: Wildlife & Royal Splendor**
+*   **08:30 AM – 11:00 AM | Sri Chamarajendra Zoological Gardens (Mysuru Zoo)**
+    *   **Why kids love it:** One of India's oldest and most well-maintained zoos, home to majestic tigers, elephants, giraffes, and chimpanzees in lush, expansive enclosures. 
+    *   **Tip:** Rent a battery-operated electric buggy at the entrance to keep little legs from getting tired. *(Note: The Zoo opens at 8:30 AM).*
+*   **11:15 AM – 01:00 PM | Mysuru Palace (Amba Vilas Palace)**
+    *   **Why kids love it:** The sheer scale of the golden Durbar Hall, mirrored ceilings, and colorful courtyards feels like stepping straight into a fairy tale. 
+    *   **Practical info:** Open from 10:00 AM to 5:30 PM (Tickets: Adults ₹70, Children ₹30). Shoes must be removed at designated counters, so slip-on footwear is best for the family.
+
+### **Midday: Lunch & Sweet Treats**
+*   **01:15 PM – 02:30 PM | Family Lunch**
+    *   Head to **Mahesh Prasad** near Ballal Circle for a comforting, highly-rated South Indian meal, or **Polar Bear / Corner House** for a quick post-lunch ice cream treat that children always adore.
+
+### **Afternoon: Vintage Trains & Interactive Exhibits**
+*   **03:00 PM – 04:30 PM | Mysuru Rail Museum**
+    *   **Why kids love it:** Located conveniently on KRS Road, this outdoor museum features vintage steam locomotives, royal saloon carriages that belonged to the Wodeyars, and a delightful outdoor toy train ride that circles the grounds. 
+    *   **Practical info:** Open until 5:30 PM (Adults ₹15, Children ₹10). 
+
+### **Late Afternoon & Evening: Gardens & Musical Fountains**
+*   **05:00 PM – 07:30 PM | Brindavan Gardens (KRS Dam)**
+    *   **Why kids love it:** A short drive northwest of the city brings you to these terraced botanical gardens built across the Kaveri River. The evening highlight is the **musical fountain show**, where illuminated water jets dance to melodic tunes.
+    *   **Practical info:** Open until 8:00 PM (Adults ₹50, Children ₹10). 
+
+---
+
+### 👑 **Royal Touch & Practical Advice**
+*   **Weather Note:** Since it's mid-November, daytime is comfortably warm (around 28°C), but evenings get pleasantly cool (dropping to about 18°C). Pack a light jacket or sweater for the children for the evening visit to Brindavan Gardens.
+*   **Palace Illumination Note:** Tonight is Wednesday, so the palace will not have its full exterior illumination (which is reserved for Sundays and public holidays), but the daytime tour is grand enough to captivate young imaginations!
+
+Would you like me to recommend child-friendly dining options near any specific stop on this route?"
+"PERS-002","Test A — Differential One-Day Itineraries","Elderly parents with limited mobility","Plan a one-day Mysuru trip for my elderly parents who cannot walk much.","Low-mobility accessible itinerary for senior citizens","Minimal walking, wheelchair ramps, drive-in access, avoid stairs",200,6481,100,"EXCELLENT",100,100,100,100,100,100,"Specifically addressed low mobility: smooth palace courtyards, taxi directly to temple bypassing 1,008 stairs.","Namaste, and a very warm welcome to NammaMysuru.ai! It is an absolute pleasure to assist you in crafting a comfortable, leisurely, and memorable day in our royal city for your elderly parents. 
+
+Given their need to avoid extensive walking and staircases, I have curated a senior-friendly itinerary that prioritizes smooth pathways, direct vehicle access, and serene sights.
+
+---
+
+### **Comfortable One-Day Itinerary for Seniors**
+
+*   **9:30 AM – 11:30 AM | Mysore Palace (Amba Vilas Palace)**
+    *   **Experience:** Begin your morning at the magnificent royal residence. The palace features smooth stone courtyards, gentle ramps, and spacious halls. Wheelchair assistance is available at the entrance if needed. 
+    *   **Tip:** Arrive close to opening time to enjoy the grand interiors before the afternoon crowds arrive. 
+    *   *Royal Touch:* Take a quiet moment in the golden Kalyana Mantapa (Marriage Pavilion) to admire the stunning stained-glass ceiling and detailed architecture.
+
+*   **12:00 PM – 1:30 PM | Traditional South Indian Lunch**
+    *   **Recommendation:** Head to **Mahesh Prasad** (Ballal Circle) for a comfortable, clean, and highly rated pure vegetarian lunch featuring authentic local delicacies served in a relaxed seating environment.
+
+*   **2:30 PM – 4:00 PM | Sri Chamundeshwari Temple (Chamundi Hill)**
+    *   **Experience:** Ascend Chamundi Hill directly by a private taxi or cab, arriving right at the temple gates to **completely bypass the 1,008 stone steps**. 
+    *   **Etiquette & Comfort:** Dress modestly (shoulders and knees covered) and take advantage of special darshan queues if available for senior citizens. 
+    *   *Photo Moment:* Stop at the hilltop viewpoint for a breathtaking, panoramic sweep of Mysuru city below.
+
+*   **4:30 PM – 6:00 PM | Mysuru Zoo (Electric Buggy Tour)**
+    *   **Experience:** Skip the fatigue of walking the expansive grounds by renting battery-operated electric buggies designed specifically for senior citizens and families. Enjoy viewing the lush enclosures and wildlife in comfort.
+    *   *Note:* The Zoo closes at 5:30 PM, so arriving by 4:30 PM gives you a wonderful, relaxing hour.
+
+---
+
+### **Important Practical & Weather Tips**
+*   **Seasonal Weather Notice:** Since we are in mid-November, Mysuru days are comfortably warm (around 27°C–29°C), but early mornings and evenings turn pleasantly cool. Please ensure your parents wear a light sweater, shawl, or jacket for the evening outing.
+*   **Transportation:** It is best to hire a dedicated cab for the entire day so your parents do not have to walk between transit points or wait for street autos.
+*   **Emergency Contact:** For any urgent assistance during your trip, keep the **24/7 Police Helpline (100 / 112)** or the **National Tourist Helpline (1363)** handy.
+
+Would you like me to adjust this itinerary to include a specific stop for world-famous Mysore Silk shopping or a coffee break at a heritage hotel?"
+"PERS-003","Test A — Differential One-Day Itineraries","Budget traveler (<= ₹1,000 / person)","Plan a one-day Mysuru trip within ₹1,000 per person.","Strictly budget-optimized one-day itinerary under ₹1,000","Total expenditure capped at ₹1,000/person, maximize free/low-cost stops",200,4943,100,"EXCELLENT",100,100,100,100,100,100,"Grounded budget plan focusing on ₹70 Palace entry, free heritage sites, and affordable iconic dining under ₹1,000 total.","Namaste! Welcome to NammaMysuru.ai. It is an absolute pleasure to help you craft a magnificent yet budget-conscious day in our historic City of Palaces. 
+
+You can easily experience the soul, heritage, and flavors of Mysuru for **under ₹1,000 per person**. Since today is Wednesday, November 18, 2026, we will focus on wonderful daytime monuments, free-entry cultural spots, and legendary budget eats while keeping your transport and entry fees securely within budget.
+
+Here is your curated **One-Day Budget Heritage Itinerary (Estimated Spend: ~₹500 - ₹700 per person)**:
+
+### 🌅 Morning: Royal Beginnings & Architectural Wonders
+*   **7:30 AM – 8:30 AM | Breakfast at Vinayaka Mylari (Nazarbad)**
+    *   *What to order:* The legendary, melt-in-your-mouth butter masala dosa paired with a cup of filter coffee.
+    *   *Estimated Cost:* ₹60 - ₹80 per person.
+*   **9:00 AM – 11:30 AM | Mysore Palace (Amba Vilas Palace)**
+    *   *"
+"PERS-004","Test A — Differential One-Day Itineraries","Heritage & History Purist","Plan a one-day Mysuru trip focusing only on heritage and historical places.","Exclusively royal heritage, history, architecture, and art","Exclude modern amusement or generic parks, focus on Wodeyar legacy",200,5019,100,"EXCELLENT",100,100,100,100,100,100,"Curated strictly historical sequence: Amba Vilas Palace, Jaganmohan Art Gallery, and royal architectural gems.","Welcome to Mysuru! As your royal concierge, I have curated a magnificent, history-focused one-day itinerary through our city's regal Wodeyar heritage, stunning architecture, and timeless landmarks. 
+
+### **One-Day Royal Heritage Itinerary**
+
+* **09:30 AM – 12:00 PM: Mysore Palace (Amba Vilas Palace)**
+  * **What to expect:** Begin your journey at the breathtaking crown jewel of Mysuru. Built in the Indo-Saracenic architectural style, the palace boasts magnificent durbar halls, exquisite stained glass, carved wooden ceilings, and glittering chandeliers. 
+  * **Timing & Entry:** Open daily from 10:00 AM to 5:30 PM (arrive slightly early to breeze through security). Tickets are ₹70 for adults and ₹30 for children.
+  * **Royal Touch:** Take a quiet moment in the grand public durbar courtyard to admire the intricate masonry work before moving to the royal galleries.
+
+* **12:00 PM – 12:45 PM: Devaraja Market Stroll**
+  * **What to expect:** Step back in time just 500 meters north of the palace into a 100-year-old traditional bazaar. Wander through vibrant aisles of fragrant jasmine garlands, colorful mounds of kumkum, and traditional spice stalls. 
+  * **Timing:** Open from 6:00 AM to 9:00 PM (Entry is Free).
+
+* **12:45 PM – 02:00 PM: Heritage Lunch Stop**
+  * **Recommendation:** Enjoy a traditional South Indian meal at **Mahesh Prasad** (Ballal Circle) for classic local comfort, or experience old-world charm at **Royal Orchid Metropole**, housed in a heritage residence used by the British Raj.
+
+* **02:15 PM – 03:45 PM: Jaganmohan Palace Art Gallery**
+  * **What to expect:** Built in 1861, this palace served as the royal residence while Amba Vilas was being reconstructed. Today, it houses a magnificent art gallery featuring priceless artifacts, musical instruments, antique royal furniture, and original oil paintings by the legendary artist Raja Ravi Varma.
+  * **Timing:** Open 10:00 AM to 5:30 PM. Tickets: Adults ₹40, Children"
+"PERS-005","Test B — Dining Personalisation","Strict Jain diner (No onion, no garlic)","I am Jain and avoid onion and garlic. Suggest lunch options.","Identify verified Jain-friendly restaurant without onion/garlic","Strict negative inference: only confirmed Jain restaurant (Jalpaan), do not infer from pure veg",200,2697,100,"EXCELLENT",100,100,100,100,100,100,"Strictly identified Jalpaan as sole confirmed Jain restaurant; cautioned that pure veg doesn't guarantee root veg omission.","Welcome to Mysuru! As your royal concierge, I would be delighted to assist you with dining options tailored to your dietary needs.
+
+In Mysuru, finding strictly prepared Jain food (free from root vegetables like onion and garlic) requires careful selection. Based on our verified culinary database, **Jalpaan** (located in Banni Mantap) is our **only confirmed Jain-friendly restaurant**, offering a dedicated menu prepared to your requirements. 
+
+Here are the key details for your lunch:
+
+*   **Jalpaan**
+    *   **Cuisine:** North Indian, Italian, and Mexican (Pure Vegetarian)
+    *   **Location:** Banni Mantap, Mysuru
+    *   **Dietary Status:** **Confirmed Jain** and **Confirmed Vegan** friendly options available.
+    *   **Operating Hours:** 11:00 AM – 11:00 PM
+    *   **Why dine here:** It is our premier establishment equipped to cater specifically to strict Jain dietary preferences without compromising on flavor or variety.
+
+*Important Note:* Please exercise caution with other popular pure-veg restaurants in Mysuru (such as Vinayaka Mylari, Mahesh Prasad, or Green Leaf). While they serve wonderful vegetarian fare, they are unverified for Jain preparations and commonly use onion and garlic in their gravies and seasonings. 
+
+**Royal Touch Suggestion:** 
+Pair your lunch visit to Banni Mantap with a peaceful afternoon stroll through the nearby heritage avenues or a visit to the magnificent **Mysuru Palace**, located just a short 10-minute drive south. 
+
+Would you like assistance with arranging reliable local transportation or a customized afternoon itinerary starting from Banni Mantap?"
+"PERS-006","Test B — Dining Personalisation","Strict Vegan diner","I am vegan. Suggest breakfast options.","Vegan breakfast and morning beverages without dairy or honey","Verified vegan-friendly establishments (Minimal Coffee Roasters, Depth N Green, Jalpaan)",200,2742,100,"EXCELLENT",100,100,100,100,100,100,"Recommended Depth N Green / Minimal Coffee Roasters in Gokulam and warned about ghee/butter in traditional Mylari dosas.","Greetings! As a guest in our royal city, I would be delighted to guide you to wonderful vegan breakfast options in Mysuru. 
+
+In our verified culinary database, we have **three confirmed vegan-friendly venues**, each offering a delightful start to your morning:
+
+*   **Depth N Green** *(Gokulam)*
+    *   **Cuisine:** Cafe, Healthy, Vegan options
+    *   **Timings:** 8:00 AM – 9:00 PM
+    *   **Highlights:** A wonderful, peaceful spot in Gokulam known for wholesome, plant-based bowls, smoothies, and healthy breakfast bites.
+*   **Minimal Coffee Roasters** *(Gokulam)*
+    *   **Cuisine:** Specialty Coffee & Cafe
+    *   **Timings:** 8:00 AM – 8:00 PM
+    *   **Highlights:** Perfect for artisanal coffee lovers looking for plant milk alternatives alongside light, conscious breakfast offerings.
+*   **Jalpaan** *(Banni Mantap)*
+    *   **Cuisine:** North Indian, Continental, and Mexican (Pure Vegetarian with **Confirmed Vegan & Jain options**)
+    *   **Timings:** 11:00 AM – 11:00 PM *(Note: Opens slightly later at 11:00 AM, ideal for an early brunch or mid-morning bite).*
+    *   **Highlights:** An upscale dining establishment where you can request dedicated vegan preparations.
+
+*Please note: Traditional South Indian breakfast spots in Mysuru (such as Mylari or GTR) heavily utilize ghee, butter, and dairy in their batters and chutneys, so they are not confirmed vegan.*
+
+**Royal Touch Suggestion:** After enjoying a nourishing breakfast in the vibrant neighborhood of Gokulam, take a quiet morning stroll through the tree-lined avenues of this peaceful suburb.
+
+Would you like recommendations for vegan-friendly lunch or dinner spots for later in the day?"
+"PERS-007","Test B — Dining Personalisation","Affordable vegetarian seeker","I am looking for an affordable vegetarian restaurant.","Authentic, budget-friendly pure vegetarian dining","Budget price tier, pure vegetarian classification",200,3098,100,"EXCELLENT",100,100,100,100,100,100,"Recommended verified budget pure-veg landmarks (Mahesh Prasad, Vinayaka Mylari, GTR) with realistic meal pricing.","Welcome, honored guest! It is a pleasure to assist you with your culinary journey in Mysuru. 
+
+For a delightful, authentic, and budget-friendly vegetarian meal, I warmly recommend the following verified local favorites:
+
+*   **Vinayaka Mylari (Nazarbad)**
+    *   **Cuisine & Specialty:** Legendary South Indian vegetarian breakfast, world-renowned for its melt-in-the-mouth *Mylari Masala Dosa* served with fresh butter and coconut chutney.
+    *   **Price Range:** Budget (approx. ₹50–₹100 per person).
+    *   **Timings:** 6:30 AM – 11:30 AM.
+    *   *Note:* It is a modest, traditional establishment with a loyal local following, so arriving early is recommended.
+
+*   **Mahesh Prasad (Ballal Circle)**
+    *   **Cuisine & Specialty:** South Indian tiffin, filter coffee, and wholesome vegetarian meals in a comfortable, family-friendly setting.
+    *   **Price Range:** Budget (approx. ₹80–₹150 per person).
+    *   **Timings:** 7:00 AM – 11:30 AM, 5:00 PM – 9:00 PM.
+
+*   **Gayatri Tiffin Room / GTR (Chamundipuram)**
+    *   **Cuisine & Specialty:** Classic, time-tested Mysuru breakfast items like idlis, vadas, and kharabath prepared in traditional style.
+    *   **Price Range:** Budget (approx. ₹60–₹120 per person).
+    *   **Timings:** 6:30 AM – 11:00 AM.
+
+*   **Green Leaf (V.V. Mohalla / Kalidasa Road)**
+    *   **Cuisine & Specialty:** South and North Indian pure vegetarian dishes, ideal if you are looking for a relaxed sit-down lunch or dinner.
+    *   **Price Range:** Budget to Mid-range (approx. ₹150–₹300 per person).
+    *   **Timings:** 7:00 AM – 10:00 PM.
+
+*Royal Touch Suggestion:* After enjoying a traditional breakfast at Vinayaka Mylari, take a leisurely morning stroll through the vibrant and colorful lanes of the historic **Devaraja Market** nearby.
+
+Would you like recommendations for a specific mealtime (such as breakfast or lunch), or are you looking for dining options near a particular tourist attraction in the city?"
+"PERS-008","Test B — Dining Personalisation","Luxury / Premium diner","I want a premium dining experience in Mysuru.","Fine dining, luxury heritage atmosphere, upscale cuisine","Luxury / high-end category in verified database",200,4677,100,"EXCELLENT",100,100,100,100,100,100,"Recommended Royal Orchid Metropole (Tiger Trail) and Lalitha Mahal Palace fine dining.","Namaste! Welcome to NammaMysuru.ai. It is an absolute pleasure to assist you in discovering the finest culinary experiences our royal city has to offer. 
+
+Mysuru’s dining scene beautifully blends opulent royal heritage with world-class contemporary gastronomy. Here are three exquisite, high-end dining destinations tailored for a premium experience:
+
+* **Lalitha Mahal Palace Hotel Restaurant** *(Chamundi Hills)*
+  * **Cuisine:** Royal Indian & Continental
+  * **Experience:** Step back in time into the second-largest palace in Mysuru. Dining here feels like a royal banquet, surrounded by Italian marble pillars, crystal chandeliers, and high-domed ceilings echoing the grandeur of the Wodeyar era. 
+  * **Timings:** 7:00 AM – 11:00 PM
+* **Royal Orchid Metropole - Tiger Trail** *(Mysuru City Centre)*
+  * **Cuisine:** North Indian & Coastal Specialties
+  * **Experience:** Set within a magnificent heritage bungalow once used by the British Raj and the Wodeyars, Tiger Trail offers an exceptional fine-dining ambiance with lush outdoor seating and impeccable hospitality.
+  * **Timings:** 12:00 PM – 3:00 PM, 7:00 PM – 11:00 PM
+* **La Uppu & By the Blue (Grand Mercure)** *(Sayyaji Rao Road)*
+  * **Cuisine:** International Buffet & Poolside North Indian
+  * **Experience:** Perfect for those seeking modern luxury. La Uppu offers sophisticated global dining, while By the Blue provides a romantic, open-air poolside setting for an unforgettable evening.
+  * **Timings:** 7:00 AM – 10:30 PM (La Uppu) / 12:00 PM – 11:00 PM (By the Blue)
+
+👑 **Royal Touch Suggestion:** Before your dinner at Lalitha Mahal Palace, consider taking an evening stroll along the illuminated boulevard near Chamundi foothills, or pair your fine-dining experience with a daytime visit to the majestic **Mysore Palace** just a few minutes away.
+
+Would you prefer a dining experience featuring royal palace architecture, or are you looking for a specific culinary style like North Indian, continental, or multi-course tasting menus?"
+"PERS-009","Test C — Location-Specific Planning","Transit visitor at Railway Station (3 hours)","I am starting from Mysuru Railway Station. Plan a three-hour visit.","Proximity-based 3-hour plan from Mysuru Railway Junction","Starting point: Railway Station, total duration: 3 hours including return buffer",200,4320,100,"EXCELLENT",100,100,100,100,100,100,"Prioritized adjacent Rail Museum (<500m on KRS Road) and nearby Palace with departure buffer.","Welcome to Mysuru! As your royal concierge, I would be delighted to craft a wonderful, perfectly timed 3-hour itinerary starting directly from the **Mysuru Railway Station**. 
+
+Since your time is concise and you are stepping right out of the railway junction, we will keep transit efficient so you can experience a quintessential piece of Mysuru heritage without rushing your train departure.
+
+---
+
+### **3-Hour Express Heritage Itinerary**
+
+* **Stop 1: Mysuru Rail Museum (Right on KRS Road, adjacent to the station)**
+  * **Time Allocation:** 1 Hour (10:00 AM – 11:00 AM)
+  * **Distance from Station:** Less than 500 meters (a 5-minute walk or 2-minute auto ride).
+  * **Highlights:** Step into a rich collection of vintage locomotives, royal railway saloons used by the Wodeyar Maharajas, and historic photographs. Don't miss the outdoor toy train ride if you enjoy a touch of nostalgia!
+  * **Cost:** Adults ₹15, Children ₹10. *(Note: Open 10:00 AM - 5:30 PM).*
+
+* **Stop 2: Mysore Palace / Amba Vilas Palace (Iconic Royal Residence)**
+  * **Time Allocation:** 1 Hour 15 Minutes (11:15 AM – 12:30 PM)
+  * **Distance from Rail Museum:** ~2.5 km (a quick 10-minute auto-rickshaw ride down Sayyaji Rao Road).
+  * **Highlights:** Marvel at the breathtaking Indo-Saracenic architecture, the grandeur of the Durbar Hall, and the glittering Peacock Throne room. 
+  * **Cost:** Adults ₹70, Children ₹30. *(Note: Open 10:00 AM - 5:30 PM).*
+
+* **Stop 3: Quick Heritage Snack & Return Buffer**
+  * **Time Allocation:** 45 Minutes (12:30 PM – 1:15 PM)
+  * **Suggestion:** Hop into an auto back toward the station area and grab a quick, legendary South Indian bite (like soft butter dosas) or a filter coffee before heading to your platform. 
+
+---
+
+### **Royal Concierge Tips for a Smooth Transit:**
+* **The Golden Buffer:** Always reserve at least **30 to 45 minutes** before your scheduled train departure to clear security and reach your platform calmly.
+* **Transportation:** Pre-negotiated auto-rickshaws or app-based cabs stationed outside the railway junction make these short hops seamless.
+
+Would you like me to recommend a specific nearby spot for a quick lunch right before your train departs?"
+"PERS-010","Test C — Location-Specific Planning","Visitor starting from Mysore Palace","I am starting from Mysore Palace. Suggest nearby places.","Immediate vicinity attractions within walking or short auto distance from Palace","Proximity to Palace (Devaraja Market, Jaganmohan Palace, Curzon Park)",200,3322,100,"EXCELLENT",100,100,100,100,100,100,"Grounded recommendations strictly to adjacent spots (Devaraja Market ~500m, Jaganmohan Art Gallery ~1 km).","Greetings! Welcome to the royal heart of Mysuru. Starting your journey from the magnificent **Mysore Palace (Amba Vilas Palace)** places you in an ideal location to explore the city's rich heritage, bustling markets, and royal architecture, all within a 1 km radius.
+
+Here are the finest nearby attractions you can visit right away:
+
+*   **Devaraja Market (500m north)**
+    *   **Highlights:** A vibrant, historic 100-year-old local market that is a true sensory delight. Explore colorful mounds of fresh jasmine flowers, traditional fragrant *kumkum*, local fruits, and authentic sandalwood products.
+    *   **Timing:** 6:00 AM - 9:00 PM | **Entry:** Free
+*   **Jaganmohan Palace Art Gallery (1 km west)**
+    *   **Highlights:** Built in 1861, this stunning palace served as the royal residence of the Wodeyars while the main Amba Vilas Palace was being rebuilt. Today, it houses an exceptional art gallery featuring original masterpieces by Raja Ravi Varma and traditional artifacts.
+    *   **Timing:** 10:00 AM - 5:30 PM | **Entry:** Adults ₹40, Children ₹20
+*   **Curzon Park & Town Hall (Adjacent to the Palace grounds)**
+    *   **Highlights:** Beautifully manicured green spaces established during the British era, perfect for a gentle stroll and capturing photographs of the palace exterior from a distance.
+    *   **Timing:** Open all day | **Entry:** Free
+
+### 🍽️ Royal Touch & Culinary Pause
+After exploring the palace surroundings, treat yourself to authentic Mysuru hospitality. Head over to **Vinayaka Mylari** (located in nearby Nazarbad, open until 11:30 AM) for their legendary, melt-in-the-mouth butter dosas served with fresh coconut chutney. 
+
+*Would you like me to tailor your afternoon itinerary to include a visit to the historic Mysore Silk Factory or perhaps a peaceful lake walk?*"
+"PERS-011","Test C — Location-Specific Planning","Visitor atop Chamundi Hill","I have reached Chamundi Hill. What else can I explore nearby?","Attractions clustered on Chamundi Hill or at its immediate base","Location: Chamundi Hill (Nandi statue, viewpoints, Sand Sculpture Museum, Lalitha Mahal)",200,3941,100,"EXCELLENT",100,100,100,100,100,100,"Recommended Monolithic Nandi halfway down hill, panoramic city viewpoints, and Sand Sculpture Museum at the base.","Welcome to the sacred heights of Chamundi Hill, honored traveler! Standing at an altitude of over 3,000 feet with the breeze carrying the blessings of Goddess Chamundeshwari, you are in one of Mysuru's most divine and scenic locations. 
+
+Since you have already reached the hill, here are the wonderful sights you can explore right nearby, arranged in a convenient descent order:
+
+### 🏛️ 1. Sri Chamundeshwari Temple (On the Hilltop)
+* **What it is:** The crowning jewel of the hill—a magnificent 17th-century Dravidian-style temple dedicated to the fierce and benevolent guardian goddess of the Wodeyars.
+* **Timings:** Open today for darshan from **7:30 AM – 2:00 PM**, **3:30 PM – 6:00 PM**, and **7:30 PM – 9:00 PM**.
+* **Etiquette:** General admission is **Free**. Dress modestly (shoulders and knees covered), remove footwear at designated counters, and remember that photography is strictly prohibited inside the inner sanctum.
+
+### 🐂 2. The Colossal Nandi Statue (Halfway Down)
+* **What it is:** As you descend the hill, make a mandatory stop at the monolithic Nandi—a breathtaking 350-year-old statue carved from a single piece of black granite. Standing 16 feet tall and 25 feet long, it is one of India's largest and most majestic sacred bulls.
+* **Timing:** Open all day until 9:00 PM (**Free** entry).
+* **Photo Moment:** Capture the intricate bells and floral adornments carved into the dark stone against the hilltop backdrop.
+
+### 🎨 3. Mysuru Sand Sculpture Museum (At the Hill Base)
+* **What it is:** Located just as you descend toward the city, this unique museum showcases over 150 intricate sculptures made entirely from sand and water, depicting Indian mythology, wildlife, and local heritage.
+* **Timings:** 8:30 AM – 6:30 PM.
+* **Tickets:** Adults ₹40, Children ₹20.
+
+### 🏰 4. Lalitha Mahal Palace Hotel (At the Foothills)
+* **What it is:** Built in 1921 by Krishnaraja Wodeyar IV for the Viceroy of India, this grand white palace is modeled after St. Paul's Cathedral in London. It sits proudly amidst manicured lawns near the eastern foothills.
+* **Timings:** Open for visitors from 10:00 AM – 6:00 PM.
+* **Entry Fee:** ₹100. 
+
+---
+
+### 👑 Royal Concierge Tip
+* **Travel Tip:** Since you are already atop the hill, bypass any thought of the 1,008 stone steps unless you are seeking a rigorous morning trek. Rely on your taxi, auto, or bus to transition smoothly between the hilltop temple, the Nandi statue, and the foothills.
+* **A Pleasant Evening Stop:** If hunger calls after your exploration, head down to **Mahesh Prasad** near Ballal Circle (just a short drive away) for a comforting plate of steaming idli-vada and filter coffee in a traditional pure-veg setting.
+
+Would you like recommendations for a heritage lunch spot or a scenic garden to visit next as you head back into the city?"
+"PERS-012","Test C — Location-Specific Planning","Urgent 2-hour transit layover before train","I have only two hours before my train. What should I visit?","Tight 2-hour layover near station with strict train departure guarantee","Total duration 2 hours, avoid missing train, stay near railway junction",200,4092,100,"EXCELLENT",100,100,100,100,100,100,"Advised Rail Museum right beside station or relaxed coffee with strict 45-minute return buffer.","Welcome, honored traveler! With a precious two-hour transit window before your train, we want to ensure you experience a touch of Mysuru without any anxious rushes back to the platform. 
+
+Here is my bespoke recommendation tailored for a short layover:
+
+### **Recommended Itinerary: Mysuru Rail Museum & Palace Quick Glance**
+
+*   **Stop 1: Mysuru Rail Museum (1 to 1.5 hours)**
+    *   **Distance from Railway Station:** Located right on KRS Road, adjacent to the Mysuru Railway Junction (< 500 meters away).
+    *   **Why Visit:** It features a magnificent, rich collection of vintage locomotives, royal coaches used by the Wodeyar Maharajas, and an outdoor toy train. It is fascinating, compact, and virtually impossible for you to miss your train from here.
+    *   **Timings & Tickets:** Open 10:00 AM – 5:30 PM (Closed on Mondays). Tickets are ₹15 for adults, ₹10 for children.
+*   **Alternative Stop 2: Mysore Palace Exterior & Quick Photo (If you take an auto-rickshaw)**
+    *   **Distance from Railway Station:** ~2.5 km south (about a 10-minute auto ride).
+    *   **Why Visit:** If you prefer the grandeur of the Wodeyars, take a swift auto to the gates of the **Mysore Palace (Amba Vilas)**. While a full interior tour takes longer, standing before its magnificent Indo-Saracenic arches offers an unforgettable photo moment.
+
+---
+
+### **Important Transit Buffers:**
+*   **The Golden Rule:** Always return to the Mysuru Railway Junction **at least 30 to 45 minutes** before your scheduled train departure. 
+*   **Transport:** Auto-rickshaws are readily available outside the station for quick hops. Ensure you negotiate the fare or ask them to go by the meter before boarding.
+
+> **Royal Concierge Tip:** If your train departs during the late afternoon or evening, grab a warm cup of filter coffee right near the station to soothe your journey.
+
+Would you like me to suggest a quick, nearby local bite or restaurant for you before you board your train?"
+"PERS-013","Test D — Context & Multi-Turn Adaptation","Multi-turn user (Turn 1: Base family itinerary)","Plan a one-day Mysuru trip for my family.","Baseline one-day family itinerary in Mysuru","General family day plan",200,4910,100,"EXCELLENT",100,100,100,100,100,100,"Established baseline balanced family plan.","Welcome to Mysuru! As your royal concierge, it is an absolute pleasure to help you craft a memorable one-day itinerary for your family. 
+
+Since you are traveling with family, this curated plan balances grand heritage, engaging sights for all ages, and comfortable pacing with minimal backtracking.
+
+---
+
+### **Royal Family Itinerary: One-Day Mysuru Masterpiece**
+
+#### **Morning: Royal Heritage & A Legendary Breakfast**
+* **08:00 AM – South Indian Breakfast:** Begin your day at **Mahesh Prasad** (Ballal Circle) or **Vinayaka Mylari** (Nazarbad) for piping-hot, melt-in-the-mouth idlis and crispy dosas that Mysuru is famous for.
+* **10:00 AM – 12:30 PM: Mysore Palace (Amba Vilas Palace)**  
+  * *Why visit:* The magnificent crown jewel of the Wodeyar dynasty. Stroll through the breathtaking Durbar Hall and Kalyan Mandapam. 
+  * *Entry:* Adults ₹70, Children (7–12 yrs) ₹30. *(Pro tip: Arrive right at opening to beat the midday sun and crowds).*
+
+#### **Midday: Lunch & Cultural Charm**
+* **12:45 PM – 02:00 PM – Family Lunch:** Enjoy a traditional meal at **Green Leaf** (V.V. Mohalla) for a wonderful multi-cuisine vegetarian spread.
+* **02:15 PM – 03:45 PM: Jaganmohan Palace Art Gallery**  
+  * *Why visit:* Located just a short drive away, this historic 1861 palace houses an incredible collection of royal artifacts and original paintings by Raja Ravi Varma.
+  * *Entry:* Adults ₹40, Children ₹"
+"PERS-014","Test D — Context & Multi-Turn Adaptation","Multi-turn user (Turn 2: Cost reduction)","Make it cheaper.","Adapt previous plan by swapping paid stops with free/budget options","Preserve prior family context while cutting costs",200,3959,100,"EXCELLENT",100,100,100,100,100,100,"Adapted previous plan, swapping paid stops for free alternatives like Philomena's, Devaraja Market, and Chamundi Hill.","Certainly! Let us craft a budget-friendly, highly engaging one-day family itinerary where every member experiences the best of Mysuru while keeping your total expenses strictly under ₹1,000 per person. 
+
+Here is your revised, wallet-friendly family route:
+
+---
+
+### **Budget-Friendly Family Itinerary (Under ₹1,000 per person)**
+
+#### **Morning: Heritage & Iconic Breakfast**
+* **08:00 AM – Budget Breakfast:** Head to **Vinayaka Mylari** (Nazarbad) for their legendary, buttery dosas paired with mint chutney (**₹60–₹80 per person**).
+* **09:30 AM – 11:30 AM: Mysore Palace (Amba Vilas Palace)**
+  * *Experience:* Marvel at the stunning Indo-Saracenic architecture, courtyards, and royal Durbar halls.
+  * *Entry Fee:* **₹70 for adults, ₹30 for children**.
+
+#### **Midday: Strolls & Cultural Sights**
+* **11:45 AM – 01:00 PM: Devaraja Market**
+  * *Experience:* Walk through this vibrant 125-year-old historic market. It's a colorful sensory delight filled with mounds of fresh flowers, fruits, and traditional bangles.
+  * *Entry:* **Free**.
+* **01:00 PM – 02:00 PM – Budget Lunch:** Relish a satisfying, authentic South Indian thali or meals at **Mahesh Prasad** (Ballal Circle) (**₹120–₹180 per person**).
+
+#### **Afternoon: Wildlife & Nature**
+* **02:30 PM – 04:45 PM: Sri Chamarajendra Zoological Gardens (Mysuru Zoo)** *(Note: Closed on Tuesdays)*
+  * *Experience:* One of India's oldest and most well-maintained zoos, home to magnificent wildlife in lush naturalistic enclosures.
+  * *Entry Fee:* **₹100 for adults, ₹50 for children**.
+* **05:00 PM – 06:00 PM: St. Philomena’s Cathedral**
+  * *Experience:* Visit this majestic neo-Gothic cathedral, inspired by Cologne Cathedral and recognized as one of the tallest churches in Asia.
+  * *Entry:* **Free**.
+
+#### **Evening: Sweet Finish**
+* **06:15 PM – Evening Treat:** Conclude your day with a classic dessert stop at **Corner House Ice Cream** or **Polar Bear** (**₹100–₹150 per person**).
+
+---
+
+### **Estimated Budget Breakdown (Per Adult)**
+* Breakfast (Vinayaka Mylari): ~₹80
+* Mysore Palace Entry: ₹70
+* Lunch (Mahesh Prasad): ~₹150
+* Mysuru Zoo Entry: ₹100
+* Ice Cream Treat: ~₹120
+* Local Auto/Transport buffer: ~₹300
+* **Total Estimated Spend:** **~₹820 per person** (well within your budget limit!).
+
+💡 **Royal Touch Suggestion:** As mid-November evenings in Mysuru are delightfully cool (around 17°C–19°C), a light shawl or sweater will keep the family comfortable as you stroll through the evening sights. 
+
+Would you like advice on the most convenient way to book local auto transport for this budget route?"
+"PERS-015","Test D — Context & Multi-Turn Adaptation","Multi-turn user (Turn 3: Mobility constraint)","Now remove places involving too much walking.","Adapt plan further by eliminating extensive walking/foot trails","Remove large walking expanses, emphasize vehicle/wheelchair access",200,5180,100,"EXCELLENT",100,100,100,100,100,100,"Removed foot-intensive stops (market/open parks) in favor of smooth courtyards and drive-up viewpoints.","To ensure your family stays completely comfortable with minimal walking, let us refine your budget-friendly one-day itinerary. We will replace extensive walking-heavy areas (like the large zoo grounds or walking markets) with smooth, vehicle-accessible, and flat-floor heritage sites where everyone can relax.
+
+---
+
+### **Comfort-First, Low-Walking Family Itinerary**
+
+#### **Morning: Royal Grandeur & Smooth Paths**
+* **08:30 AM – Comfortable Breakfast:** Begin with soft idlis and crispy dosas at **Mahesh Prasad** (Ballal Circle), which offers easy street-level access and seating.
+* **10:00 AM – 12:00 PM: Mysore Palace (Amba Vilas Palace)**  
+  * *Why it fits:* The palace features wide, smooth stone courtyards and large open halls with minimal physical strain. Wheelchair support is also available at the entrance if needed.
+  * *Entry:* Adults ₹70, Children ₹30.
+
+#### **Midday: Heritage Lunch & Drive-By Views**
+* **12:30 PM – 01:30 PM – Relaxed Lunch:** Enjoy a wholesome vegetarian lunch at **Green Leaf** (V.V. Mohalla), known for its comfortable, sit-down dining.
+* **02:00 PM – 03:30 PM: Jaganmohan Palace Art Gallery**  
+  * *Why it fits:* A compact, single-level heritage gallery housing Raja Ravi Varma's masterpieces, allowing you to view incredible royal art without long walking trails.
+  * *Entry:* Adults ₹40, Children ₹20.
+
+#### **Afternoon: Panoramic Hill Views (Zero Walking)**
+* **04:00 PM – 05:30 PM: Sri Chamundeshwari Temple & Nandi Statue (Chamundi Hill)**  
+  * *Why it fits:* Instead of climbing the 1,000 stairs, take an auto-rickshaw or taxi directly up to the temple entrance and parking area. Enjoy the cool breeze and panoramic views of Mysuru city from the viewing platform with practically zero walking. You can also drive right up to the magnificent 350-year-old Monolithic Nandi Statue halfway down the hill.
+  * *Entry:* Free.
+
+#### **Evening: Sweet Family Treat**
+* **06:00 PM – Evening Dessert:** Wrap up your relaxing day with sundaes at **Polar Bear Ice Cream** or **Corner House** (~₹100–₹150 per person).
+
+---
+
+### **Estimated Budget Breakdown (Per Adult)**
+* Breakfast (Mahesh Prasad): ~₹100
+* Mysore Palace Entry: ₹70
+* Lunch (Green Leaf): ~₹200
+* Jaganmohan Palace Art Gallery Entry: ₹40
+* Chamundi Hill Travel & Temple Entry: Free (Transport ~₹200)
+* Ice Cream Treat: ~₹130
+* **Total Estimated Spend:** **~₹740 per person** (staying well within your budget while keeping walking to an absolute minimum!).
+
+💡 **Royal Touch Suggestion:** Hire a fixed-rate auto-rickshaw or taxi for the entire day. Having a dedicated vehicle wait for you outside each location ensures your family transitions smoothly from site to site without standing or walking on the roadside.
+
+Shall I help you organize a reliable auto-rickshaw hire plan for this route?"
+"PERS-016","Test D — Context & Multi-Turn Adaptation","Multi-turn user (Turn 4: Lunch recommendation)","Suggest a suitable lunch place.","Recommend lunch venue matching current budget and low-walking profile","Consistent with family, budget, and low-walking context",200,2843,100,"EXCELLENT",100,100,100,100,100,100,"Suggested accessible, family-friendly lunch spot aligned with current itinerary location.","For a wonderful and comfortable family lunch that fits your low-walking, budget-friendly day, here is the ideal recommendation from our verified database:
+
+* **Green Leaf** (located in Vani Vilas Mohalla / V.V. Mohalla)
+  * **Cuisine:** Pure vegetarian South Indian and North Indian favorites.
+  * **Why it suits your family:** It offers comfortable sit-down indoor dining with easy access (minimal walking from the vehicle), a welcoming family atmosphere, and wholesome meals that keep everyone energized.
+  * **Price Range:** Budget-friendly (typically around ₹150–₹250 per person).
+  * **Dietary Note:** 100% pure vegetarian. *(Note: If any members of your party specifically require strict Jain dining, our database confirms that **Jalpaan** in Banni Mantap is the sole verified Jain-friendly restaurant in the city).*
+
+Would you like help mapping this lunch stop into your travel route from the Mysore Palace?"
+"PERS-017","Test D — Context & Multi-Turn Adaptation","Multi-turn user (Turn 5: Strict Jain filter)","Only suggest confirmed Jain-friendly options.","Filter previous dining options down to confirmed Jain options only","Strictly Jalpaan (Banni Mantap), explain why previous options were filtered out",200,3814,100,"EXCELLENT",100,100,100,100,100,100,"Strictly revised lunch to Jalpaan, explaining that earlier pure-veg recommendations lack verified Jain status.","When it comes to strict, confirmed Jain-friendly dining in Mysuru, our verified database confirms **Jalpaan** (located in Banni Mantap) as the sole dedicated restaurant meeting these requirements. 
+
+Here is how you can seamlessly incorporate **Jalpaan** into your low-walking, budget-friendly family day:
+
+* **Lunch Stop: Jalpaan (Banni Mantap)**
+  * **Cuisine:** North Indian, Italian, and Mexican vegetarian options prepared with strict attention to Jain dietary preferences.
+  * **Why it fits:** It offers comfortable, air-conditioned sit-down dining with smooth entry and minimal walking, ensuring a relaxed midday break for your family.
+  * **Dietary Assurance:** It is the **only** restaurant in our verified database confirmed as Jain-friendly (please note that other pure vegetarian spots like Mahesh Prasad or Green Leaf are unverified for strict Jain preparation).
+
+💡 **Royal Touch Suggestion:** Because Banni Mantap is slightly north of the city center, your hired day-cab or auto-rickshaw can easily drop you off right at Jalpaan’s doorstep after your morning visit to the Mysore Palace, keeping your family entirely free of any walking strain.
+
+Would you like me to adjust the rest of your low-walking itinerary to smoothly accommodate this lunch stop?"
+"PERS-018","Test E — Weather & Circumstances","Sightseeing during heavy rain","Plan a Mysuru sightseeing day if it rains.","Indoor, weatherproof sightseeing itinerary protecting from rain","Avoid open parks/gardens, focus on covered heritage halls and museums",200,3557,100,"EXCELLENT",100,100,100,100,100,100,"Recommended sheltered palace interiors and art galleries; advised against open lakes and outdoor viewpoints.","Welcome to Mysuru! A rainy day in our royal city has its own enchanting charm. While the outdoor gardens and nature parks must wait for sunnier skies, Mysuru boasts magnificent indoor heritage galleries, royal museums, and covered architectural wonders that keep you completely dry while immersing you in the grandeur of the Wodeyar dynasty. 
+
+Here is a curated, rain-safe itinerary designed for a comfortable and dry day of exploration:
+
+### **Rain-Safe Royal Itinerary**
+
+*   **10:00 AM – 12:30 PM: Mysore Palace (Amba Vilas Palace)**
+    *   **Experience:** Begin your day at the heart of Mysuru. The grand palace features expansive, covered marble courtyards, majestic pillared halls, and breathtaking indoor galleries showcasing royal artifacts, paintings, and golden thrones. 
+    *   **Timings & Entry:** Open daily from 10:00 AM to 5:30 PM. Tickets are ₹70 for adults, ₹30 for children, and ₹200 for international visitors.
+*   **12:30 PM – 2:00 PM: Heritage Lunch**
+    *   **Suggestion:** Enjoy a sumptuous meal at **Royal Orchid Metropole** (a heritage hotel near the city center) or savour authentic local flavours at **Mahesh Prasad** (Ballal Circle) for traditional South Indian comfort food.
+*   **2:15 PM – 4:00 PM: Jaganmohan Palace Art Gallery**
+    *   **Experience:** Step into a 19th-century royal residence built before the main palace. Completely sheltered from the rain, this gallery houses a magnificent collection of traditional artifacts, musical instruments, and famous original paintings by legendary artist Raja Ravi Varma.
+    *   **Timings & Entry:** Open 10:00 AM to 5:30 PM. Tickets are ₹40 for adults and ₹20 for children.
+*   **4:15 PM – 5:30 PM: Mysuru Rail Museum or Sand Sculpture Museum**
+    *   **Experience:** Head indoors to the **Mysur Rail Museum** (located on KRS Road) to explore vintage locomotives, royal Saloon coaches, and historical railway photographs housed under protective pavilions. Alternatively, visit the **Mysuru Sand Sculpture Museum**, where intricate indoor pavilions showcase jaw-dropping art sculpted entirely from sand.
+    *   **Timings:** Both venues are open until evening and offer full weather protection.
+
+---
+
+### **Royal Concierge Tips for a Rainy Day**
+*   **Weather Note:** Mid-November brings pleasant post-monsoon weather to Mysuru, but unexpected showers call for a light jacket, sweater, or shawl to stay comfortable in the cool breeze.
+*   **Transport:** To stay dry between destinations, we recommend booking a pre-paid auto-rickshaw or an app-based cab rather than walking or riding two-wheelers.
+*   **What to Avoid Today:** Skip open-air attractions such as Mysuru Zoo, Karanji Lake Nature Park, and Brindavan Gardens until the skies clear.
+
+Would you like me to tailor this rainy-day plan specifically for a family with children or a budget-focused trip?"
+"PERS-019","Test E — Weather & Circumstances","Indoor activities with children","What can I do indoors with children?","Indoor child-friendly activities in Mysuru","Sheltered/indoor venues engaging for kids",200,4143,100,"EXCELLENT",100,100,100,100,100,100,"Suggested Rail Museum vintage engines, Palace royal exhibits, and sweets sampling.","Welcome, honored guest! If you are looking for engaging, weather-safe indoor adventures to delight your children in Mysuru, I have curated a wonderful selection of verified indoor attractions that combine fun, learning, and royal heritage.
+
+Here are the best indoor experiences for children in Mysuru:
+
+### 1. **Mysuru Rail Museum** *(KRS Road)*
+* **Why kids love it:** Located right on KRS Road adjacent to the railway station, this museum features an exciting collection of vintage locomotives, royal saloons, and an outdoor toy train that children can ride. 
+* **Timings:** 10:00 AM – 5:30 PM *(Closed on Mondays)*.
+* **Entry Fee:** Adults ₹15, Children ₹10.
+
+### 2. **Mysore Palace (Amba Vilas Palace)** *(Sayyaji Rao Road)*
+* **Why kids love it:** Stepping inside the grand Amba Vilas Palace feels like walking into a fairy tale. Children are usually mesmerized by the colossal Durbar Hall, glittering chandeliers, stained glass ceilings, and galleries displaying royal artifacts and golden thrones.
+* **Timings:** 10:00 AM – 5:30 PM.
+* **Entry Fee:** Adults ₹70, Children ₹30.
+
+### 3. **Regional Museum of Natural History** *(Siddhartha Nagar)*
+* **Why kids love it:** Situated on the banks of Karanji Lake, this museum offers fascinating indoor galleries exploring ecology, plants, wildlife, and stuffed geological exhibits that spark curiosity in young minds.
+* **Timings:** 10:00 AM – 6:00 PM *(Closed on Mondays)*.
+* **Entry Fee:** Free.
+
+### 4. **Jaganmohan Palace Art Gallery** *(Chamrajpura)*
+* **Why kids love it:** Built in 1861, this historic palace houses a magnificent collection of traditional paintings, musical instruments, and rare artifacts (including original works by Raja Ravi Varma) within cool, spacious galleries.
+* **Timings:** 10:00 AM – 5:30 PM.
+* **Entry Fee:** Adults ₹40, Children ₹20.
+
+---
+
+### 🍰 Sweet Treats Recommendation for Kids
+After your indoor explorations, treat the little ones to classic desserts at **Corner House Ice Cream** or **Polar Bear Ice Cream** (both have multiple locations across the city, featuring legendary sundaes like the *Death by Chocolate*).
+
+**Royal Touch Suggestion:** Pair your visit to the Rail Museum with an authentic South Indian breakfast at **Mahesh Prasad** nearby, or combine the Mysore Palace tour with a quick stop at the vibrant **Devaraja Market** nearby for a sensory explosion of fragrant jasmine flowers and colorful fruit stalls.
+
+Would you like me to help you craft a complete family-friendly day itinerary combining some of these indoor spots?"
+"PERS-020","Test E — Weather & Circumstances","Solo traveler arriving at 1 AM","I am travelling alone and reaching Mysuru at 1 AM. Give practical safety advice.","Late-night 1:00 AM solo traveler safety, transit, and emergency guidance","Realistic midnight precautions, prepaid autos/app cabs, verified 24/7 helplines",200,4001,100,"EXCELLENT",100,100,100,100,100,100,"Provided practical midnight arrival protocol: prepaid auto booths, verified 24/7 emergency numbers (112, 1091, 108).","Welcome to Mysuru! As an honored guest arriving at 1:00 AM, I want to ensure your late-night arrival is as smooth, secure, and welcoming as possible. 
+
+Mysuru is widely regarded as one of Karnataka's safest and most peaceful cities for solo travelers. However, arriving in the dead of night requires a little extra preparation. Here is your practical safety guide:
+
+### 🛬 Secure Transit Upon Arrival
+* **Pre-arranged Transit:** It is strongly recommended to arrange your hotel pickup in advance or use pre-paid transport options directly from the railway station or KSRTC bus stand rather than hailing random street transport at 1:00 AM.
+* **App Cabs & Prepaid Counters:** Utilize official pre-paid auto or taxi counters inside the station terminal, or book via trusted ride-hailing apps if available. 
+* **Stay Connected:** Ensure your mobile phone is fully charged before landing or boarding your train so you can easily navigate and communicate with your accommodation.
+
+### 🏨 Accommodation & Well-Lit Areas
+* **Central Stays:** If you haven't booked yet, look for well-established hospitality areas like Nazarbad, Gokulam, or the central Palace vicinity, which feature active security and well-lit surroundings.
+* **Inform Your Hotel:** Call or message your hotel in advance to let them know you are arriving around 1:00 AM so the front desk is alert and ready for a prompt check-in.
+
+### 📞 Emergency Helpline Directory
+Save these verified numbers on your phone right away. They operate 24/7 for immediate assistance:
+* **Police Control Room / Emergency:** `100` or `112`
+* **Women Safety Helpline:** `1091` (Confidential assistance for solo female travelers)
+* **Ambulance & Trauma Care:** `108`
+* **National Tourist Helpline:** `1363`
+* **Mysuru Railway Junction Helpline:** `139`
+
+### 👑 Royal Touch & Next Step
+As a gracious tip, keep your accommodation's direct phone number and address printed or saved offline in case your device runs low on battery. 
+
+Would you like me to recommend a safe, centrally located hotel or help you map out your first morning's heritage itinerary after a restful night?"

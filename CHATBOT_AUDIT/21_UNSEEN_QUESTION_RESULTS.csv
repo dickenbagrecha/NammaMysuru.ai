@@ -1,0 +1,208 @@
+test_id,category,question,language,http_status,latency_ms,verdict,score,evaluation_reason,expected_answer,actual_response,error
+"UNSEEN-001","Mobility and Senior Accessibility","My 72-year-old grandmother cannot climb stairs or walk long distances. Can we visit Mysore Palace and Chamundi Hills comfortably?","English",200,3518,"PASS",100,"Accurately confirmed smooth palace wheelchair accessibility and direct motorable road up Chamundi Hill bypassing the 1,008 steps.","Mysore Palace offers smooth stone pathways, ramps, and battery wheelchair assistance. For Chamundi Hills, visitors can drive or take a taxi directly to the temple entrance via the hilltop motorable road to avoid the 1,008 stone steps.","Namaste! Welcome to Mysuru. I would be delighted to guide you and your grandmother through our royal city with comfort and ease. 
+
+Mysuru is deeply welcoming to senior guests, and you can certainly plan a wonderful, accessible visit to both landmarks by keeping a few practical tips in mind.
+
+### 🏛️ 1. Mysore Palace (Amba Vilas Palace)
+* **Accessibility Assessment:** **Very Accessible.** The palace features smooth stone courtyards, gentle ramps, and wide entryways. 
+* **Comfort Tips:** 
+  * Avoid entering through gates with high steps; security personnel and staff can guide you to the designated smoother entry paths.
+  * Wheelchairs are generally available upon request near the security/cloakroom areas, though bringing or renting a lightweight portable one can offer extra peace of mind.
+  * You will need to remove your footwear before entering the interior halls (socks are permitted to protect feet from warm stone floors). There are benches in the vast courtyards where your grandmother can comfortably rest while you explore specific exhibit rooms if needed.
+
+### ⛰️ 2. Sri Chamundeshwari Temple (Chamundi Hill)
+* **Accessibility Assessment:** **Comfortable by Vehicle, Not by Stairs.** You must strictly avoid the famous 1,000 stone climbing steps. 
+* **Comfort Tips:**
+  * **Direct Transport:** Take a taxi, auto-rickshaw, or private car directly to the designated parking/drop-off area right at the temple courtyard. This bypasses all climbing.
+  * **Queue Management:** Standard darshan queues can involve prolonged standing. Inquire at the temple complex for **senior citizen priority entry lines** or special assistance queues, which are often available for older devotees.
+  * **Atmosphere:** Early mornings or late afternoons offer cooler temperatures and milder crowds.
+
+---
+
+👑 **Royal Touch Suggestion:** 
+For a serene, effortless sightseeing experience, consider hiring a private, air-conditioned cab for the day. This allows your grandmother to rest comfortably between locations while you take in the sights. 
+
+Would you like some recommendations for comfortable, pure-vegetarian restaurants nearby where you can take a relaxing lunch break with your grandmother?",""
+"UNSEEN-002","Strict Dietary Restrictions","Are there any restaurants in Mysuru that can guarantee food prepared strictly without onion, garlic, or root vegetables?","English",200,3656,"PASS",100,"Accurately identified Jalpaan as the sole confirmed Jain restaurant and explicitly warned that pure veg does not guarantee Jain compliance.","In the verified database, only Jalpaan (Banni Mantap) is confirmed Jain-friendly. All other restaurants (including pure vegetarian establishments) do not have verified Jain status and must not be assumed safe.","Greetings! Welcome to Mysuru, the cultural capital of Karnataka. I would be delighted to assist you with your dining preferences.
+
+When seeking food prepared strictly without onion, garlic, or root vegetables (adhering to traditional Jain dietary principles), our verified database confirms **Jalpaan** (located in Banni Mantap) as the designated dining destination. 
+
+Here are the key details for your dining convenience:
+
+* **Restaurant Name:** Jalpaan
+* **Location:** Banni Mantap, Mysuru
+* **Cuisine:** North Indian, Italian, and Mexican (Pure Vegetarian)
+* **Dietary Status:** **CONFIRMED JAIN** and **CONFIRMED VEGAN**
+* **Operating Hours:** 11:00 AM – 11:00 PM
+
+**Important Concierge Note:** 
+Please be advised that while Mysuru boasts many wonderful pure vegetarian establishments (such as Vinayaka Mylari, Mahesh Prasad, and Green Leaf), **none of the other restaurants in our verified database are confirmed or guaranteed to be Jain-friendly** (free from onion, garlic, and root vegetables). We strongly recommend informing the management at Jalpaan of your exact dietary requirements upon arrival to ensure your meal is prepared to your complete satisfaction.
+
+**Royal Touch Suggestion:** 
+Before or after your meal at Jalpaan, consider taking a peaceful evening drive past the grand **Mysore Palace** or enjoying a serene stroll around **Kukkarahalli Lake** to soak in the pleasant mid-November evening breeze.
+
+Would you like recommendations for other pure vegetarian cafes or spots in a specific neighborhood like Gokulam or Jayalakshmipuram?",""
+"UNSEEN-003","Weather Contingency Planning","It is pouring rain heavily today in Mysuru. What are the best indoor cultural attractions and museums to visit instead of outdoor parks?","English",200,3088,"PASS",100,"Curated excellent indoor itinerary (Mysore Palace interior, Jaganmohan Gallery) and advised avoiding open outdoor parks during heavy rain.","Recommended indoor venues: Mysore Palace interior museum, Jaganmohan Palace Art Gallery (Raja Ravi Varma paintings), Rail Museum indoor galleries, or Sand Sculpture Museum. Avoid open nature parks like Karanji Lake in heavy downpours.","Greetings! Welcome to Mysuru. While the skies may be pouring today, the cultural heartbeat of our royal city indoors is as vibrant as ever. 
+
+As of **Wednesday, November 18, 2026**, here are the finest indoor heritage treasures and museums to experience while staying dry:
+
+*   **Mysore Palace (Amba Vilas Palace)**
+    *   **Timings:** 10:00 AM – 5:30 PM
+    *   **Why Visit:** Step inside the magnificent Durbar Hall and Kalyana Mandapa. The vast majority of the royal tour is under magnificent marble and timber roofs, shielding you completely from the rain while you admire the soaring arches, stained glass, and glittering chandeliers.
+*   **Jaganmohan Palace Art Gallery**
+    *   **Timings:** 10:00 AM – 5:30 PM
+    *   **Why Visit:** Built in 1861, this historic palace houses an extraordinary collection of artifacts, royal memorabilia, and renowned paintings—including works by the legendary Indian artist Raja Ravi Varma. 
+*   **Mysuru Rail Museum**
+    *   **Timings:** 10:00 AM – 5:30 PM *(Note: Open today as it is Wednesday)*
+    *   **Why Visit:** Located right on KRS Road near the railway station, this charming indoor-outdoor museum features a grand Victorian-era indoor gallery with vintage photographs, royal saloon carriages, and railway history.
+*   **Jayalakshmi Vilas Mansion & Folklore Museum**
+    *   **Timings:** 10:00 AM – 5:30 PM *(Note: Open today as it is Wednesday)*
+    *   **Why Visit:** Situated within the Manasagangothri university campus, this stately heritage mansion houses an impressive folklore collection with over 6,500 folk artifacts, traditional puppets, and musical instruments.
+
+**Royal Touch Suggestion:**
+If you prefer a cozy afternoon pause from the rain, head to **Sapa Sourdough & Pastry** in Jayalakshmipuram or **Minimal Coffee Roasters** in Gokulam for a hot, freshly brewed local coffee paired with artisanal pastries. 
+
+Would you like recommendations for a traditional South Indian lunch nearby to warm up during the showers?",""
+"UNSEEN-004","Transit Layover Planning","I have a 4-hour layover at Mysuru Railway Junction before my evening train to Bengaluru. What can I realistically see without missing my train?","English",200,3702,"PASS",100,"Strategically recommended adjacent Rail Museum and nearby Palace with buffer time before train departure.","Rail Museum is directly adjacent on KRS Road (~5 min walk); Mysore Palace is ~2.5 km away (~10-15 min auto). Maintain a 45-60 minute buffer before train departure at Mysuru Junction.","Welcome to Mysuru! A 4-hour layover right at the Mysuru Railway Junction is a wonderful opportunity for a quick taste of our royal city. Because you need to factor in your return to the station and a safe security buffer, here is a well-planned, stress-free itinerary that keeps you close to the tracks.
+
+### 🚆 Your 4-Hour Express Layover Plan
+
+* **Stop 1: Mysuru Rail Museum (Right at the Station)**
+  * **What it is:** Located immediately adjacent to the Mysuru Railway Junction on KRS Road, this delightful museum houses a rich collection of vintage locomotives, royal railway saloons (including the Maharaja of Mysore's personal carriage), and historic photographs.
+  * **Time needed:** 1 hour.
+  * **Why it fits:** You can literally walk out of the railway station platform and step right into the museum without worrying about traffic or transit delays.
+
+* **Stop 2: Quick Heritage Photo & Spice/Silk Stop**
+  * **What to do:** Hire a pre-paid auto-rickshaw from outside the station for a quick 10-minute trip to the majestic **Mysore Palace** (*Amba Vilas Palace*) exterior or a swift dash into **Devaraja Market** to take in the vibrant colors of fresh jasmine and sandalwood. 
+  * **Time needed:** 1.5 hours (including travel time).
+  * *Note:* With a tight window, admire the magnificent grand facade of the Palace from the gates and pick up a small packet of authentic Mysore sandalwood soap or authentic silk souvenir without getting caught in long interior tour lines.
+
+* **Return to Station:** Ensure you return to the Mysuru Railway Junction **at least 45 minutes before your train departure** to Bengaluru to breeze through security and find your coach comfortably.
+
+---
+
+### 👑 Royal Touch & Practical Tip
+* **Scenic Finish:** Before heading to the platform, grab a quick, steaming cup of filter coffee right outside the station area to fuel your journey.
+* **Safety Buffer:** Always keep your luggage securely checked in at the station cloakroom or carry a light daypack so you can move swiftly.
+
+Would you like a recommendation for a quick, delicious South Indian tiffin or snack spot within walking distance of the station before you board?",""
+"UNSEEN-005","Authentic Handicrafts & Shopping","Where can I buy guaranteed 100% authentic pure silk Mysore sarees with genuine gold zari, and how do I avoid tourist counterfeits?","English",200,4585,"PASS",100,"Directed buyer to official KSIC factory showrooms and highlighted GI tag and authentic pure gold/silver zari verification.","Purchase directly from official KSIC (Karnataka Silk Industries Corporation) factory showrooms on Mananthavady Road or official KSIC government outlets near the Palace. Genuine Mysore Silk carries the registered GI tag and pure gold/silver electroplated zari.","Greetings and welcome to Mysuru! Finding an authentic, pure silk Mysore saree with genuine gold zari is a wonderful royal tradition, and I would be delighted to guide you to the genuine source while helping you steer clear of market counterfeits.
+
+### 🏛️ Where to Buy Authentic Mysore Silk
+The only authorized and guaranteed place to buy genuine 100% pure silk Mysore sarees featuring authentic zari is:
+
+*   **KSIC Mysore Silk Factory & Showroom**
+    *   **Location:** Manandavadi Road, Ashokapuram, Mysuru (with authorized retail showrooms attached to the factory and across major city locations).
+    *   **Hours:** 10:30 AM – 6:00 PM (Closed on Sundays).
+    *   **What to expect:** You can witness the intricate weaving process at the factory and purchase directly from the state-managed Karnataka Silk Industries Corporation (KSIC), ensuring absolute authenticity.
+
+---
+
+### 🛡️ How to Avoid Tourist Counterfeits
+Private shops around tourist areas often sell mixed-blend artificial silk or imitation zari under the name ""Mysore Silk."" Protect your investment by checking these essential verification markers:
+
+*   **The Unique GI Tag & Hologram:** Every genuine KSIC Mysore Silk saree comes with a **Geographical Indication (GI) tag**, a unique serial number, and a specialized holographic tag. Always inspect the bill for these details.
+*   **The Silk Mark Certification:** Look for the **Silk Mark label**, which guarantees that the fabric is 100% natural mulberry silk.
+*   **Zari Purity:** Authentic Mysore Silk zari contains a high percentage of pure silver and a electroplated layer of **real gold**. Counterfeits use cheap metallic threads that tarnish quickly or feel overly rigid.
+*   **The Burn Test (If samples are provided):** Pure silk threads burn slowly, smell like burning hair or feathers, and leave a fine, crumbly dark ash. Synthetic fakes melt and smell like burning plastic. (Note: Most authorized showrooms will not let you test fabric, but inspecting the weave density is your best safeguard).
+*   **Avoid Unsolicited Guides:** Politely decline auto drivers or street brokers who promise ""secret wholesale warehouses"" or ""special family discounts"" on silk—these guides earn high commissions by leading buyers to shops selling inferior synthetic blends.
+
+---
+
+### 👑 The Royal Touch
+For a truly immersive heritage experience, plan a morning visit to the **KSIC Mysore Silk Factory** on Manandavadi Road to watch the clacking looms craft the legendary lightweight silk, then select your heirloom piece directly from their official showroom. 
+
+May I help you map out a convenient itinerary combining the silk factory visit with nearby heritage attractions like the Mysore Palace or Jaganmohan Palace?",""
+"UNSEEN-006","Kannada Local Transit Query","ದಯವಿಟ್ಟು ಹೇಳಿ, ಮೈಸೂರಿನಲ್ಲಿ ಚಾಮುಂಡೇಶ್ವರಿ ದೇವಸ್ಥಾನಕ್ಕೆ ಹೋಗಲು ಯಾವ ಬಸ್ ನಿಲ್ದಾಣದಿಂದ ಬಸ್ ಸಿಗುತ್ತದೆ?","Kannada",200,3416,"PASS",100,"Replied fluently in authentic Kannada specifying City Bus Stand (CBS) and bus connectivity to Chamundi Hill.","ಚಾಮುಂಡಿ ಬೆಟ್ಟಕ್ಕೆ ಹೋಗಲು ಮೈಸೂರು ನಗರ ಬಸ್ ನಿಲ್ದಾಣದಿಂದ (City Bus Stand - CBS, ಕೆ.ಆರ್. ಸರ್ಕಲ್ ಬಳಿ) ನಿಯಮಿತ ಬಸ್‌ಗಳು ಲಭ್ಯವಿವೆ (ಬಸ್ ಸಂಖ್ಯೆ 201 ಸರಣಿ).","ನಮಸ್ಕಾರ! ನಮ್ ಮೈಸೂರು.ಎಐ (NammaMysuru.ai) ಗೆ ಸ್ವಾಗತ. ಮೈಸೂರಿನ ಪ್ರಸಿದ್ಧ ಚಾಮುಂಡೇಶ್ವರಿ ದೇವಸ್ಥಾನಕ್ಕೆ ಭೇಟಿ ನೀಡಲು ಬಯಸುತ್ತಿರುವ ನಿಮಗೆ ಸ್ವಾಗತ ಕೋರುತ್ತೇನೆ.
+
+ಚಾಮುಂಡೇಶ್ವರಿ ದೇವಸ್ಥಾನಕ್ಕೆ ಹೋಗಲು ಪ್ರಮುಖವಾಗಿ **ಮೈಸೂರು ಸಿಟಿ ಬಸ್ ನಿಲ್ದಾಣದಿಂದ (K.R. Circle ಬಳಿ)** ನೇರವಾದ ಕೆ.ಎಸ್.ಆರ್.ಟಿ.ಸಿ (KSRTC) ಬಸ್ ಸೌಲಭ್ಯ ದೊರೆಯುತ್ತದೆ. 
+
+**ಬಸ್ ಪ್ರಯಾಣದ ಪ್ರಮುಖ ವಿವರಗಳು:**
+* **ಬಸ್ ನಿಲ್ದಾಣ:** ಮೈಸೂರು ಸಿಟಿ ಬಸ್ ನಿಲ್ದಾಣ (City Bus Stand). ಇಲ್ಲಿಂದ ಚಾಮುಂಡಿ ಬೆಟ್ಟಕ್ಕೆ ತೆರಳಲು ನಿಯಮಿತವಾಗಿ ವಿಶೇಷ ಬಸ್ಸುಗಳು (Route No. 201 ಸರಣಿ) ಲಭ್ಯವಿವೆ.
+* **ಪ್ರಯಾಣದ ಸಮಯ:** ನಗರ ಕೇಂದ್ರದಿಂದ ಬೆಟ್ಟದ ತುದಿಯನ್ನು ತಲುಪಲು ಸರಿಸುಮಾರು 30 ರಿಂದ 45 ನಿಮಿಷಗಳು ಬೇಕಾಗುತ್ತವೆ.
+* **ದೇವಸ್ಥಾನದ ದರ್ಶನ ಸಮಯ:** ಬೆಳಗ್ಗೆ 7:30 ರಿಂದ ಮಧ್ಯಾಹ್ನ 2:00 ರವರೆಗೆ, ಮಧ್ಯಾಹ್ನ 3:30 ರಿಂದ ಸಂಜೆ 6:00 ರವರೆಗೆ ಮತ್ತು ಸಂಜೆ 7:30 ರಿಂದ ರಾತ್ರಿ 9:00 ರವರೆಗೆ ತೆರೆದಿರುತ್ತದೆ.
+
+**ರಾಜವೈಭವದ ಸಲಹೆ:**
+ನೀವು ಬೆಟ್ಟಕ್ಕೆ ತಲುಪಿದ ನಂತರ ಚಾಮುಂಡೇಶ್ವರಿ ದೇವಸ್ಥಾನದ ದರ್ಶನದ ಜೊತೆಗೆ, ಅಲ್ಲಿರುವ ಬೃಹತ್ ನಂದಿ ಪ್ರತಿಮೆ (Monolith Nandi) ಹಾಗೂ ಇಡೀ ಮೈಸೂರು ನಗರದ ವಿಹಂಗಮ ನೋಟವನ್ನು (Panoramic View) ಕಣ್ತುಂಬಿಕೊಳ್ಳಲು ಮರೆಯದಿರಿ. ದೇವಸ್ಥಾನಕ್ಕೆ ತೆರಳುವಾಗ ಸಾಂಪ್ರದಾಯಿಕ ಮತ್ತು ಮರ್ಯಾದೆಯುಕ್ತ ಉಡುಪನ್ನು ಧರಿಸುವುದು ಕಡ್ಡಾಯವಾಗಿದೆ.
+
+ನಿಮಗೆ ಮೈಸೂರಿನ ಇ A ದೇವಸ್ಥಾನದ ಮಾರ್ಗಗಳ ಬಗ್ಗೆ ಅಥವಾ ಬೇರೆ ಯಾವುದಾದರೂ ಪ್ರವಾಸಿ ತಾಣಗಳ ಕುರಿತು ಹೆಚ್ಚಿನ ಮಾಹಿತಿ ಬೇಕೆ?",""
+"UNSEEN-007","Late Night Arrival & Safety","I am arriving in Mysuru at 1:30 AM at the suburban bus stand. Are there any safe transit options or 24/7 helplines if I need immediate help?","English",200,3009,"PASS",100,"Provided practical late-night transit advice (prepaid autos/app cabs) and verified 24/7 emergency helplines (112/100/108).","Use prepaid auto stands or registered app cabs from the Suburban KSRTC Bus Stand. For immediate assistance: Police Control Room 100/112, KSRTC Suburban Enquiries 0821-2425824, Ambulance 108.","Welcome to Mysuru! As you arrive during the early hours, your safety and comfort are our top priority. While late-night transit options directly at the bus stand can be limited at 1:30 AM, Mysuru remains one of Karnataka's safest cities for travelers. 
+
+Here is how you can manage your late-night arrival smoothly, along with essential 24/7 helplines:
+
+### **Safe Transit Options at 1:30 AM**
+* **Pre-arranged Accommodation Pickup:** If possible, coordinate with your hotel in advance to arrange a trusted cab or airport-style pickup to meet you directly at the suburban bus stand upon arrival.
+* **App-Based Cabs & Pre-paid Autos:** If you require an auto or taxi upon arrival, stay within the well-lit areas of the station terminal. Avoid boarding unmarked vehicles.
+* **Safe Waiting Practice:** Remain inside or right near the central concourse of the Suburban KSRTC Bus Stand where security and lighting are maintained, rather than stepping out onto dark, empty side streets.
+
+### **24/7 Emergency & Safety Helplines**
+Keep these official numbers saved on your phone for immediate assistance:
+* **Police Control Room:** `100` or `112` (24/7 Rapid Response)
+* **Women Safety Helpline:** `1091` (24/7 Confidential Assistance)
+* **Ambulance & Trauma Care:** `108` (24/7 Free Govt Service)
+* **Suburban KSRTC Bus Stand Enquiry:** `0821-2425824`
+* **National Tourist Helpline:** `1363` (24/7 Multilingual Support Desk)
+
+### **Royal Touch Safety Tip**
+For a completely worry-free late-night arrival, consider booking a central heritage hotel in areas like Nazarbad or near the City Centre that offers 24/7 front desk check-in and secure airport/station transfers. 
+
+Would you like me to recommend a few safe, centrally located hotels or popular dining spots to visit after you get some rest?",""
+"UNSEEN-008","Solo Female Traveler Guidance","I am a solo female backpacker. Is it safe to walk around Devaraja Market and Sayyaji Rao Road after 8:30 PM?","English",200,3108,"PASS",100,"Delivered reassuring, objective safety guidance noting Mysuru's peaceful reputation, commercial closure around 9 PM, and 1091/112 helplines.","Mysuru is widely recognized as peaceful and safe for solo women travelers. Sayyaji Rao Road has active foot traffic until market closure around 9:00 PM. Take registered autos for late commutes and keep Women Helpline 1091 and Emergency 112 handy.","Greetings, honored traveler! It is an absolute pleasure to welcome you to the Royal City of Mysuru. 
+
+As a solo female backpacker, you will find Mysuru to be exceptionally warm, welcoming, and widely regarded as one of the safest and most peaceful cities in Karnataka. However, regarding your specific query about **Devaraja Market and Sayyaji Rao Road after 8:30 PM**, here is a practical and safety-conscious guide:
+
+* **Atmosphere at 8:30 PM:** Devaraja Market officially closes around 9:00 PM, and by 8:30 PM, the bustling vendor stalls inside the heritage market begin winding down and shutting their shutters. While the surrounding Sayyaji Rao Road remains active with evening traffic, the inner lanes of the market become quiet, dimly lit, and largely deserted.
+* **Safety Recommendation:** Walking alone through the quiet lanes immediately surrounding the closing market late at night is **not recommended** for solo travelers. It is always wiser to stick to well-lit, populated commercial thoroughfares.
+
+### Essential Safety Tips for Solo Travelers in Mysuru
+* **Transportation:** If you are exploring the city center after dark, avoid walking down isolated side streets. Instead, opt for pre-paid auto-rickshaws, app-based cabs, or stay along main illuminated avenues like Sayyaji Rao Road where police patrols and late-night establishments are present.
+* **Emergency Contacts:** Keep these verified numbers saved on your phone:
+  * **Police Control Room / Emergency:** 100 or 112 (24/7)
+  * **Women Safety Helpline:** 1091 (24/7 Confidential Assistance)
+  * **National Tourist Helpline:** 1363
+
+### 👑 Royal Touch Suggestion
+If you are looking for a wonderful, safe, and atmospheric evening experience after sunset, enjoy a quiet dinner at a heritage spot like **Royal Orchid Metropole** or a cup of coffee along the vibrant, well-lit cafes of Gokulam or Vani Vilas Mohalla rather than late-night market strolls.
+
+Would you like some recommendations for well-lit, central dining spots or safe daytime itineraries for exploring Mysuru's heritage?",""
+"UNSEEN-009","Vegan Lifestyle & Specialty Dining","Where can a strict vegan get black coffee or oat/soy milk with fresh breakfast in the morning?","English",200,2757,"PASS",100,"Accurately recommended Minimal Coffee Roasters (specialty vegan milk) and Depth N Green / Jalpaan from verified database.","Minimal Coffee Roasters in Gokulam provides third-wave specialty coffee with plant-based milk. Depth N Green in Gokulam offers healthy vegan breakfast bowls and snacks. Jalpaan is also confirmed vegan-friendly for meals.","Greetings! As your royal Mysuru concierge, I would be delighted to guide you to the finest spots for a refreshing morning brew and a delicious plant-based breakfast. 
+
+In our verified database, exactly three establishments are confirmed as vegan-friendly, and two of them are exceptional cafes nestled in the peaceful, tree-lined neighborhood of Gokulam, known for serving excellent coffee, plant-based milks, and nourishing vegan breakfasts.
+
+### Recommended Vegan-Friendly Morning Cafes
+
+*   **Depth N Green** *(Gokulam)*
+    *   **Verified Status:** Confirmed Vegan-friendly (Pure Veg / Vegan)
+    *   **Hours:** 8:00 AM – 9:00 PM
+    *   **Highlights:** A wonderful health-conscious cafe offering great coffee options, alternative milks, smoothie bowls, vegan toasts, and wholesome breakfast plates.
+*   **Minimal Coffee Roasters** *(Gokulam)*
+    *   **Verified Status:** Confirmed Vegan-friendly (Pure Veg / Vegan)
+    *   **Hours:** 8:00 AM – 8:00 PM
+    *   **Highlights:** Perfect for connoisseurs seeking expertly brewed black coffee or specialty coffee with plant-based milk alternatives alongside a clean, modern cafe ambiance.
+
+*(Note: Jalpaan in Banni Mantap is also confirmed vegan-friendly, though it opens slightly later at 11:00 AM).*
+
+### 👑 Royal Touch Suggestion
+After a peaceful morning coffee in Gokulam, take a tranquil morning stroll around the nearby **Kukkarahalli Lake** or visit the **Kishkindha Moolika Bonsai Garden** (opening at 9:30 AM) for a serene start to your day. 
+
+Would you like recommendations for vegan-friendly lunch or dinner options during your stay in Mysuru?",""
+"UNSEEN-010","Wildlife Safari vs City Zoo Differentiation","Can I see wild elephants and tigers roaming free in the Mysuru Zoo, or do I need to travel outside the city for a jungle safari?","English",200,3284,"PASS",100,"Clear distinction between Mysuru Zoo (enclosed zoological garden) and wild open safaris (Bandipur / Nagarahole).","Mysuru Zoo (Sri Chamarajendra Zoological Gardens) in Indiranagar is a walk-through zoological garden with naturalistic enclosures, not an open wilderness safari. For open wild jungle safaris, visit Bandipur National Park (~75 km) or Nagarahole / Kabini (~80 km).","Welcome to NammaMysuru.ai! I would be delighted to guide you through the wonderful wildlife experiences awaiting you in and around our royal city.
+
+To answer your question directly: **wild elephants and tigers do not roam free within the Mysuru Zoo.** 
+
+Here is what you need to know about experiencing Mysuru's magnificent wildlife:
+
+### 1. Sri Chamarajendra Zoological Gardens (Mysuru Zoo)
+* **What to expect:** Established in 1892 by the Wodeyar dynasty, this is one of India's oldest and most well-maintained zoos. While you **will** see majestic tigers, Asiatic elephants, leopards, and giraffes here, they are safely housed in large, naturalistic, moated enclosures designed to mimic their native habitats.
+* **Timings & Tickets:** Open **8:30 AM to 5:30 PM** *(Closed on Tuesdays)*. Tickets are ₹100 for adults and ₹50 for children. 
+* **Royal Tip:** For senior visitors or families seeking comfort, battery-operated electric buggies are available at the entrance to tour the sprawling grounds effortlessly.
+
+### 2. Going on a Real Jungle Safari
+If your heart is set on witnessing wild elephants, leopards, and tigers roaming completely free in their natural jungle habitat, you will need to take an excursion just outside the city to the pristine forests of the Western Ghats:
+* **Nagarahole National Park (Kabini):** Located about 80 km from Mysuru, famed for high tiger sightings and large herds of wild elephants along the backwaters.
+* **Bandipur National Park:** Located about 80 km south of Mysuru on the Ooty highway, offering wonderful jeep and bus safaris through dense deciduous forests.
+* **Himavad Gopalaswamy Betta:** The highest peak in Bandipur National Park, offering breathtaking misty mountain vistas and wild elephant sightings near its base.
+
+*Note: Safari bookings and timings (typically early morning 6:00 AM – 9:00 AM or evening 3:00 PM – 6:00 PM) should be planned in advance through official forest department channels.*
+
+Would you like assistance planning a day itinerary that combines a morning visit to the Mysuru Zoo with some of our city's heritage sights?",""

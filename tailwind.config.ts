@@ -81,7 +81,34 @@ export default {
           busy: "rgb(239 68 68)",
           offline: "rgb(156 163 175)",
         },
-        // Stitch Royal Heritage Design Tokens
+        // Stitch Royal Heritage Design Tokens (Light Design 1 & Dark Design 3)
+        maroon: {
+          DEFAULT: '#5E0F2B',
+          dark: '#45091E',
+          deep: '#360617',
+          light: '#7A183B',
+          surface: '#5E0F2B12',
+        },
+        gold: {
+          DEFAULT: '#C59B27',
+          light: '#E2BD5A',
+          muted: '#B0881F',
+          tint: '#FBF5E5',
+        },
+        parchment: {
+          50: '#FDFBF7',
+          100: '#F9F5EC',
+          200: '#F3ECE0',
+          300: '#E8DEC9',
+          DEFAULT: '#F7F3E9',
+        },
+        dusk: {
+          950: '#0D070B',
+          900: '#140A10',
+          850: '#1A0F16',
+          800: '#21141C',
+          700: '#2E1B27',
+        },
         stitch: {
           primary: "#6c0029",
           "primary-container": "#8b1e3f",
@@ -113,7 +140,15 @@ export default {
           "inverse-on-surface": "#eef0ff",
         },
       },
+      boxShadow: {
+        'royal': '0 8px 30px -4px rgba(94, 15, 43, 0.08), 0 2px 10px -2px rgba(197, 155, 39, 0.06)',
+        'royal-glow': '0 8px 32px -4px rgba(243, 194, 70, 0.15), 0 2px 14px -2px rgba(136, 19, 55, 0.4)',
+        'card-lift': '0 12px 28px -6px rgba(45, 10, 20, 0.12)',
+        'gold-glow': '0 0 20px rgba(243, 194, 70, 0.25)',
+        'palace-incandescent': '0 0 35px -2px rgba(255, 198, 55, 0.45), inset 0 0 20px 0 rgba(255, 215, 0, 0.25)',
+      },
       fontFamily: {
+        royal: ["Cinzel", "serif"],
         sans: ["Plus Jakarta Sans", "Inter", "sans-serif"],
         serif: ["Playfair Display", "serif"],
         display: ["Playfair Display", "Lora", "serif"],
